@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 15.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  /* Comparison paradigm / examples table */
+  .cmp { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .cmp th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .cmp td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .cmp tr:nth-child(even) td { background:#F4F6FA; }
+  .cmp .es { font-style:italic; color:#0e1c42; }
+  .cmp .key { color:#c7922c; font-weight:700; font-style:normal; }
+  .formula { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:20px; margin:16px 0; }
+  .fchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .fchip b { color:#c7922c; }
+  .fchip.mid { background:#E8F6FB; border-color:#C5DCE5; color:#1B6A94; }
+  .fplus { color:#55C8E8; font-weight:700; font-size:22px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 15</div>
+    <div style="font-size:12px; color:#666;">Comparaciones &mdash; comparing people &amp; things</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 15.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Comparatives &amp; superlatives</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 15.02 &middot; THE PATTERN</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">M&aacute;s &hellip; que, and its whole family</div>
+    <div style="font-size:16px; color:#666;">One tidy formula does most of the work. Learn it once and it fits every describing word you know.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Wrap your describing word: put a &ldquo;how much&rdquo; word in front and a &ldquo;compared to&rdquo; word behind.</div>
+    <p>To compare two things in Spanish, you keep your describing word in the middle (<span class="es">alto</span>, <span class="es">grande</span>, <span class="es">simp&aacute;tico</span>&hellip;) and add two small words around it. There are three flavors: <strong>more</strong>, <strong>less</strong>, and <strong>as&hellip;as</strong>. Remember: the describing word still <strong>agrees</strong> with what it describes &mdash; <span class="es">m&aacute;s alt<b>a</b></span> for a girl, <span class="es">m&aacute;s alt<b>o</b></span> for a boy.</p>
+  </div>
+
+  <!-- THE THREE FORMULAS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; THE THREE FORMULAS</div>
+    <div class="formula">
+      <span class="fchip"><b>m&aacute;s</b></span>
+      <span class="fplus">+</span>
+      <span class="fchip mid">describing word</span>
+      <span class="fplus">+</span>
+      <span class="fchip"><b>que</b></span>
+      <span style="font-size:15px; color:#6b7a99;">= more &hellip; than</span>
+    </div>
+    <div class="formula">
+      <span class="fchip"><b>menos</b></span>
+      <span class="fplus">+</span>
+      <span class="fchip mid">describing word</span>
+      <span class="fplus">+</span>
+      <span class="fchip"><b>que</b></span>
+      <span style="font-size:15px; color:#6b7a99;">= less &hellip; than</span>
+    </div>
+    <div class="formula">
+      <span class="fchip"><b>tan</b></span>
+      <span class="fplus">+</span>
+      <span class="fchip mid">describing word</span>
+      <span class="fplus">+</span>
+      <span class="fchip"><b>como</b></span>
+      <span style="font-size:15px; color:#6b7a99;">= as &hellip; as</span>
+    </div>
+    <p style="margin-bottom:0;">Watch the pairs: <span class="es">m&aacute;s</span> and <span class="es">menos</span> both take <span class="es"><b>que</b></span> (&ldquo;than&rdquo;). But <span class="es">tan</span> takes <span class="es"><b>como</b></span> (&ldquo;as&rdquo;) &mdash; never <span class="es">que</span>. That pairing is the one thing to guard.</p>
+  </div>
+
+  <!-- EXAMPLES TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; SEE THE THREE IN ACTION</div>
+    <table class="cmp">
+      <tr><th style="width:34%">Formula</th><th style="width:36%">Spanish</th><th style="width:30%">English</th></tr>
+      <tr><td><span class="key">m&aacute;s</span> &hellip; que</td><td><span class="es">Ana es <span class="key">m&aacute;s</span> alta <span class="key">que</span> Luis.</span></td><td>Ana is <strong>taller than</strong> Luis.</td></tr>
+      <tr><td><span class="key">menos</span> &hellip; que</td><td><span class="es">Luis es <span class="key">menos</span> alto <span class="key">que</span> Ana.</span></td><td>Luis is <strong>less tall than</strong> Ana.</td></tr>
+      <tr><td><span class="key">tan</span> &hellip; como</td><td><span class="es">Ana es <span class="key">tan</span> simp&aacute;tica <span class="key">como</span> Luis.</span></td><td>Ana is <strong>as nice as</strong> Luis.</td></tr>
+    </table>
+    <p style="margin-top:4px; margin-bottom:6px;"><strong>Press &#9654; to hear each one</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ana es m&aacute;s alta que Luis.</span> &mdash; Ana is taller than Luis.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ana es tan simp&aacute;tica como Luis.</span> &mdash; Ana is as nice as Luis.</span>
+    </div>
+  </div>
+
+  <!-- IRREGULARS -->
+  <div class="card">
+    <div class="kicker">&#9888;&#65039; FOUR SPECIAL WORDS &middot; NO &ldquo;M&Aacute;S&rdquo; NEEDED</div>
+    <p>Four common comparisons have their <em>own</em> word &mdash; you do <strong>not</strong> add <span class="es">m&aacute;s</span> in front of them. English does the same thing: we say <em>better</em>, not &ldquo;more good.&rdquo;</p>
+    <table class="cmp">
+      <tr><th style="width:22%">Instead of&hellip;</th><th style="width:20%">Use</th><th style="width:20%">Meaning</th><th style="width:38%">Example</th></tr>
+      <tr><td><span class="es">m&aacute;s bueno</span></td><td><span class="key">mejor</span></td><td>better</td><td><span class="es">Este libro es <span class="key">mejor que</span> ese libro.</span></td></tr>
+      <tr><td><span class="es">m&aacute;s malo</span></td><td><span class="key">peor</span></td><td>worse</td><td><span class="es">Hoy el clima es <span class="key">peor que</span> ayer.</span></td></tr>
+      <tr><td><span class="es">m&aacute;s viejo</span> (age)</td><td><span class="key">mayor</span></td><td>older</td><td><span class="es">Mi hermano es <span class="key">mayor que</span> yo.</span></td></tr>
+      <tr><td><span class="es">m&aacute;s joven</span> (age)</td><td><span class="key">menor</span></td><td>younger</td><td><span class="es">Mi hermana es <span class="key">menor que</span> yo.</span></td></tr>
+    </table>
+    <p style="margin-bottom:0;">They still use <span class="es"><b>que</b></span> for &ldquo;than.&rdquo; Just never put <span class="es">m&aacute;s</span> in front &mdash; the word already carries the &ldquo;more.&rdquo; Use <span class="es">mayor</span>/<span class="es">menor</span> for a <em>person's age</em>.</p>
+  </div>
+
+  <!-- SUPERLATIVES -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127942; THE MOST OF ALL &middot; SUPERLATIVES</div>
+    <p style="margin-top:0;">When something is <em>the most</em> or <em>the least</em> of a whole group, add <strong>the</strong> (<span class="es">el / la / los / las</span>) and finish with <strong><span class="es">de</span></strong> for &ldquo;in&rdquo; or &ldquo;of&rdquo;:</p>
+    <div class="formula">
+      <span class="fchip"><b>el / la</b></span>
+      <span class="fplus">+</span>
+      <span class="fchip"><b>m&aacute;s</b> / <b>menos</b></span>
+      <span class="fplus">+</span>
+      <span class="fchip mid">describing word</span>
+      <span class="fplus">+</span>
+      <span class="fchip"><b>de</b></span>
+    </div>
+    <table class="cmp">
+      <tr><th style="width:52%">Spanish</th><th style="width:48%">English</th></tr>
+      <tr><td><span class="es">Ana es <span class="key">la m&aacute;s</span> alta <span class="key">de</span> la clase.</span></td><td>Ana is <strong>the tallest in</strong> the class.</td></tr>
+      <tr><td><span class="es">Luis es <span class="key">el menos</span> alto <span class="key">de</span> la clase.</span></td><td>Luis is <strong>the least tall in</strong> the class.</td></tr>
+      <tr><td><span class="es">Este libro es <span class="key">el mejor de</span> la biblioteca.</span></td><td>This book is <strong>the best in</strong> the library.</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Two things to notice: the <span class="es">el / la</span> and the describing word both <strong>agree</strong> with what you describe, and the &ldquo;in / of&rdquo; word is <span class="es"><b>de</b></span> &mdash; not <span class="es">en</span>. The irregular <span class="es">mejor</span>/<span class="es">peor</span> work here too: <span class="es">el mejor</span> = the best.</p>
+  </div>
+
+  <!-- EVALUATIVE : comparison drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; BUILD THE COMPARISON</div>
+    <div class="widget-question">Pick the phrase that correctly finishes each sentence. Watch the pairs (m&aacute;s/menos&hellip;que, tan&hellip;como) and the agreement. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; m&aacute;s + alta + que, and alta agrees with Ana (a girl): Ana es m&aacute;s alta que Luis." data-hint="'Taller than' = m&aacute;s + describing word + que. Ana is a girl, so the word must end in -a.">
+      <div class="widget-row-prompt">1. Ana mide 1.70 m; Luis mide 1.60 m. Ana es ____ Luis. (Ana is taller than Luis.)</div>
+      <div class="widget-options">
+        <button data-choice="0">tan alta como</button>
+        <button data-choice="1">menos alta que</button>
+        <button data-choice="2">m&aacute;s alta que</button>
+        <button data-choice="3">m&aacute;s alto que</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; m&aacute;s pairs with que: el elefante es m&aacute;s grande que el rat&oacute;n." data-hint="'Bigger than' uses m&aacute;s &hellip; que. Remember: m&aacute;s never pairs with como.">
+      <div class="widget-row-prompt">2. Un elefante y un rat&oacute;n: el elefante es ____ el rat&oacute;n. (bigger than)</div>
+      <div class="widget-options">
+        <button data-choice="0">m&aacute;s grande que</button>
+        <button data-choice="1">m&aacute;s grande como</button>
+        <button data-choice="2">tan grande que</button>
+        <button data-choice="3">menos grande que</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; 'as&hellip;as' is tan &hellip; como: Ana es tan simp&aacute;tica como Luis." data-hint="'As nice as' = tan + describing word + como. Tan pairs with como, not que.">
+      <div class="widget-row-prompt">3. Ana y Luis son igual de amables. Ana es ____ Luis. (as nice as)</div>
+      <div class="widget-options">
+        <button data-choice="0">m&aacute;s simp&aacute;tica que</button>
+        <button data-choice="1">tan simp&aacute;tica que</button>
+        <button data-choice="2">menos simp&aacute;tica que</button>
+        <button data-choice="3">tan simp&aacute;tica como</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; 'better' is its own word: mejor que. We never say 'm&aacute;s bueno.'" data-hint="'Better than' has a special word &mdash; you don't add m&aacute;s in front of it.">
+      <div class="widget-row-prompt">4. Para m&iacute;, este libro es ____ ese libro. (this book is better than that one)</div>
+      <div class="widget-options">
+        <button data-choice="0">m&aacute;s bueno que</button>
+        <button data-choice="1">mejor que</button>
+        <button data-choice="2">m&aacute;s mejor que</button>
+        <button data-choice="3">peor que</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; for a person's age, 'older' is mayor: mi hermano es mayor que yo." data-hint="For a person's age, Spanish uses a special word for 'older' &mdash; not 'm&aacute;s viejo.'">
+      <div class="widget-row-prompt">5. Mi hermano tiene 15 a&ntilde;os; yo tengo 12. Mi hermano es ____ yo. (older than me)</div>
+      <div class="widget-options">
+        <button data-choice="0">mayor que</button>
+        <button data-choice="1">menor que</button>
+        <button data-choice="2">m&aacute;s grande que</button>
+        <button data-choice="3">tan viejo como</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Correct &mdash; a superlative ends with de for 'in / of': Ana es la chica m&aacute;s alta de la clase." data-hint="'The tallest IN the class' &mdash; Spanish uses de here, not the English-looking 'en.'">
+      <div class="widget-row-prompt">6. Ana es la chica m&aacute;s alta ____ la clase. (the tallest girl in the class)</div>
+      <div class="widget-options">
+        <button data-choice="0">que</button>
+        <button data-choice="1">como</button>
+        <button data-choice="2">de</button>
+        <button data-choice="3">en</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">One formula, three flavors: <span class="es"><b>m&aacute;s</b>&hellip;<b>que</b></span> (more), <span class="es"><b>menos</b>&hellip;<b>que</b></span> (less), <span class="es"><b>tan</b>&hellip;<b>como</b></span> (as&hellip;as). Four words go their own way: <span class="es">mejor, peor, mayor, menor</span> (no <span class="es">m&aacute;s</span>). And for <em>the most of all</em>, add <span class="es">el / la</span> and finish with <span class="es"><b>de</b></span>. The describing word always agrees.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 15.03 &mdash; Your Comparing Words</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">The little comparing words plus a set of familiar describing words, with native audio and flip cards. Now that you own the pattern, we lock in the vocabulary.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 15.02 &middot; Comparaciones</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

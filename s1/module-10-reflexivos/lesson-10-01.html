@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 10.01</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .chunkchips { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .chunkchips span { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:20px; padding:6px 14px; font-size:16px; }
+  .chunkchips b { color:#c7922c; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 10</div>
+    <div style="font-size:12px; color:#666;">Verbos reflexivos &mdash; the daily routine</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 10.01 &middot; Day 1 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Doing things to yourself &mdash; a first look</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, try the quick check-in, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 10.01 &middot; YOUR EVERYDAY, IN SPANISH</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Now you can talk about your whole morning</div>
+    <div style="font-size:16px; color:#666;">Nothing to memorize today &mdash; just see what you already own and meet the small new idea that runs the whole week.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; TODAY'S BIG IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">You already say what you <em>do</em>. This week you learn to say what you do <em>to yourself</em> &mdash; wake up, get up, shower, get dressed.</div>
+    <p>Welcome to <strong>Module 10</strong>. So far you can say what you do (<span class="es">yo estudio</span>), what you're doing right now (<span class="es">estoy estudiando</span>), and what you're going to do (<span class="es">voy a estudiar</span>). This week adds the last everyday piece: your <strong>daily routine</strong> &mdash; the things you do <em>to yourself</em> each morning and night. Spanish marks these with one small extra word, and you'll have it down by Friday.</p>
+  </div>
+
+  <!-- RETRIEVE PRIOR -->
+  <div class="card">
+    <div class="kicker">&#128260; FIRST &middot; WHAT YOU ALREADY OWN</div>
+    <p>You are not starting from zero. Read these out loud &mdash; you built every one over the last nine weeks:</p>
+    <div class="chunkchips">
+      <span><b>Yo estudio&hellip;</b> &mdash; I study&hellip;</span>
+      <span><b>Estoy comiendo</b> &mdash; I'm eating (right now)</span>
+      <span><b>Voy a viajar</b> &mdash; I'm going to travel</span>
+      <span><b>Primero&hellip; luego&hellip;</b> &mdash; First&hellip; then&hellip;</span>
+    </div>
+    <p style="margin-bottom:0;">You already handle <strong>regular verbs</strong>, the <strong>&quot;boot&quot; stem-changers</strong>, the <strong>present progressive</strong>, and <strong>ir a + infinitive</strong> for the near future. This week hangs one new idea on top of verbs you can already conjugate.</p>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div style="background:#fff; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#c7922c; margin-bottom:14px;">&#127919; BY THE END OF THIS PAGE YOU WILL BE ABLE TO&hellip;</div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>recognize</strong> when an action is done <em>to yourself</em> (a &quot;reflexive&quot; verb).</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>tell apart</strong> <span class="es">yo lavo el carro</span> (I wash the car) from <span class="es">yo me lavo</span> (I wash myself).</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>preview</strong> the week: the reflexive pronouns, eight routine verbs, and the sequence words <span class="es">primero / luego / despu&eacute;s</span>.</div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">What does the first hour of your day look like? Pick whatever feels most true.</div>
+    <div class="widget-options">
+      <button data-response="A person with a plan! By Friday you'll narrate that whole routine in Spanish, in order: primero, luego, despu&eacute;s.">&#9200; Same routine every morning</button>
+      <button data-response="Ha &mdash; honest. Good news: the words for &lsquo;get up,&rsquo; &lsquo;shower,&rsquo; and &lsquo;get dressed&rsquo; are exactly what this week teaches, rush or no rush.">&#127939; A mad rush, every time</button>
+      <button data-response="Relatable. Even &lsquo;I wake up slowly&rsquo; is a reflexive verb in Spanish &mdash; me despierto. You'll be saying it soon.">&#128564; I move very slowly at first</button>
+      <button data-response="Fair! By the end of the week you'll be able to describe any morning &mdash; yours, real or ideal &mdash; as a series of sentences.">&#129300; Different every single day</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- PREVIEW THE IDEA -->
+  <div class="card">
+    <div class="kicker">&#128218; A 60-SECOND PREVIEW &middot; TO SOMETHING vs TO YOURSELF</div>
+    <p>Here is the whole idea in one pair of sentences. The verb is the same &mdash; but the little word <span class="es"><b>me</b></span> changes <em>who receives the action</em>:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-01-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>lavo</b> el carro.</span> &mdash; I wash the car. <span style="color:#6b7a99;">(I do it to something else)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-01-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>me lavo</b>.</span> &mdash; I wash myself. <span style="color:#6b7a99;">(I do it to me)</span></span>
+    </div>
+    <p style="margin-bottom:0;">When the action loops back on the person doing it &mdash; you wake <em>yourself</em>, dress <em>yourself</em> &mdash; Spanish adds a <strong>reflexive pronoun</strong> like <span class="es">me</span>. That's the whole week in a nutshell. Tomorrow we make it exact.</p>
+  </div>
+
+  <!-- ROUTINE PREVIEW -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128336; YOUR ROUTINE, COMING THIS WEEK</div>
+    <p style="margin-top:0;">By Friday you'll say all of this about yourself, in order:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li><strong>Morning:</strong> <span class="es">me despierto</span> (I wake up) &rarr; <span class="es">me levanto</span> (I get up) &rarr; <span class="es">me ducho</span> (I shower) &rarr; <span class="es">me visto</span> (I get dressed).</li>
+      <li><strong>Getting ready:</strong> <span class="es">me cepillo los dientes</span> (I brush my teeth) &rarr; <span class="es">me peino</span> (I comb my hair).</li>
+      <li><strong>Night:</strong> <span class="es">me lavo la cara</span> (I wash my face) &rarr; <span class="es">me acuesto</span> (I go to bed).</li>
+    </ul>
+  </div>
+
+  <!-- PREVIEW THE WEEK -->
+  <div class="card">
+    <div class="kicker">&#128197; THIS WEEK &middot; MODULE 10</div>
+    <div class="weekrow now">
+      <div class="n">1</div>
+      <div class="d"><strong>Today &mdash; A first look.</strong> What you already own, and the one new idea behind the whole week.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">2</div>
+      <div class="d"><strong>The reflexive pronouns.</strong> The five little words &mdash; <span class="es">me, te, se, nos, se</span> &mdash; and exactly where they go.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">3</div>
+      <div class="d"><strong>Eight routine verbs.</strong> Wake up, get up, shower, get dressed&hellip; with native audio and flip cards.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">4</div>
+      <div class="d"><strong>A day, start to finish.</strong> Read a real morning routine &mdash; and meet the <span class="es">sobremesa</span>, a routine there is no English word for.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">5</div>
+      <div class="d"><strong>Review &amp; self-check.</strong> Pull it together, then take the short Module 10 check.</div>
+    </div>
+  </div>
+
+  <!-- VIRTUE / MISSION LIGHT -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#9733; A WORD ON SELF-GOVERNMENT</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">A routine is self-government in its smallest, truest form: the quiet decisions you make each morning before anyone is watching. Learning to <em>name</em> your routine in another language is a good moment to notice it &mdash; and maybe to shape it a little on purpose. <strong>Self-government</strong> starts with the ordinary hour you rarely think about.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 10.02 &mdash; The Reflexive Pronouns</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Meet <span class="es">me, te, se, nos, se</span> &mdash; and learn the one placement rule that makes every reflexive verb work.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 10.01 &middot; Verbos reflexivos</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

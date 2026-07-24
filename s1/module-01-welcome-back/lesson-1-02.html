@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 1.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .conjtable { width:100%; border-collapse:collapse; margin:12px 0; font-size:16px; }
+  .conjtable th { background:#0E1C42; color:#fff; text-align:left; padding:8px 12px; font-weight:600; font-size:14px; }
+  .conjtable td { border:1px solid #D0D9E8; padding:8px 12px; color:#1a2340; }
+  .conjtable td.pron { color:#6b4f1d; font-weight:600; }
+  .conjtable tr:nth-child(even) td { background:#FDF6E6; }
+  .conjtable .end { color:#c7922c; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 1</div>
+    <div style="font-size:12px; color:#666;">De vuelta &mdash; Welcome back</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 1.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">What &ldquo;conjugation&rdquo; really means</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, try the quick check-in, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 1.02 &middot; THE ONE IDEA BEHIND EVERY VERB</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">The verb changes to match who is doing it</div>
+    <div style="font-size:16px; color:#666;">No new verbs today &mdash; just the pattern that makes the whole year make sense, shown with verbs you already own.</div>
+  </div>
+
+  <!-- FOCUS -->
+  <div class="card">
+    <div class="kicker">&#128161; TODAY'S BIG IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">A verb doesn't stay the same. Its ending shifts to tell you <em>who</em> is doing the action &mdash; that shift is called <strong>conjugation</strong>.</div>
+    <p>You already do this in English without noticing: you say &ldquo;I <strong>am</strong>&rdquo; but &ldquo;she <strong>is</strong>&rdquo; &mdash; same verb, different form for a different person. Spanish just does it more often, and more clearly. Once you see the pattern, every verb this year works the same way.</p>
+  </div>
+
+  <!-- CONJUGATION IN ENGLISH -->
+  <div class="card">
+    <div class="kicker">&#128260; YOU ALREADY DO THIS IN ENGLISH</div>
+    <p>Look at the verb &ldquo;to be&rdquo; in English. One verb &mdash; but the word changes depending on the subject:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li>I <strong>am</strong> &middot; you <strong>are</strong> &middot; she <strong>is</strong> &middot; we <strong>are</strong> &middot; they <strong>are</strong></li>
+    </ul>
+    <p style="margin-bottom:0;">Nobody taught you a rule for that &mdash; your ear just knows &ldquo;I is&rdquo; sounds wrong. Spanish works the same way: <strong>the ending of the verb tells you who the subject is.</strong> That is all conjugation means.</p>
+  </div>
+
+  <!-- SUBJECT PRONOUNS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128101; FIRST &middot; THE SUBJECTS (WHO IS DOING IT)</div>
+    <p style="margin-top:0;">Every conjugation answers one question: <em>who</em>? These are the subject pronouns &mdash; the &ldquo;who&rdquo; words. You met them last year; here they are all together:</p>
+    <table class="conjtable">
+      <tr><th>Person</th><th>Spanish</th><th>English</th></tr>
+      <tr><td class="pron">1st singular</td><td class="es">yo</td><td>I</td></tr>
+      <tr><td class="pron">2nd singular</td><td class="es">t&uacute;</td><td>you (a friend)</td></tr>
+      <tr><td class="pron">3rd singular</td><td class="es">usted / &eacute;l / ella</td><td>you (respectful) / he / she</td></tr>
+      <tr><td class="pron">1st plural</td><td class="es">nosotros / nosotras</td><td>we</td></tr>
+      <tr><td class="pron">3rd plural</td><td class="es">ustedes</td><td>you all</td></tr>
+      <tr><td class="pron">3rd plural</td><td class="es">ellos / ellas</td><td>they</td></tr>
+    </table>
+    <p style="margin-bottom:0; font-size:16px;">A note on register: in most of Latin America, <span class="es">ustedes</span> is how you say <strong>&ldquo;you all&rdquo;</strong> to <em>any</em> group &mdash; friends, family, strangers, everyone. That is the form this course uses throughout. (You may see <span class="es">vosotros</span> in movies from Spain; we will not use it here.)</p>
+  </div>
+
+  <!-- CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">When you hear the word &ldquo;conjugation,&rdquo; how does it land?</div>
+    <div class="widget-options">
+      <button data-response="Great &mdash; because you truly do. Every time you say 'I am / she is' you are conjugating. We are just naming a thing you already do.">&#128077; Sounds fancy, but I think I get it</button>
+      <button data-response="That is the honest starting point for most people. Stick with today's one idea &mdash; ending changes to match the subject &mdash; and the fancy word stops mattering.">&#129300; Kind of a scary grammar word</button>
+      <button data-response="Perfect attitude. Today is pattern-spotting, not memorizing. See the pattern once here and it carries you through every verb this year.">&#128064; Show me the pattern</button>
+      <button data-response="Totally fair. By the end of this page you will have a plain-English definition you can trust &mdash; no jargon required.">&#128556; Never really understood it</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- SEE IT WITH SER -->
+  <div class="card">
+    <div class="kicker">&#128218; SEE IT &middot; SER (TO BE) ACROSS ALL SIX SUBJECTS</div>
+    <p>Here is <span class="es">ser</span> &mdash; a verb you already use. Watch the <span class="end">ending</span> change for each subject. That is conjugation, live:</p>
+    <table class="conjtable">
+      <tr><th>Subject</th><th>Form of SER</th><th>Meaning</th></tr>
+      <tr><td class="pron">yo</td><td class="es"><span class="end">soy</span></td><td>I am</td></tr>
+      <tr><td class="pron">t&uacute;</td><td class="es"><span class="end">eres</span></td><td>you are</td></tr>
+      <tr><td class="pron">usted / &eacute;l / ella</td><td class="es"><span class="end">es</span></td><td>you are / he is / she is</td></tr>
+      <tr><td class="pron">nosotros / nosotras</td><td class="es"><span class="end">somos</span></td><td>we are</td></tr>
+      <tr><td class="pron">ustedes</td><td class="es"><span class="end">son</span></td><td>you all are</td></tr>
+      <tr><td class="pron">ellos / ellas</td><td class="es"><span class="end">son</span></td><td>they are</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Same verb, six shapes. You are not memorizing anything new &mdash; you already say <span class="es">yo soy</span> and <span class="es">nosotros somos</span>. Today you are just <em>seeing</em> why they look different.</p>
+  </div>
+
+  <!-- SEE IT WITH ESTAR -->
+  <div class="card">
+    <div class="kicker">&#128218; AND AGAIN &middot; ESTAR (TO BE)</div>
+    <p>The other &ldquo;to be&rdquo; verb, <span class="es">estar</span>, does the exact same thing &mdash; its <span class="end">ending</span> matches the subject too:</p>
+    <table class="conjtable">
+      <tr><th>Subject</th><th>Form of ESTAR</th><th>Meaning</th></tr>
+      <tr><td class="pron">yo</td><td class="es"><span class="end">estoy</span></td><td>I am</td></tr>
+      <tr><td class="pron">t&uacute;</td><td class="es"><span class="end">est&aacute;s</span></td><td>you are</td></tr>
+      <tr><td class="pron">usted / &eacute;l / ella</td><td class="es"><span class="end">est&aacute;</span></td><td>you are / he is / she is</td></tr>
+      <tr><td class="pron">nosotros / nosotras</td><td class="es"><span class="end">estamos</span></td><td>we are</td></tr>
+      <tr><td class="pron">ustedes</td><td class="es"><span class="end">est&aacute;n</span></td><td>you all are</td></tr>
+      <tr><td class="pron">ellos / ellas</td><td class="es"><span class="end">est&aacute;n</span></td><td>they are</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Notice the pattern already peeking through: the <span class="es">-mos</span> ending always means &ldquo;we,&rdquo; and the <span class="es">-n</span> ending always means a plural &ldquo;they / you all.&rdquo; Hold onto that &mdash; it is the same across almost every verb you will meet this year.</p>
+  </div>
+
+  <!-- EVALUATIVE : ow-select (subject -> correct form) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; MATCH THE SUBJECT TO ITS FORM</div>
+    <div class="widget-question">Which form fits the subject? Pick one for each row &mdash; you'll get instant feedback. (These are all verbs you already know.)</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; 'nosotras' is 'we,' and 'we' takes the -mos ending: nosotras somos." data-hint="Look for the -mos ending &mdash; that ending always means 'we.'">
+      <div class="widget-row-prompt">1. Nosotras ____ estudiantes. (We are students.)</div>
+      <div class="widget-options">
+        <button data-choice="0">soy</button>
+        <button data-choice="1">eres</button>
+        <button data-choice="2">somos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; 'yo' (I) uses 'estoy' for a feeling. Yo estoy bien." data-hint="'Yo' means 'I' &mdash; which form starts with est- and ends in -oy?">
+      <div class="widget-row-prompt">2. Yo ____ bien. (I am doing well.)</div>
+      <div class="widget-options">
+        <button data-choice="0">estoy</button>
+        <button data-choice="1">est&aacute;s</button>
+        <button data-choice="2">estamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Correct &mdash; 'ustedes' (you all) takes the -n ending: ustedes son." data-hint="A plural 'you all' takes the -n ending.">
+      <div class="widget-row-prompt">3. Ustedes ____ amables. (You all are kind.)</div>
+      <div class="widget-options">
+        <button data-choice="0">eres</button>
+        <button data-choice="1">son</button>
+        <button data-choice="2">es</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Exactly &mdash; 'ella' (she) uses 'est&aacute;' for location. Ella est&aacute; en casa." data-hint="'Ella' is one person (she). Which estar form matches a single 'he/she/you'?">
+      <div class="widget-row-prompt">4. Ella ____ en casa. (She is at home.)</div>
+      <div class="widget-options">
+        <button data-choice="0">estoy</button>
+        <button data-choice="1">est&aacute;n</button>
+        <button data-choice="2">est&aacute;</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; 't&uacute;' (a friend) takes 'eres.' T&uacute; eres mi amigo." data-hint="'T&uacute;' is the friendly 'you.' Which SER form goes with it?">
+      <div class="widget-row-prompt">5. T&uacute; ____ mi amigo. (You are my friend.)</div>
+      <div class="widget-options">
+        <button data-choice="0">eres</button>
+        <button data-choice="1">soy</button>
+        <button data-choice="2">son</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- FLIP : pronoun <-> verb form -->
+  <div class="card">
+    <div class="kicker">&#128204; TAP TO REVEAL &middot; SUBJECT &rarr; ITS FORM</div>
+    <p>Say the subject out loud, guess the matching form of <span class="es">ser</span>, then tap to check yourself.</p>
+    <div class="optima-widget" style="margin-bottom:10px;">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;"><span class="es">nosotros</span> &rarr; ser = ?</div>
+        <div class="ow-flip-back" style="font-size:16px; line-height:1.55;">Nosotros <strong class="es">somos</strong> &mdash; the &ldquo;we&rdquo; form (that reliable <span class="es">-mos</span> ending).</div>
+      </div>
+    </div>
+    <div class="optima-widget" style="margin-bottom:0;">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;"><span class="es">ellos</span> &rarr; ser = ?</div>
+        <div class="ow-flip-back" style="font-size:16px; line-height:1.55;">Ellos <strong class="es">son</strong> &mdash; the plural &ldquo;they&rdquo; form (the <span class="es">-n</span> ending).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW THE WEEK -->
+  <div class="card">
+    <div class="kicker">&#128197; THIS WEEK &middot; MODULE 1</div>
+    <div class="weekrow">
+      <div class="n">1</div>
+      <div class="d"><strong>Where you are.</strong> What you already own, and the map for the year.</div>
+    </div>
+    <div class="weekrow now">
+      <div class="n">2</div>
+      <div class="d"><strong>Today &mdash; What &ldquo;conjugation&rdquo; really means.</strong> The one idea behind every verb, using verbs you already know.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">3</div>
+      <div class="d"><strong>Warming up your words.</strong> Bring back greetings, family, and describing words &mdash; with sound.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">4</div>
+      <div class="d"><strong>Spanish in your world.</strong> The Spanish hiding in the US places you already say &mdash; Florida, Colorado, Nevada.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">5</div>
+      <div class="d"><strong>Review &amp; self-check.</strong> Pull it together, then take the short Module 1 check.</div>
+    </div>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 1.03 &mdash; Warming Up Your Words</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Bring back the greetings, family, and describing words you already know &mdash; this time with native audio you can play and echo.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 1.02 &middot; De vuelta</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 16.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  /* Conjugation / pattern table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .end { color:#c7922c; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 16</div>
+    <div style="font-size:12px; color:#666;">El cuerpo y la salud &mdash; the body &amp; health</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 16.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">The verb <span class="es">doler</span> (to hurt)</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 16.02 &middot; ME DUELE / ME DUELEN</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">If you know <span class="es">gustar</span>, you already know <span class="es">doler</span></div>
+    <div style="font-size:16px; color:#666;">Same pattern, brand-new use. Go slowly &mdash; today you learn to say exactly what hurts.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">In Spanish you don't say "I hurt my head." You say <span class="es">"the head hurts to me"</span> &mdash; <span class="es">me duele la cabeza</span>. That's the same backwards trick you already use with <span class="es">gustar</span>.</div>
+    <p>Think about <span class="es">gustar</span>. It doesn't really mean "to like" &mdash; it means <em>"to be pleasing."</em> So <span class="es">me gusta el chocolate</span> is literally <em>"chocolate is pleasing to me."</em> The verb <span class="es"><strong>doler</strong></span> ("to hurt") works the <strong>exact same way</strong>: the body part is doing the action, and a little pronoun (<span class="es">me, te, le, nos, les</span>) says <em>who</em> it hurts.</p>
+  </div>
+
+  <!-- THE PARALLEL -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; THE PATTERN YOU ALREADY KNOW</div>
+    <div class="stemline">
+      <span class="stemchip">Me <b>gusta</b> el chocolate</span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip">Me <b>duele</b> la cabeza</span>
+    </div>
+    <p style="margin-bottom:0;">Just like <span class="es">gustar</span>, <span class="es">doler</span> really only shows up in <strong>two forms</strong>: <span class="es"><b>duele</b></span> when <strong>one</strong> thing hurts, and <span class="es"><b>duelen</b></span> when <strong>more than one</strong> thing hurts. (Some teachers point out that <span class="es">doler</span> is a "boot" verb like Module 6's <span class="es">poder</span> &mdash; the <span class="es">o</span> changes to <span class="es">ue</span> &mdash; but with this verb, only <span class="es">duele</span> and <span class="es">duelen</span> ever come up. That's all you need.)</p>
+  </div>
+
+  <!-- THE PATTERN TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE WHOLE PATTERN &middot; doler (to hurt)</div>
+    <p>Pick the pronoun for <em>who</em> hurts, then choose <span class="es">duele</span> (one thing) or <span class="es">duelen</span> (more than one):</p>
+    <table class="conj">
+      <tr><th style="width:40%">Who it hurts</th><th style="width:30%">One thing hurts</th><th style="width:30%">More than one hurts</th></tr>
+      <tr><td class="subj">(a m&iacute;) <span class="end">me</span> &mdash; me</td><td class="form">me duele</td><td class="form">me duelen</td></tr>
+      <tr><td class="subj">(a ti) <span class="end">te</span> &mdash; you (friendly)</td><td class="form">te duele</td><td class="form">te duelen</td></tr>
+      <tr><td class="subj">(a usted / &eacute;l / ella) <span class="end">le</span></td><td class="form">le duele</td><td class="form">le duelen</td></tr>
+      <tr><td class="subj">(a nosotros / nosotras) <span class="end">nos</span> &mdash; us</td><td class="form">nos duele</td><td class="form">nos duelen</td></tr>
+      <tr><td class="subj">(a ustedes / ellos / ellas) <span class="end">les</span></td><td class="form">les duele</td><td class="form">les duelen</td></tr>
+    </table>
+    <p style="margin-bottom:0;">The pronouns are <span class="es"><b>me / te / le / nos / les</b></span> &mdash; the same "to-whom" pronouns you met with <span class="es">gustar</span>. Notice we use <strong>les</strong> for a group ("to you all / to them") &mdash; the standard Latin-American form we use all year.</p>
+  </div>
+
+  <!-- THE ONE RULE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; THE ONLY DECISION YOU MAKE</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Look at the <strong>body part</strong>, not the person. <strong>One</strong> body part &rarr; <span class="es"><b>duele</b></span>. <strong>Two or more</strong> &rarr; <span class="es"><b>duelen</b></span>. So it's <span class="es">me duel<b>e</b> la cabeza</span> (one head) but <span class="es">me duel<b>en</b> los pies</span> (two feet). The verb matches the thing that hurts &mdash; exactly like <span class="es">me gusta</span> vs. <span class="es">me gustan</span>.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Watch the pattern work. <strong>Press &#9654; to hear each sentence</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Me <b>duele</b> la cabeza.</span> &mdash; My head hurts. <span style="color:#6b7a99;">(one thing &rarr; duele)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Me <b>duelen</b> los pies.</span> &mdash; My feet hurt. <span style="color:#6b7a99;">(more than one &rarr; duelen)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">&iquest;Te <b>duele</b> el est&oacute;mago?</span> &mdash; Does your stomach hurt? <span style="color:#6b7a99;">(te = to you)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">A ella le <b>duele</b> la garganta.</span> &mdash; Her throat hurts. <span style="color:#6b7a99;">(le = to her)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nos <b>duelen</b> las piernas.</span> &mdash; Our legs hurt. <span style="color:#6b7a99;">(nos = to us; two legs &rarr; duelen)</span></span>
+    </div>
+    <p style="margin-bottom:0;">Every time: choose the pronoun for <em>who</em>, then let the body part decide <span class="es">duele</span> or <span class="es">duelen</span>.</p>
+  </div>
+
+  <!-- TWO MORE HEALTH TOOLS -->
+  <div class="card">
+    <div class="kicker">&#127973; TWO MORE WAYS TO TALK ABOUT HEALTH (you already own both verbs)</div>
+    <p>Besides <span class="es">doler</span>, two familiar verbs finish the job:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.75;">
+      <li><span class="es"><b>estar</b> + feeling</span> &mdash; how you are right now: <span class="es">Estoy <b>enfermo</b>.</span> (I'm sick.) &middot; <span class="es">Estoy <b>cansada</b>.</span> (I'm tired.) Remember agreement: a boy says <span class="es">enfermo</span>, a girl <span class="es">enferma</span>.</li>
+      <li><span class="es"><b>tener</b> + a health noun</span> &mdash; what you "have": <span class="es">Tengo <b>fiebre</b>.</span> (I have a fever.) &middot; <span class="es">Tengo <b>gripe</b>.</span> (I have the flu.) &middot; <span class="es">Tengo <b>tos</b>.</span> (I have a cough.)</li>
+    </ul>
+    <p style="margin-bottom:0;">So you have three tools: <span class="es">doler</span> for <em>what hurts</em>, <span class="es">estar</span> for <em>how you feel</em>, and <span class="es">tener</span> for <em>what you have</em>. You'll load the words themselves tomorrow.</p>
+  </div>
+
+  <!-- EVALUATIVE : doler drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; DUELE OR DUELEN?</div>
+    <div class="widget-question">Choose the form that matches. Look at the body part: one thing &rarr; <span class="es">duele</span>, more than one &rarr; <span class="es">duelen</span>. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; la cabeza is one thing, so duele: Me duele la cabeza." data-hint="One body part = duele; two or more = duelen. How many heads?">
+      <div class="widget-row-prompt">1. Me ____ la cabeza. (My head hurts.)</div>
+      <div class="widget-options">
+        <button data-choice="0">duelen</button>
+        <button data-choice="1">duele</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; los pies is more than one, so duelen: Me duelen los pies." data-hint="los pies means feet &mdash; that's plural. Match it with the plural form.">
+      <div class="widget-row-prompt">2. Me ____ los pies. (My feet hurt.)</div>
+      <div class="widget-options">
+        <button data-choice="0">duelen</button>
+        <button data-choice="1">duele</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Correct &mdash; el est&oacute;mago is one thing &rarr; duele: &iquest;Te duele el est&oacute;mago?" data-hint="One stomach = singular. Which form is singular, duele or duelen?">
+      <div class="widget-row-prompt">3. &iquest;Te ____ el est&oacute;mago? (Does your stomach hurt?)</div>
+      <div class="widget-options">
+        <button data-choice="0">duelen</button>
+        <button data-choice="1">dueles</button>
+        <button data-choice="2">duele</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; 'a ella' takes the pronoun le: A ella le duele la garganta." data-hint="For usted / &eacute;l / ella, the 'to-whom' pronoun is le.">
+      <div class="widget-row-prompt">4. A ella ____ duele la garganta. (Her throat hurts.)</div>
+      <div class="widget-options">
+        <button data-choice="0">me</button>
+        <button data-choice="1">le</button>
+        <button data-choice="2">te</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; las manos is more than one, so duelen: Nos duelen las manos." data-hint="las manos = hands, which is plural. Use the plural form.">
+      <div class="widget-row-prompt">5. Nos ____ las manos. (Our hands hurt.)</div>
+      <div class="widget-options">
+        <button data-choice="0">duele</button>
+        <button data-choice="1">duelen</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- FLIP : predict the form -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; PREDICT THE FORM</div>
+    <div class="widget-question">Say the whole sentence out loud, then tap the card to check.</div>
+    <div class="ow-flip" tabindex="0">
+      <div class="ow-flip-front" style="font-size:20px; color:#0E1C42;">"My eyes hurt." &nbsp;&middot;&nbsp; two eyes &mdash; <em>duele</em> or <em>duelen</em>?</div>
+      <div class="ow-flip-back" style="font-size:18px; line-height:1.6;"><span class="es"><b>Me duelen los ojos.</b></span> &mdash; Two eyes are plural, so <span class="es">duelen</span>.</div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;"><span class="es">doler</span> copies <span class="es">gustar</span>: a "to-whom" pronoun (<span class="es">me / te / le / nos / les</span>) plus <span class="es"><b>duele</b></span> for one thing or <span class="es"><b>duelen</b></span> for more than one. Say the little chant &mdash; <em>me duele, me duelen</em> &mdash; and you can already tell anyone what hurts.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 16.03 &mdash; The Body &amp; Health Words</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Now that you own the pattern, we hang the words on it: ten body parts and a few health words, with native audio and flip cards.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 16.02 &middot; El cuerpo y la salud</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

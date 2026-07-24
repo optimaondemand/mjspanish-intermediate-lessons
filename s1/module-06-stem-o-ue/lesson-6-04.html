@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 6.04</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 6</div>
+    <div style="font-size:12px; color:#666;">Bota o&rarr;ue / u&rarr;ue &mdash; the second boot</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 6.04 &middot; Day 4 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">A reading + Spanish in your world</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read (and hear) the paragraph, try the check, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 6.04 &middot; BOOT VERBS IN THE WILD</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">A lazy Saturday, told with boot verbs</div>
+    <div style="font-size:16px; color:#666;">See the whole week's pattern working together in real sentences &mdash; then meet a Spanish word you already use in English.</div>
+  </div>
+
+  <!-- FRAME -->
+  <div class="card">
+    <div class="kicker">&#128075; READ, THEN LISTEN</div>
+    <p>Here is a short paragraph about a relaxed Saturday. Every verb in <strong>bold</strong> is a boot verb from this week. Read each sentence first, then <strong>press &#9654; to hear it</strong> in a native voice &mdash; reading and hearing together makes it stick. Watch how <span class="es">nosotros</span> forms keep their original vowel.</p>
+  </div>
+
+  <!-- READING w/ ml-say -->
+  <div class="card">
+    <div class="kicker">&#128214; UN S&Aacute;BADO TRANQUILO &middot; A QUIET SATURDAY</div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-04-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Los s&aacute;bados, yo <b>duermo</b> hasta muy tarde.</span> &mdash; On Saturdays, I sleep until very late.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-04-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Mi hermano <b>juega</b> al f&uacute;tbol en el parque.</span> &mdash; My brother plays soccer in the park.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-04-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">A la una, nosotros <b>almorzamos</b> en familia.</span> &mdash; At one o'clock, we eat lunch as a family. <span style="color:#6b7a99;">(nosotros keeps the o)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-04-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Despu&eacute;s del almuerzo, mi abuelo <b>duerme</b> una siesta.</span> &mdash; After lunch, my grandfather takes a nap.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-04-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Por la tarde, mis amigos y yo <b>volvemos</b> al parque y <b>encontramos</b> a otros amigos.</span> &mdash; In the afternoon, my friends and I return to the park and meet other friends. <span style="color:#6b7a99;">(both nosotros forms keep the o)</span></span>
+    </div>
+    <p style="margin-top:12px; margin-bottom:0;">Count them: <span class="es">duermo, juega, duerme</span> flipped their vowel (inside the boot), while <span class="es">almorzamos, volvemos, encontramos</span> kept theirs (the <span class="es">nosotros</span> form, outside the boot).</p>
+  </div>
+
+  <!-- CULTURE LINK : siesta -->
+  <div style="background:#FDF6E6; border:1px solid #E7D3A6; border-left:5px solid #C7922C; border-radius:8px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#8a6a1d; letter-spacing:.4px; margin-bottom:8px;">&#127757; SPANISH IN YOUR WORLD &middot; SIESTA</div>
+    <p style="font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0;">Did you notice <span class="es">siesta</span> in the reading? That is not just a Spanish word &mdash; it is an English word too. English <strong>borrowed</strong> <span class="es">siesta</span> straight from Spanish, and we use it to mean a short afternoon rest, often after the midday meal. When you say &ldquo;I need a siesta,&rdquo; you are already speaking a little Spanish.</p>
+    <p style="font-size:16px; color:#6b4f1d; line-height:1.6; margin:0;">It pairs naturally with this week's verb <span class="es">dormir</span> (to sleep): <span class="es">Mi abuelo <b>duerme</b> una siesta.</span> Keep an ear out &mdash; borrowed Spanish words like this one are all over everyday English.</p>
+  </div>
+
+  <!-- EVALUATIVE : ow-select -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; DID YOU CATCH IT?</div>
+    <div class="widget-question">A few quick checks on the reading and this week's pattern. Pick one for each &mdash; you'll get instant feedback.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; the family eats lunch a la una (at one o'clock): 'A la una, nosotros almorzamos en familia.'" data-hint="Look at the sentence that begins 'A la una&hellip;' &mdash; that is the time.">
+      <div class="widget-row-prompt">1. In the reading, when does the family eat lunch?</div>
+      <div class="widget-options">
+        <button data-choice="0">a las tres (at three)</button>
+        <button data-choice="1">a la una (at one)</button>
+        <button data-choice="2">por la noche (at night)</button>
+        <button data-choice="3">a las diez (at ten)</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; nosotros sits outside the boot, so volver keeps the o: volvemos." data-hint="nosotros is the one form that never changes &mdash; keep the o.">
+      <div class="widget-row-prompt">2. Choose the correct form: Nosotros ____ al parque por la tarde. (volver &mdash; We return to the park in the afternoon.)</div>
+      <div class="widget-options">
+        <button data-choice="0">vuelven</button>
+        <button data-choice="1">vuelvo</button>
+        <button data-choice="2">volvemos</button>
+        <button data-choice="3">vuelve</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; a siesta is a short afternoon rest, a Spanish word English borrowed." data-hint="Think about what the grandfather does after lunch in the reading.">
+      <div class="widget-row-prompt">3. The English word &ldquo;siesta&rdquo; comes from Spanish. What is a siesta?</div>
+      <div class="widget-options">
+        <button data-choice="0">a big party</button>
+        <button data-choice="1">a spicy sauce</button>
+        <button data-choice="2">a soccer game</button>
+        <button data-choice="3">a short afternoon rest</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 6.05 &mdash; Review &amp; Self-Check</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Pull the whole week together, run a quick self-check, then take the short Module 6 quiz.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 6.04 &middot; Bota o&rarr;ue / u&rarr;ue</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

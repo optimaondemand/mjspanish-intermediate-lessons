@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 15.04</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .glosstable { width:100%; border-collapse:collapse; margin:10px 0; font-size:16px; }
+  .glosstable td { border:1px solid #D0D9E8; padding:8px 12px; }
+  .glosstable tr:nth-child(even) td { background:#F4F6FA; }
+  .glosstable .sp { font-style:italic; color:#0e1c42; font-weight:600; }
+  .fftable { width:100%; border-collapse:collapse; margin:12px 0; font-size:16px; }
+  .fftable th { background:#0E1C42; color:#fff; text-align:left; padding:9px 12px; font-size:13px; }
+  .fftable td { border:1px solid #D0D9E8; padding:9px 12px; }
+  .fftable tr:nth-child(even) td { background:#F4F6FA; }
+  .fftable .sp { font-weight:700; color:#0e1c42; font-style:italic; }
+  .fftable .looks { color:#c0392b; }
+  .fftable .real { color:#1A6B3D; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 15</div>
+    <div style="font-size:12px; color:#666;">Comparaciones &mdash; comparing people &amp; things</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 15.04 &middot; Day 4 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Comparisons in use + false friends</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read the comparisons, study the false friends, try the sort, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 15.04 &middot; CULTURE-LINK CHECKPOINT</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Comparisons in the wild &mdash; and the words that fool you</div>
+    <div style="font-size:16px; color:#666;">First read a short family comparison using this week's pattern &mdash; then meet the &ldquo;false friends&rdquo; that only <em>pretend</em> to be English.</div>
+  </div>
+
+  <!-- READING -->
+  <div class="card">
+    <div class="kicker">&#128214; READ &middot; MI FAMILIA</div>
+    <p style="margin-bottom:12px;">Every sentence below uses one of this week's comparisons, in the present tense. Read it once for the gist, then <strong>press &#9654;</strong> to hear each sentence and say it back.</p>
+
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-04-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Mi hermano Diego es <b>m&aacute;s alto que</b> yo.</span> &mdash; My brother Diego is taller than me.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-04-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Pero yo soy <b>menor que</b> Diego; &eacute;l tiene quince a&ntilde;os.</span> &mdash; But I am younger than Diego; he is fifteen.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-04-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nuestro perro es <b>tan grande como</b> nuestro gato.</span> &mdash; Our dog is as big as our cat.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-04-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Para m&iacute;, la sopa de mam&aacute; es <b>mejor que</b> la pizza.</span> &mdash; For me, Mom's soup is better than pizza.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s15-04-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Mi mam&aacute; es <b>la m&aacute;s</b> simp&aacute;tica <b>de</b> toda la familia.</span> &mdash; My mom is the nicest in the whole family.</span>
+    </div>
+
+    <div style="margin-top:14px;">
+      <div style="font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:8px;">WORD HELP</div>
+      <table class="glosstable">
+        <tr><td class="sp">pero</td><td>but</td><td class="sp">nuestro / nuestra</td><td>our</td></tr>
+        <tr><td class="sp">la sopa</td><td>the soup</td><td class="sp">toda la familia</td><td>the whole family</td></tr>
+      </table>
+    </div>
+    <p style="margin:12px 0 0 0; font-size:15px; color:#6b7a99;">Spot every comparison: <span class="es">m&aacute;s alto que</span>, <span class="es">menor que</span>, <span class="es">tan grande como</span>, <span class="es">mejor que</span>, and the superlative <span class="es">la m&aacute;s simp&aacute;tica de</span>. Every describing word agrees with the person or thing it describes.</p>
+  </div>
+
+  <!-- CULTURE LINK EXPLAINER -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127760; SPANISH IN YOUR WORLD &middot; FALSE FRIENDS</div>
+    <p>You noticed <span class="es">sopa</span> in the reading. It <em>looks</em> like English &ldquo;soap&rdquo; &mdash; but it means <strong>soup</strong>. Words like this are called <strong>false friends</strong> (in Spanish, <span class="es">falsos amigos</span>): they look or sound like an English word but mean something completely different. Most Spanish&ndash;English look-alikes are real <em>cognates</em> that <em>do</em> match (<span class="es">importante</span> = important). False friends are the sneaky exceptions &mdash; and knowing them saves you from some very funny mistakes.</p>
+    <table class="fftable">
+      <tr><th style="width:24%">Spanish word</th><th style="width:32%">Looks like&hellip; (but is NOT)</th><th style="width:44%">Really means</th></tr>
+      <tr><td class="sp">embarazada</td><td class="looks">embarrassed</td><td class="real">pregnant</td></tr>
+      <tr><td class="sp">&eacute;xito</td><td class="looks">exit</td><td class="real">success</td></tr>
+      <tr><td class="sp">ropa</td><td class="looks">rope</td><td class="real">clothes</td></tr>
+      <tr><td class="sp">librer&iacute;a</td><td class="looks">library</td><td class="real">bookstore</td></tr>
+      <tr><td class="sp">sopa</td><td class="looks">soap</td><td class="real">soup</td></tr>
+      <tr><td class="sp">asistir</td><td class="looks">assist</td><td class="real">to attend (to go to)</td></tr>
+    </table>
+    <p style="margin-bottom:0;">A tip for two tricky ones: a <span class="es">librer&iacute;a</span> is where you <em>buy</em> books (a bookstore); the place you <em>borrow</em> them is a <span class="es">biblioteca</span>. And when you <span class="es">asistir a</span> a class, you <em>attend</em> it &mdash; you don't &ldquo;assist&rdquo; the teacher.</p>
+  </div>
+
+  <!-- EVALUATIVE : sort true cognate vs false friend (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; TRUE COGNATE OR FALSE FRIEND?</div>
+    <div class="widget-question">For each Spanish word, decide: does it mean what it <em>looks</em> like in English (true cognate), or does it fool you (false friend)? You'll get instant feedback. Read the options carefully &mdash; the order changes.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; sopa is a false friend: it looks like 'soap' but means SOUP." data-hint="Think of the reading: la sopa de mam&aacute;. Does 'soap' fit? Nope.">
+      <div class="widget-row-prompt">1. <span class="es">sopa</span> (looks like &ldquo;soap&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">True cognate &mdash; means what it looks like</button>
+        <button data-choice="1">False friend &mdash; does NOT mean what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; importante is a true cognate: it really does mean 'important.'" data-hint="Say it out loud &mdash; im-por-TAN-te. It matches the English meaning exactly.">
+      <div class="widget-row-prompt">2. <span class="es">importante</span> (looks like &ldquo;important&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">True cognate &mdash; means what it looks like</button>
+        <button data-choice="1">False friend &mdash; does NOT mean what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Correct &mdash; ropa is a false friend: it looks like 'rope' but means CLOTHES." data-hint="You wear ropa &mdash; it's not something you tie things with.">
+      <div class="widget-row-prompt">3. <span class="es">ropa</span> (looks like &ldquo;rope&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">False friend &mdash; does NOT mean what it looks like</button>
+        <button data-choice="1">True cognate &mdash; means what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; estudiar is a true cognate: it means 'to study.'" data-hint="You do this for a test. Estudiar &rarr; study. It matches.">
+      <div class="widget-row-prompt">4. <span class="es">estudiar</span> (looks like &ldquo;study&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">False friend &mdash; does NOT mean what it looks like</button>
+        <button data-choice="1">True cognate &mdash; means what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; librer&iacute;a is a false friend: it looks like 'library' but means BOOKSTORE (a library is a biblioteca)." data-hint="A librer&iacute;a is where you BUY books, not borrow them.">
+      <div class="widget-row-prompt">5. <span class="es">librer&iacute;a</span> (looks like &ldquo;library&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">True cognate &mdash; means what it looks like</button>
+        <button data-choice="1">False friend &mdash; does NOT mean what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Correct &mdash; inteligente is a true cognate: it means 'intelligent.'" data-hint="It sounds just like the English word and means the same thing.">
+      <div class="widget-row-prompt">6. <span class="es">inteligente</span> (looks like &ldquo;intelligent&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">True cognate &mdash; means what it looks like</button>
+        <button data-choice="1">False friend &mdash; does NOT mean what it looks like</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; &eacute;xito is a false friend: it looks like 'exit' but means SUCCESS." data-hint="A movie with mucho &eacute;xito is a big hit &mdash; not a way out the door.">
+      <div class="widget-row-prompt">7. <span class="es">&eacute;xito</span> (looks like &ldquo;exit&rdquo;)</div>
+      <div class="widget-options">
+        <button data-choice="0">False friend &mdash; does NOT mean what it looks like</button>
+        <button data-choice="1">True cognate &mdash; means what it looks like</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; WHY THIS MATTERS</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Cognates give you free vocabulary &mdash; but a handful of <strong>false friends</strong> can trip you up. These six are on the <strong>Module 15 check</strong>, so make sure you can catch them: <span class="es">embarazada</span> (pregnant), <span class="es">&eacute;xito</span> (success), <span class="es">ropa</span> (clothes), <span class="es">librer&iacute;a</span> (bookstore), <span class="es">sopa</span> (soup), <span class="es">asistir</span> (to attend).</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 15.05 &mdash; Review &amp; Self-Check</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Pull the whole week together &mdash; the comparing patterns, the special words, and the false friends &mdash; then take the short Module 15 check.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 15.04 &middot; Comparaciones</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

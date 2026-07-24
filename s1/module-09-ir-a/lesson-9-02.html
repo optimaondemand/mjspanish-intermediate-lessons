@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 9.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 9</div>
+    <div style="font-size:12px; color:#666;">Ir a + infinitivo &mdash; where you go &amp; what's next</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 9.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">The verb <span class="es">ir</span> &amp; the near future</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 9.02 &middot; THE ENGINE</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">One verb, five forms, one future-making pattern</div>
+    <div style="font-size:16px; color:#666;">Learn <span class="es">ir</span> today and you can say where you go and what you're going to do next.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;"><span class="es">Ir</span> means "to go." It's irregular &mdash; you just memorize its five forms &mdash; but once you have them, one small pattern lets you talk about the future.</div>
+    <p>Most verbs you've met follow a tidy pattern (drop the ending, add the ending). <span class="es">Ir</span> refuses to play along &mdash; its forms look nothing like its infinitive. That's fine: it's one of the most common verbs in the language, so you'll learn it fast just by using it. Here is the whole set.</p>
+  </div>
+
+  <!-- PARADIGM TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE FIVE FORMS &middot; ir (to go)</div>
+    <table class="conj">
+      <tr><th style="width:55%">Subject (who)</th><th style="width:45%">Form of <span style="font-style:italic;">ir</span></th></tr>
+      <tr><td class="subj">yo (I)</td><td class="form">voy</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td class="form">vas</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella (you-formal / he / she)</td><td class="form">va</td></tr>
+      <tr><td class="subj">nosotros / nosotras (we)</td><td class="form">vamos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas (you-all / they)</td><td class="form">van</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Five forms to chant: <span class="es"><b>voy / vas / va / vamos / van</b></span>. Notice we use <strong>ustedes</strong> ("you all") for a group &mdash; the standard form across Latin America, and the one we use all year.</p>
+  </div>
+
+  <!-- USE 1 : ir + a + place -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128506;&#65039; USE #1 &middot; WHERE YOU GO: ir + a + place</div>
+    <p style="margin-top:0;">To say where someone goes, use <span class="es">ir</span> + the little word <span class="es">a</span> ("to") + the place:</p>
+    <div class="stemline">
+      <span class="stemchip"><b>Voy</b></span>
+      <span class="stemarrow">+</span>
+      <span class="stemchip"><b>a</b> (to)</span>
+      <span class="stemarrow">+</span>
+      <span class="stemchip">la escuela</span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip"><b>Voy a la escuela.</b></span>
+    </div>
+    <p><strong>One small spelling rule:</strong> when <span class="es">a</span> bumps into the masculine <span class="es" style="color:var(--masc)">el</span>, the two squeeze together into <span class="es"><b>al</b></span>. It's the only contraction like this in Spanish:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li><span class="es">a + <span style="color:var(--masc)">el</span> parque</span> &rarr; <span class="es">Voy <b>al</b> parque.</span> &mdash; I go to the park.</li>
+      <li><span class="es">a + <span style="color:var(--fem)">la</span> escuela</span> &rarr; <span class="es">Voy <b>a la</b> escuela.</span> &mdash; (feminine stays two words: <b>a la</b>.)</li>
+    </ul>
+    <p style="margin-bottom:0; font-size:15px; color:#6b7a99;">You'll meet a whole set of places tomorrow in Lesson 9.03 &mdash; today just notice the pattern.</p>
+  </div>
+
+  <!-- USE 2 : ir a + infinitive (near future) -->
+  <div class="card">
+    <div class="kicker">&#11088; USE #2 &middot; THE BIG ONE: ir a + infinitive = the near future</div>
+    <p>Here's the star of the week. To say what someone <em>is going to do</em>, use a form of <span class="es">ir</span> + <span class="es">a</span> + <strong>an infinitive</strong> (a "to ___" verb you already know):</p>
+    <div class="stemline">
+      <span class="stemchip"><b>Voy</b></span>
+      <span class="stemarrow">+</span>
+      <span class="stemchip"><b>a</b></span>
+      <span class="stemarrow">+</span>
+      <span class="stemchip">estudiar</span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip"><b>Voy a estudiar.</b></span>
+    </div>
+    <p style="background:#FDF6E6; border:1px solid #E7D3A6; border-radius:7px; padding:12px 16px; color:#6b4f1d;"><strong>Keep this in your head:</strong> <span class="es">Voy a estudiar</span> = "I'm going to study." This is how Spanish talks about the <strong>near future</strong> &mdash; but the only verb you actually change is <span class="es">ir</span>, and <span class="es">ir</span> is a <em>present-tense</em> verb. You are NOT learning a past tense or a brand-new future tense &mdash; just present-tense <span class="es">ir</span> + <span class="es">a</span> + an unchanged infinitive.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES with ml-say -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Watch both uses work with verbs you already know. <strong>Press &#9654; to hear each sentence</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s09-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>voy a estudiar</b> esta noche.</span> &mdash; I'm going to study tonight.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s09-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">T&uacute; <b>vas a comer</b> con la familia.</span> &mdash; You're going to eat with the family.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s09-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>vamos a practicar</b> espa&ntilde;ol.</span> &mdash; We're going to practice Spanish.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s09-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ella <b>va al</b> parque.</span> &mdash; She goes to the park. <span style="color:#6b7a99;">(a + el = al)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s09-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ellos <b>van a leer</b> un libro.</span> &mdash; They're going to read a book.</span>
+    </div>
+    <p style="margin-bottom:0;">Same recipe every time: a form of <span class="es">ir</span> &rarr; <span class="es">a</span> &rarr; then either a place or an infinitive.</p>
+  </div>
+
+  <!-- EVALUATIVE : conjugation drill (ow-select), varied correct index -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; CONJUGATION DRILL</div>
+    <div class="widget-question">Pick the correct form of <span class="es">ir</span>. The subject is given, so choose the form that matches. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; yo takes voy: Yo voy a la escuela." data-hint="The subject is yo (I). The 'I' form of ir is voy.">
+      <div class="widget-row-prompt">1. Yo ____ a la escuela. (I go to school.)</div>
+      <div class="widget-options">
+        <button data-choice="0">vas</button>
+        <button data-choice="1">voy</button>
+        <button data-choice="2">va</button>
+        <button data-choice="3">van</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Right &mdash; nosotros takes vamos: Nosotros vamos a estudiar." data-hint="The subject is nosotros (we). The 'we' form of ir is vamos.">
+      <div class="widget-row-prompt">2. Nosotros ____ a estudiar esta noche. (We're going to study tonight.)</div>
+      <div class="widget-options">
+        <button data-choice="0">van</button>
+        <button data-choice="1">vas</button>
+        <button data-choice="2">voy</button>
+        <button data-choice="3">vamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Correct &mdash; ella takes va: Ella va a comer ahora." data-hint="The subject is ella (she). Usted / &eacute;l / ella all share the form va.">
+      <div class="widget-row-prompt">3. Ella ____ a comer ahora. (She's going to eat now.)</div>
+      <div class="widget-options">
+        <button data-choice="0">va</button>
+        <button data-choice="1">voy</button>
+        <button data-choice="2">vas</button>
+        <button data-choice="3">van</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; t&uacute; takes vas: &iquest;T&uacute; vas al parque?" data-hint="The subject is t&uacute; (you, friendly). The 't&uacute;' form of ir is vas.">
+      <div class="widget-row-prompt">4. &iquest;T&uacute; ____ al parque? (Are you going to the park?)</div>
+      <div class="widget-options">
+        <button data-choice="0">voy</button>
+        <button data-choice="1">va</button>
+        <button data-choice="2">vas</button>
+        <button data-choice="3">vamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; ustedes takes van: Ustedes van a practicar el piano." data-hint="Ustedes / ellos / ellas (a group) share the form van.">
+      <div class="widget-row-prompt">5. Ustedes ____ a practicar el piano. (You all are going to practice the piano.)</div>
+      <div class="widget-options">
+        <button data-choice="0">vamos</button>
+        <button data-choice="1">van</button>
+        <button data-choice="2">va</button>
+        <button data-choice="3">voy</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">Chant the five forms &mdash; <span class="es"><b>voy / vas / va / vamos / van</b></span> &mdash; then remember two uses: <span class="es">ir + a + place</span> (where you go, with <span class="es">a + el = al</span>) and <span class="es">ir a + infinitive</span> (what you're <em>going to</em> do). Both are built on the present-tense verb <span class="es">ir</span>.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 9.03 &mdash; Places to Go</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Eight everyday places with native audio and flip cards. Now that you own <span class="es">ir a</span>, we load in the places to go with it.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 9.02 &middot; Ir a + infinitivo</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 17.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  /* Weather reference table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .tool { color:#c7922c; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 17</div>
+    <div style="font-size:12px; color:#666;">El tiempo &mdash; weather &amp; seasons</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 17.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Weather expressions</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 17.02 &middot; THREE LITTLE TOOLS</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Almost all weather uses just three patterns</div>
+    <div style="font-size:16px; color:#666;">Learn which tool goes with which kind of weather, and you can describe nearly any sky.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Spanish doesn't say "it is sunny." It says, roughly, "it <em>makes</em> sun." Weather leans on the verb <span class="es">hacer</span>.</div>
+    <p>To ask about the weather you say <span class="es">&iquest;Qu&eacute; tiempo hace?</span> &mdash; literally "What weather does it make?" To answer, you pick one of <strong>three tools</strong>. Which tool you use depends on the <em>kind</em> of weather &mdash; and there's a simple reason behind each one.</p>
+  </div>
+
+  <!-- TOOL 1: HACE -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127774; TOOL 1 &middot; <span class="es">hace</span> + a noun</div>
+    <p style="margin-top:0;">Most weather uses <span class="es"><b>hace</b></span> + a naming word. <span class="es">Hace</span> is just the <em>he/she/it</em> form of <span class="es">hacer</span> (to make/do) &mdash; the same verb you met with the "yo-go" verbs. Because the weather is an "it," you only ever need this one form: <span class="es"><b>hace</b></span>.</p>
+    <table class="conj">
+      <tr><th style="width:50%">Spanish</th><th style="width:50%">English</th></tr>
+      <tr><td class="form">Hace sol.</td><td>It's sunny. <span style="color:#6b7a99;">(lit. "it makes sun")</span></td></tr>
+      <tr><td class="form">Hace calor.</td><td>It's hot.</td></tr>
+      <tr><td class="form">Hace fr&iacute;o.</td><td>It's cold.</td></tr>
+      <tr><td class="form">Hace viento.</td><td>It's windy.</td></tr>
+      <tr><td class="form">Hace fresco.</td><td>It's cool.</td></tr>
+      <tr><td class="form">Hace buen tiempo.</td><td>The weather is nice.</td></tr>
+      <tr><td class="form">Hace mal tiempo.</td><td>The weather is bad.</td></tr>
+    </table>
+    <p style="margin-bottom:0;">One form fits them all: <span class="es"><b>hace</b> + word</span>. You can even stack it: <span class="es">Hace sol y hace calor.</span> &mdash; It's sunny and hot.</p>
+  </div>
+
+  <!-- TOOL 2: ESTA -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#9925; TOOL 2 &middot; <span class="es">est&aacute;</span> + a describing word</div>
+    <p style="margin-top:0;">For the <em>state of the sky</em>, Spanish uses <span class="es"><b>est&aacute;</b></span> &mdash; the <em>he/she/it</em> form of <span class="es">estar</span>, the "to be" verb you already know for conditions. The sky is in a temporary state, so <span class="es">estar</span> is the natural fit.</p>
+    <table class="conj">
+      <tr><th style="width:50%">Spanish</th><th style="width:50%">English</th></tr>
+      <tr><td class="form">Est&aacute; nublado.</td><td>It's cloudy.</td></tr>
+      <tr><td class="form">Est&aacute; despejado.</td><td>It's clear.</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Careful: cloudy and clear take <span class="es"><b>est&aacute;</b></span>, <em>not</em> <span class="es">hace</span>. Say <span class="es">Est&aacute; nublado</span> &mdash; never <span style="color:var(--fem);">Hace nublado</span>.</p>
+  </div>
+
+  <!-- TOOL 3: WEATHER VERBS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127783;&#65039; TOOL 3 &middot; the two weather verbs</div>
+    <p style="margin-top:0;">Rain and snow get their own verbs. Here's the friendly part: only the <em>sky</em> rains or snows, so each verb has <strong>exactly one form</strong> &mdash; nothing to conjugate.</p>
+    <table class="conj">
+      <tr><th style="width:34%">Verb</th><th style="width:33%">The one form</th><th style="width:33%">Meaning</th></tr>
+      <tr><td class="form">llover <span style="color:#6b7a99; font-style:normal;">(o&rarr;ue)</span></td><td class="form"><b>llueve</b></td><td>it rains / it's raining</td></tr>
+      <tr><td class="form">nevar <span style="color:#6b7a99; font-style:normal;">(e&rarr;ie)</span></td><td class="form"><b>nieva</b></td><td>it snows / it's snowing</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Notice the "boot" stem-changes you already know: <span class="es">llover</span> is an <strong>o&rarr;ue</strong> verb (llo<b>v</b>er &rarr; ll<b>ue</b>ve) and <span class="es">nevar</span> is an <strong>e&rarr;ie</strong> verb (n<b>e</b>var &rarr; n<b>ie</b>va). Same idea as <span class="es">poder</span> and <span class="es">querer</span> &mdash; just used with only one subject: the weather.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Each sentence uses one of the three tools. <strong>Press &#9654; to hear it</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s17-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Hoy <b>hace sol</b>.</span> &mdash; It's sunny today. <span style="color:#6b7a99;">(tool 1: hace)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s17-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es"><b>Hace</b> mucho <b>fr&iacute;o</b> hoy.</span> &mdash; It's very cold today. <span style="color:#6b7a99;">(tool 1: hace)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s17-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">En la ma&ntilde;ana <b>est&aacute; nublado</b>.</span> &mdash; In the morning it's cloudy. <span style="color:#6b7a99;">(tool 2: est&aacute;)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s17-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es"><b>Llueve</b> mucho en abril.</span> &mdash; It rains a lot in April. <span style="color:#6b7a99;">(tool 3: verb)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s17-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es"><b>Nieva</b> en las monta&ntilde;as.</span> &mdash; It snows in the mountains. <span style="color:#6b7a99;">(tool 3: verb)</span></span>
+    </div>
+    <p style="margin-bottom:0;">Pick the tool that fits: <span class="es">hace</span> for most weather, <span class="es">est&aacute;</span> for the sky's state, and <span class="es">llueve / nieva</span> for rain and snow.</p>
+  </div>
+
+  <!-- EVALUATIVE : weather-expression drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; WHICH WEATHER EXPRESSION?</div>
+    <div class="widget-question">Pick the correct Spanish for each weather report. Read the options carefully &mdash; the order changes. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; wind is a noun, so it takes tool 1: Hace viento." data-hint="Wind uses hace + noun. Which option is 'hace viento'?">
+      <div class="widget-row-prompt">1. "It's windy." &mdash; <span class="es">&iquest;Qu&eacute; tiempo hace?</span></div>
+      <div class="widget-options">
+        <button data-choice="0">Est&aacute; viento</button>
+        <button data-choice="1">Hace nublado</button>
+        <button data-choice="2">Hace viento</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; cloudy describes the sky's state, so it takes tool 2: Est&aacute; nublado." data-hint="Cloudy uses est&aacute;, not hace. Which option starts with Est&aacute;?">
+      <div class="widget-row-prompt">2. "It's cloudy."</div>
+      <div class="widget-options">
+        <button data-choice="0">Est&aacute; nublado</button>
+        <button data-choice="1">Hace nublado</button>
+        <button data-choice="2">Hace nube</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Correct &mdash; snow has its own verb, and it has just one form: Nieva." data-hint="Snow is a verb with one form. Look for 'Nieva'.">
+      <div class="widget-row-prompt">3. "It's snowing."</div>
+      <div class="widget-options">
+        <button data-choice="0">Hace nieve</button>
+        <button data-choice="1">Nieva</button>
+        <button data-choice="2">Est&aacute; nieva</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; cold is a noun, so tool 1: Hace fr&iacute;o. (Hace calor means 'it's hot' &mdash; the opposite!)" data-hint="Cold uses hace + fr&iacute;o. Watch out: calor means hot.">
+      <div class="widget-row-prompt">4. "It's cold."</div>
+      <div class="widget-options">
+        <button data-choice="0">Est&aacute; fr&iacute;o</button>
+        <button data-choice="1">Hace calor</button>
+        <button data-choice="2">Hace fr&iacute;o</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">Three tools cover the sky: <span class="es"><b>hace</b> + noun</span> (sol, calor, fr&iacute;o, viento, fresco, buen/mal tiempo), <span class="es"><b>est&aacute;</b> + word</span> (nublado, despejado), and the two one-form verbs <span class="es"><b>llueve</b></span> and <span class="es"><b>nieva</b></span>. Ask it all with <span class="es">&iquest;Qu&eacute; tiempo hace?</span></p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 17.03 &mdash; Weather Words, Seasons &amp; Months</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">The vocabulary that fills these patterns &mdash; the weather words, the four seasons, and the twelve months &mdash; with native audio and flip cards.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 17.02 &middot; El tiempo</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

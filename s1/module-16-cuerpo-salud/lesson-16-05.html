@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 16.05</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .flipgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .masc { color:var(--masc); }
+  .fem { color:var(--fem); }
+  .checklist { list-style:none; margin:8px 0 0; padding:0; }
+  .checklist li { display:flex; align-items:flex-start; gap:10px; font-size:17px; color:#1a2340; line-height:1.6; margin-bottom:10px; }
+  .checklist li::before { content:"\2713"; color:#2A9D5C; font-weight:700; font-size:18px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 16</div>
+    <div style="font-size:12px; color:#666;">El cuerpo y la salud &mdash; the body &amp; health</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 16.05 &middot; Day 5 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Review &amp; self-check</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Review, try the self-check, then take the Module 16 quiz. Finally, click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 16.05 &middot; PULLING IT TOGETHER</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">You can now say how you feel &mdash; and what hurts</div>
+    <div style="font-size:16px; color:#666;">A quick review, a self-check, and then the short Module 16 quiz.</div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="card">
+    <div class="kicker">&#128203; THE WEEK IN ONE PLACE</div>
+    <ul class="checklist">
+      <li><strong>doler</strong> works like <span class="es">gustar</span>: pronoun (<span class="es">me / te / le / nos / les</span>) + <span class="es"><b>duele</b></span> (one thing) or <span class="es"><b>duelen</b></span> (more than one). <span class="es">Me duele la cabeza. / Me duelen los pies.</span></li>
+      <li><strong>The body:</strong> <span class="fem">la cabeza</span>, <span class="masc">el est&oacute;mago</span>, <span class="fem">la garganta</span>, <span class="fem">la mano</span> (feminine!), <span class="masc">el brazo</span>, <span class="fem">la pierna</span>, <span class="masc">el pie</span>, <span class="fem">la espalda</span>, <span class="fem">la boca</span>, <span class="masc">el ojo</span>.</li>
+      <li><strong>Health:</strong> <span class="es">estar enfermo/a</span> (to be sick), <span class="es">tener fiebre</span> (to have a fever), <span class="es">tener gripe</span> (to have the flu), <span class="masc">el m&eacute;dico</span> / <span class="fem">la m&eacute;dica</span> (the doctor).</li>
+      <li><strong>Spanish in your world:</strong> medical cognates &mdash; <span class="es">hospital, doctor, ambulancia, farmacia</span> &mdash; you already understand them.</li>
+    </ul>
+  </div>
+
+  <!-- HEAR IT -->
+  <div class="card">
+    <div class="kicker">&#128266; SAY IT ONE MORE TIME</div>
+    <p>Two sentences that use the whole week at once. <strong>Press &#9654;</strong>, then say each one aloud:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-05-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Me duele la garganta y tengo fiebre.</span> &mdash; My throat hurts and I have a fever.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-05-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Estoy enfermo, as&iacute; que voy al m&eacute;dico.</span> &mdash; I'm sick, so I'm going to the doctor.</span>
+    </div>
+  </div>
+
+  <!-- SELF-CHECK : flip cards -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; SELF-CHECK &middot; SAY IT, THEN TAP TO CHECK</div>
+    <div class="widget-question">Answer each one out loud (or in your head), then tap the card. No score &mdash; this is just to see what's solid.</div>
+    <div class="flipgrid">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">How do you say <em>"My head hurts"</em>?</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="es"><b>Me duele la cabeza.</b></span> (one thing &rarr; duele)</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">How do you say <em>"My feet hurt"</em>?</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="es"><b>Me duelen los pies.</b></span> (more than one &rarr; duelen)</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">Is <span class="es">mano</span> masculine or feminine?</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="fem"><b>Feminine</b></span> &mdash; <span class="es">la mano</span>, even though it ends in -o.</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">What does <span class="es">el brazo</span> mean?</div>
+        <div class="ow-flip-back" style="font-size:17px;">the arm</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">What does <span class="es">tiene fiebre</span> mean?</div>
+        <div class="ow-flip-back" style="font-size:17px;">he/she has a fever</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:18px; color:#0E1C42;">What English word is <span class="es">farmacia</span> a cognate of?</div>
+        <div class="ow-flip-back" style="font-size:17px;">pharmacy (the drugstore &mdash; not "farm"!)</div>
+      </div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CONFIDENCE CHECK : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">How solid does <span class="es">me duele / me duelen</span> feel right now?</div>
+    <div class="widget-options">
+      <button data-response="Excellent &mdash; that means the gustar-to-doler jump clicked. Take the quiz with confidence; you can retake it as many times as you like.">&#128170; Rock solid</button>
+      <button data-response="That's a great place to be. The quiz has unlimited attempts, so use it as practice &mdash; each try makes the pattern more automatic.">&#128522; Pretty good</button>
+      <button data-response="No problem &mdash; scroll back up and re-read the recap, then try the flip cards again. Remember: one thing hurts = duele, more than one = duelen.">&#129300; Still a little shaky</button>
+      <button data-response="Totally fine. Re-watch the pattern in Lesson 16.02 and re-listen to the sentences. Then take the quiz &mdash; unlimited attempts, 70% to pass, no pressure.">&#128064; I want more practice</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CTA : QUICK CHECK -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#9989; NOW &middot; THE MODULE 16 CHECK</div>
+    <p style="margin-top:0;">Head to the <strong>Module 16 Check</strong> quiz in Canvas. It covers <span class="es">doler</span> (<span class="es">duele</span> vs. <span class="es">duelen</span>), the body words, gender (yes, <span class="es">la mano</span> shows up!), the health verbs, and one culture-link item.</p>
+    <p style="margin-bottom:0;"><strong>Unlimited attempts. You need 70% to move on to Module 17.</strong> Treat it as practice &mdash; there's no penalty for retaking it, and each attempt shows you what to review.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT'S NEXT &middot; MODULE 17</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">17</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Module 17 &mdash; El tiempo (weather &amp; seasons)</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Next week you'll learn to talk about the weather &mdash; <span class="es">hace sol, llueve, nieva</span> &mdash; and use <span class="es">ir a</span> again to make weather-based plans. &iexcl;Nos vemos!</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 16.05 &middot; El cuerpo y la salud</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

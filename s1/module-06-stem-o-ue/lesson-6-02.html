@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 6.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .stem { color:#c7922c; font-weight:700; }
+  .conj tr.boot td { background:#FDF6E6; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 6</div>
+    <div style="font-size:12px; color:#666;">Bota o&rarr;ue / u&rarr;ue &mdash; the second boot</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 6.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">The o&rarr;ue (and u&rarr;ue) stem change</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 6.02 &middot; THE PATTERN</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">The <span class="es">o</span> becomes <span class="es">ue</span> &mdash; everywhere but <span class="es">nosotros</span></div>
+    <div style="font-size:16px; color:#666;">Same boot shape as last week. Only the vowel is new. Go slowly and watch the stem.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">In these verbs the stem vowel <strong>o</strong> changes to <strong>ue</strong> in every present-tense form except <span class="es">nosotros</span>. The endings stay perfectly regular &mdash; only the stem changes.</div>
+    <p>A boot verb is a normal verb with one twist: when the stem vowel is stressed, it breaks into a diphthong. Last week that was <span class="es">e&rarr;ie</span>; this week it is <span class="es">o&rarr;ue</span>. The <span class="es">nosotros</span> form is the odd one out &mdash; its stress falls on the ending, not the stem, so the vowel stays <strong>o</strong>. Picture a boot shape around the forms that change, with <span class="es">nosotros</span> sticking out the top.</p>
+  </div>
+
+  <!-- THE THREE STEPS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; HOW ONE FORM IS BUILT</div>
+    <div class="stemline">
+      <span class="stemchip">1. Infinitive: <b>poder</b> (to be able / can)</span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip">2. Change the stem <b>o&rarr;ue</b>: <b>pued-</b></span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip">3. Add the regular ending: <b>pued</b>+<b>o</b> = puedo</span>
+    </div>
+    <p style="margin-bottom:0;">So <span class="es">puedo</span> means <strong>&ldquo;I can / I am able.&rdquo;</strong> The ending <span class="es"><b>-o</b></span> is exactly the regular <span class="es">-er</span> ending you already know &mdash; the only new move is flipping the stem <span class="es">o&rarr;ue</span> first.</p>
+  </div>
+
+  <!-- THE PARADIGM TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE FULL BOOT &middot; poder (to be able / can)</div>
+    <table class="conj">
+      <tr><th style="width:44%">Subject (who)</th><th style="width:28%">Stem</th><th style="width:28%">Full form</th></tr>
+      <tr><td class="subj">yo (I)</td><td><span class="stem">pued</span>&middot;o</td><td class="form">puedo</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td><span class="stem">pued</span>&middot;es</td><td class="form">puedes</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella (you-formal / he / she)</td><td><span class="stem">pued</span>&middot;e</td><td class="form">puede</td></tr>
+      <tr class="boot"><td class="subj">nosotros / nosotras (we) &mdash; <strong>no change</strong></td><td>pod&middot;emos</td><td class="form">podemos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas (you-all / they)</td><td><span class="stem">pued</span>&middot;en</td><td class="form">pueden</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Read down the column: <span class="es"><b>puedo, puedes, puede,</b></span> then the boot opens for <span class="es"><b>podemos</b></span> (still <strong>o</strong>!), then closes again for <span class="es"><b>pueden</b></span>. The highlighted <span class="es">nosotros</span> row is the form <em>outside</em> the boot &mdash; the one that keeps the original vowel.</p>
+  </div>
+
+  <!-- IR VERB + JUGAR -->
+  <div class="card">
+    <div class="kicker">&#128260; TWO MORE TO SEE THE RANGE</div>
+    <p>The same boot works on <span class="es">-ir</span> verbs like <span class="es">dormir</span> (to sleep). And one special verb, <span class="es">jugar</span> (to play), does the same thing with a <strong>u</strong> instead of an <strong>o</strong>: <span class="es">u&rarr;ue</span>. It is the only common <span class="es">u&rarr;ue</span> verb &mdash; treat it as an honorary member of this boot.</p>
+    <table class="conj">
+      <tr><th style="width:20%">Subject</th><th style="width:40%">dormir (o&rarr;ue) &mdash; to sleep</th><th style="width:40%">jugar (u&rarr;ue) &mdash; to play</th></tr>
+      <tr><td class="subj">yo</td><td class="form">duermo</td><td class="form">juego</td></tr>
+      <tr><td class="subj">t&uacute;</td><td class="form">duermes</td><td class="form">juegas</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td class="form">duerme</td><td class="form">juega</td></tr>
+      <tr class="boot"><td class="subj">nosotros &mdash; <strong>no change</strong></td><td class="form">dormimos</td><td class="form">jugamos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td class="form">duermen</td><td class="form">juegan</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Notice again: <span class="es"><b>dormimos</b></span> and <span class="es"><b>jugamos</b></span> keep their original vowel &mdash; <span class="es">nosotros</span> always sits outside the boot. Everything else changes.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES w/ ml-say -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Watch the boot work in full sentences. <strong>Press &#9654; to hear each one</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>puedo</b> ayudar hoy.</span> &mdash; I can help today. <span style="color:#6b7a99;">(poder &rarr; pued- + o)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">T&uacute; <b>duermes</b> ocho horas.</span> &mdash; You sleep eight hours. <span style="color:#6b7a99;">(dormir &rarr; duerm- + es)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ella <b>juega</b> al f&uacute;tbol.</span> &mdash; She plays soccer. <span style="color:#6b7a99;">(jugar &rarr; jueg- + a, u&rarr;ue)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>volvemos</b> a casa.</span> &mdash; We return home. <span style="color:#6b7a99;">(volver &mdash; nosotros keeps the o!)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s06-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ustedes <b>almuerzan</b> a la una.</span> &mdash; You all eat lunch at one. <span style="color:#6b7a99;">(almorzar &rarr; almuerz- + an)</span></span>
+    </div>
+    <p style="margin-bottom:0;">Same move every time: flip the stem <span class="es">o&rarr;ue</span> (or <span class="es">u&rarr;ue</span> for <span class="es">jugar</span>), then add the ordinary ending &mdash; except in <span class="es">nosotros</span>, where nothing changes.</p>
+  </div>
+
+  <!-- EVALUATIVE : conjugation drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; CONJUGATION DRILL</div>
+    <div class="widget-question">Pick the correct form. The subject is given, so choose the one that fits &mdash; and watch out for the <span class="es">nosotros</span> traps. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; yo is inside the boot, so poder changes o&rarr;ue: puedo." data-hint="yo is inside the boot &mdash; the stem o becomes ue.">
+      <div class="widget-row-prompt">1. Yo ____ estudiar ahora. (poder &mdash; I can study now.)</div>
+      <div class="widget-options">
+        <button data-choice="0">podemos</button>
+        <button data-choice="1">puede</button>
+        <button data-choice="2">puedo</button>
+        <button data-choice="3">puedes</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Right &mdash; ustedes is inside the boot, so dormir changes o&rarr;ue: duermen." data-hint="ustedes (you all) is inside the boot &mdash; use the ue stem plus -en.">
+      <div class="widget-row-prompt">2. Ustedes ____ mucho los s&aacute;bados. (dormir &mdash; You all sleep a lot on Saturdays.)</div>
+      <div class="widget-options">
+        <button data-choice="0">dormimos</button>
+        <button data-choice="1">duermo</button>
+        <button data-choice="2">duerme</button>
+        <button data-choice="3">duermen</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Correct &mdash; jugar changes u&rarr;ue, and t&uacute; takes -as: juegas." data-hint="jugar is the special u&rarr;ue verb. t&uacute; is inside the boot &mdash; use jueg- + as.">
+      <div class="widget-row-prompt">3. T&uacute; ____ al b&aacute;squetbol. (jugar &mdash; You play basketball.)</div>
+      <div class="widget-options">
+        <button data-choice="0">juega</button>
+        <button data-choice="1">juegas</button>
+        <button data-choice="2">jugamos</button>
+        <button data-choice="3">juego</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; nosotros sits OUTSIDE the boot, so volver keeps the o: volvemos." data-hint="nosotros is the one form that never changes &mdash; keep the o.">
+      <div class="widget-row-prompt">4. Nosotros ____ a casa tarde. (volver &mdash; We come home late.)</div>
+      <div class="widget-options">
+        <button data-choice="0">volvemos</button>
+        <button data-choice="1">vuelvemos</button>
+        <button data-choice="2">vuelven</button>
+        <button data-choice="3">vuelvo</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; ella is inside the boot, so almorzar changes o&rarr;ue: almuerza." data-hint="ella is inside the boot &mdash; use almuerz- + a.">
+      <div class="widget-row-prompt">5. Ella ____ en la cafeter&iacute;a. (almorzar &mdash; She eats lunch in the cafeteria.)</div>
+      <div class="widget-options">
+        <button data-choice="0">almorzamos</button>
+        <button data-choice="1">almuerzan</button>
+        <button data-choice="2">almuerza</button>
+        <button data-choice="3">almuerzo</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- FLIP : infinitive -> yo form -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; INFINITIVE &rarr; &ldquo;YO&rdquo; FORM</div>
+    <div class="widget-question">Predict the &ldquo;yo&rdquo; (I) form, then tap the card to check.</div>
+    <div class="ow-flip" tabindex="0">
+      <div class="ow-flip-front" style="font-size:20px; color:#0E1C42;"><span class="es">encontrar</span> &mdash; to find &nbsp;&middot;&nbsp; What is the <em>yo</em> form?</div>
+      <div class="ow-flip-back" style="font-size:18px; line-height:1.6;"><span class="es"><b>encuentro</b></span> &mdash; I find. &nbsp;Flip the stem <span class="es">o&rarr;ue</span> &rarr; <span class="es">encuentr-</span> &rarr; add <span class="es"><b>-o</b></span>.</div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">Flip the stem vowel <span class="es"><b>o&rarr;ue</b></span> (or <span class="es"><b>u&rarr;ue</b></span> for <span class="es">jugar</span>) in every present-tense form <em>except</em> <span class="es">nosotros</span>, where the vowel stays put. The endings never change &mdash; they are the same regular <span class="es">-ar / -er / -ir</span> endings you already know. That is the whole rule.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 6.03 &mdash; Your o&rarr;ue Verb Set</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Seven everyday boot verbs with native audio and flip cards. Now that you own the pattern, we hang the words on it.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 6.02 &middot; Bota o&rarr;ue / u&rarr;ue</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

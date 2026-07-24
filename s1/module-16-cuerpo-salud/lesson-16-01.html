@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 16.01</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .chunkchips { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .chunkchips span { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:20px; padding:6px 14px; font-size:16px; }
+  .chunkchips b { color:#c7922c; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 16</div>
+    <div style="font-size:12px; color:#666;">El cuerpo y la salud &mdash; the body &amp; health</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 16.01 &middot; Day 1 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Saying how you feel &amp; the week ahead</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, try the quick check-in, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 16.01 &middot; &iexcl;AY, ME DUELE!</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Everyone gets sick &mdash; this week you learn to say what hurts</div>
+    <div style="font-size:16px; color:#666;">Nothing new to memorize today &mdash; just wake up what you already know, and see where the week is going.</div>
+  </div>
+
+  <!-- FOCUS -->
+  <div class="card">
+    <div class="kicker">&#128075; TODAY'S BIG IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">You already know how to say what you <em>like</em>. This week you use the very same trick to say what <em>hurts</em>.</div>
+    <p>Welcome to <strong>Module 16 &mdash; El cuerpo y la salud</strong> (the body and health). When you're not feeling well, you need words for the parts of your body and a way to say <em>"my head hurts."</em> Here's the good news: the verb for that, <span class="es">doler</span> (to hurt), behaves <strong>exactly like <span class="es">gustar</span></strong> &mdash; the "to like" verb you've used since last year. Learn one pattern, get two verbs. Today we just warm up what you own and map the week.</p>
+  </div>
+
+  <!-- RETRIEVE PRIOR -->
+  <div class="card">
+    <div class="kicker">&#128260; FIRST &middot; WHAT YOU ALREADY OWN</div>
+    <p>You are <em>not</em> starting from zero. Read these out loud &mdash; you already understand every one:</p>
+    <div class="chunkchips">
+      <span><b>Me gusta&hellip;</b> &mdash; I like (one thing)</span>
+      <span><b>Me gustan&hellip;</b> &mdash; I like (more than one)</span>
+      <span><b>Estoy cansado/a</b> &mdash; I'm tired</span>
+      <span><b>Tengo hambre</b> &mdash; I'm hungry</span>
+    </div>
+    <p>Three old friends are about to do all the heavy lifting this week:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li><span class="es"><b>gustar</b></span> &mdash; notice it changes between <span class="es">me gust<b>a</b></span> (one thing) and <span class="es">me gust<b>an</b></span> (more than one). <span class="es">doler</span> does the exact same thing.</li>
+      <li><span class="es"><b>estar</b></span> &mdash; for how you feel right now: <span class="es">estoy bien</span>, <span class="es">estoy cansado</span>.</li>
+      <li><span class="es"><b>tener</b></span> &mdash; for the "I have ___" feelings you learned in Module 4: <span class="es">tengo hambre</span>, <span class="es">tengo sue&ntilde;o</span>.</li>
+    </ul>
+    <p style="margin-top:4px; margin-bottom:6px;"><strong>Press &#9654; to hear two you already know</strong> &mdash; reading and hearing together makes it stick:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-01-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Me gustan los deportes.</span> &mdash; I like sports.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s16-01-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Hoy estoy cansado.</span> &mdash; Today I'm tired.</span>
+    </div>
+    <p style="margin-bottom:0;">Hold on to <span class="es">me gusta</span> vs. <span class="es">me gustan</span> &mdash; tomorrow it becomes <span class="es">me duele</span> vs. <span class="es">me duelen</span>.</p>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div style="background:#fff; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#c7922c; margin-bottom:14px;">&#127919; BY THE END OF THIS PAGE YOU WILL BE ABLE TO&hellip;</div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>recall</strong> the <span class="es">me gusta / me gustan</span> pattern that this week's new verb copies.</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>tell apart</strong> <span class="es">estar</span> (how you feel) and <span class="es">tener</span> (what you "have") &mdash; both are health tools you already use.</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>describe</strong> what this week covers: a new verb, body words, and a trip to the doctor.</div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">When you don't feel well, how do you usually let someone know?</div>
+    <div class="widget-options">
+      <button data-response="Great instinct &mdash; and this week you'll be able to name the exact spot in Spanish: me duele la cabeza, me duele el est&oacute;mago. Words make it easier to get help.">&#128557; I say exactly where it hurts</button>
+      <button data-response="Totally fair. Learning the body words gives you a way to point AND say it &mdash; sometimes just naming 'la garganta' is enough for someone to understand.">&#129296; I mostly just point</button>
+      <button data-response="Many people do! But being able to say 'estoy enfermo' or 'me duele el est&oacute;mago' means you can ask for help sooner &mdash; that's real, useful Spanish.">&#128529; I try to tough it out</button>
+      <button data-response="Good honesty. By Friday you'll have a small toolkit: what hurts, how you feel, and what to tell a doctor. Useful for the rest of your life, in two languages.">&#129300; Depends on the day</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127973; WHY THIS ONE IS WORTH IT</div>
+    <p style="margin-top:0;">This is some of the most <strong>useful</strong> Spanish you'll ever learn. Millions of people in the United States speak Spanish, and being able to say <span class="es">me duele aqu&iacute;</span> ("it hurts here") or understand <span class="es">&iquest;qu&eacute; te duele?</span> ("what hurts?") can genuinely help someone &mdash; maybe even you &mdash; on a hard day.</p>
+    <p style="margin-bottom:0;">And you'll notice this week that a lot of medical Spanish is already familiar: <span class="es">hospital</span>, <span class="es">doctor</span>, <span class="es">ambulancia</span>. More on that on Day 4.</p>
+  </div>
+
+  <!-- PREVIEW THE WEEK -->
+  <div class="card">
+    <div class="kicker">&#128197; THIS WEEK &middot; MODULE 16</div>
+    <div class="weekrow now">
+      <div class="n">1</div>
+      <div class="d"><strong>Today &mdash; How you feel.</strong> Wake up <span class="es">gustar</span>, <span class="es">estar</span>, and <span class="es">tener</span>, and map the week.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">2</div>
+      <div class="d"><strong>The verb <span class="es">doler</span> (to hurt).</strong> It works just like <span class="es">gustar</span>: <span class="es">me duele</span> / <span class="es">me duelen</span>.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">3</div>
+      <div class="d"><strong>The body &amp; health words.</strong> Ten body parts and a few health words &mdash; with sound and flip cards.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">4</div>
+      <div class="d"><strong>A visit to the doctor.</strong> Read a short scene, then meet the Spanish medical words you already understand.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">5</div>
+      <div class="d"><strong>Review &amp; self-check.</strong> Pull it together, then take the short Module 16 check.</div>
+    </div>
+  </div>
+
+  <!-- VIRTUE / MISSION LIGHT -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#9733; A WORD ON SERVICE</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Language is one of the kindest forms of <strong>service</strong>. When you can understand someone who is hurting &mdash; and help them find the words &mdash; you turn a small skill into real care for another person. That is exactly what this week's Spanish is for.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 16.02 &mdash; The Verb <span class="es">doler</span> (to hurt)</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">If you can say <span class="es">me gusta</span> and <span class="es">me gustan</span>, you are one step from <span class="es">me duele</span> and <span class="es">me duelen</span>. Next lesson makes the whole pattern click.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 16.01 &middot; El cuerpo y la salud</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

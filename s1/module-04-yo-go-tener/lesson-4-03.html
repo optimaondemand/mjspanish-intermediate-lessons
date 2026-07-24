@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 4.03</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .flipgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .cardicon { font-size:34px; line-height:1; margin-bottom:6px; }
+  /* Native-audio vocab pattern */
+  .ml-audio { --ml-ink:#0E1C42; --ml-soft:#F3EDE3; --ml-muted:#6B7280; }
+  .ml-vocab { list-style:none; margin:0; padding:0; }
+  .ml-vocab li { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem .9rem; padding:.55rem .7rem; border-radius:6px; margin-bottom:.35rem; background:var(--ml-soft); }
+  .ml-vocab .word { font-weight:700; color:var(--ml-ink); min-width:9rem; }
+  .ml-vocab .gloss { color:var(--ml-muted); font-size:.9rem; flex:1 1 8rem; }
+  .ml-vocab audio { height:32px; width:210px; max-width:100%; }
+  .masc { color:var(--masc); }
+  .fem { color:var(--fem); }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 4</div>
+    <div style="font-size:12px; color:#666;">Verbos yo-go &amp; tener</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 4.03 &middot; Day 3 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Feelings &amp; age with tener</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Listen to each expression, try the flip cards, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 4.03 &middot; NEW WORDS, KNOWN VERB</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">In Spanish you don't <em>are</em> hungry &mdash; you <em>have</em> hunger</div>
+    <div style="font-size:16px; color:#666;">You already own <span class="es">tener</span> from yesterday. Today we just add the words that ride on it.</div>
+  </div>
+
+  <!-- FRAME -->
+  <div class="card">
+    <div class="kicker">&#128075; A DIFFERENT WAY TO SAY HOW YOU FEEL</div>
+    <p>Here is one of the most useful ideas in Spanish. Where English says <em>"I <strong>am</strong> hungry,"</em> Spanish says <span class="es">"<strong>Tengo</strong> hambre"</span> &mdash; literally <em>"I <strong>have</strong> hunger."</em> Many everyday feelings work this way: you <em>have</em> hunger, thirst, cold, heat, sleepiness, fear, or a hurry. Even your age works like this: you don't say you <em>are</em> thirteen &mdash; you say you <span class="es"><strong>have</strong></span> thirteen years.</p>
+    <p style="margin-bottom:0;">The verb is <span class="es">tener</span>, which you conjugated in full yesterday. So this is pure vocabulary day: no new grammar, just the words to plug in after <span class="es">tengo, tienes, tiene&hellip;</span></p>
+  </div>
+
+  <!-- VOCAB w/ audio -->
+  <div class="card ml-audio">
+    <div class="kicker">&#128266; LISTEN &amp; REPEAT &middot; EXPRESSIONS WITH TENER</div>
+    <p style="font-size:14px; color:#6B7280;">Each expression is <span class="es">tener</span> + a noun. The noun carries grammatical gender, so it's color-coded: <span class="masc" style="font-weight:700;">masculine = blue</span>, <span class="fem" style="font-weight:700;">feminine = red</span>. Press play and say each one aloud.</p>
+    <ul class="ml-vocab">
+      <li><span class="word">tener <span class="fem">hambre</span></span><span class="gloss">to be hungry (lit. to have hunger)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-hambre.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="fem">sed</span></span><span class="gloss">to be thirsty (lit. to have thirst)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-sed.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="masc">fr&iacute;o</span></span><span class="gloss">to be cold (lit. to have cold)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-frio.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="masc">calor</span></span><span class="gloss">to be hot (lit. to have heat)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-calor.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="masc">sue&ntilde;o</span></span><span class="gloss">to be sleepy (lit. to have sleepiness)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-sueno.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="masc">miedo</span></span><span class="gloss">to be afraid (lit. to have fear)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-miedo.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="fem">prisa</span></span><span class="gloss">to be in a hurry (lit. to have haste)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-prisa.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener <span class="fem">ganas</span> de&hellip;</span><span class="gloss">to feel like (doing something) + infinitive</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-ganas-de.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">tener &hellip; <span class="masc">a&ntilde;os</span></span><span class="gloss">to be &hellip; years old (lit. to have &hellip; years)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tener-anios.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; PLUG IN THE VERB YOU KNOW</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.7; margin:0;">Just conjugate <span class="es">tener</span> for the subject, then add the noun:<br>
+    <span class="es">Yo <b>tengo</b> hambre.</span> &mdash; I'm hungry. &nbsp;&middot;&nbsp; <span class="es">&iquest;T&uacute; <b>tienes</b> sue&ntilde;o?</span> &mdash; Are you sleepy? &nbsp;&middot;&nbsp; <span class="es">Ella <b>tiene</b> doce a&ntilde;os.</span> &mdash; She is twelve years old. &nbsp;&middot;&nbsp; <span class="es">Yo <b>tengo</b> ganas de <b>viajar</b>.</span> &mdash; I feel like traveling.</p>
+  </div>
+
+  <!-- FLIP CARDS -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; EXPRESSION &harr; MEANING</div>
+    <div class="widget-question">Say the meaning out loud, then tap to check. Do all eight.</div>
+    <div class="flipgrid">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F37D.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="fem">hambre</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be hungry</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F4A7.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="fem">sed</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be thirsty</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F976.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="masc">fr&iacute;o</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be cold</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F975.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="masc">calor</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be hot</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F634.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="masc">sue&ntilde;o</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be sleepy</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F628.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="masc">miedo</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be afraid</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F3C3.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">tener <span class="fem">prisa</span></span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to be in a hurry</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><span class="es" style="font-size:19px; color:#0E1C42;">tener ganas de&hellip;</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to feel like (doing something)</div>
+      </div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CULTURE MICRO-NOTE -->
+  <div class="card">
+    <div class="kicker">&#128172; A NOTE ON &ldquo;TENER &hellip; A&Ntilde;OS&rdquo;</div>
+    <p style="margin-bottom:0;">To ask someone's age, you ask how many years they <em>have</em>: <span class="es">&iquest;Cu&aacute;ntos a&ntilde;os tienes?</span> &mdash; literally <em>"How many years do you have?"</em> To answer, use <span class="es">tener</span> + your number + <span class="es">a&ntilde;os</span>: <span class="es">Tengo trece a&ntilde;os.</span> Don't use <span class="es">ser</span> or <span class="es">estar</span> for age &mdash; age always rides on <span class="es">tener</span>.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 4.04 &mdash; Me presento &amp; Spanish in Your World</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Read a student introduce himself using this week's verbs, and see why "having" a feeling shows up in Spanish spoken all over the US.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 4.03 &middot; Verbos yo-go &amp; tener</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

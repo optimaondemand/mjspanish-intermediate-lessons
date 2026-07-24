@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 13.03</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .flipgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .cardicon { font-size:34px; line-height:1; margin-bottom:6px; }
+  /* Native-audio vocab pattern */
+  .ml-audio { --ml-ink:#0E1C42; --ml-soft:#F3EDE3; --ml-muted:#6B7280; }
+  .ml-vocab { list-style:none; margin:0; padding:0; }
+  .ml-vocab li { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem .9rem; padding:.55rem .7rem; border-radius:6px; margin-bottom:.35rem; background:var(--ml-soft); }
+  .ml-vocab .word { font-weight:700; color:var(--ml-ink); min-width:9rem; }
+  .ml-vocab .gloss { color:var(--ml-muted); font-size:.9rem; flex:1 1 8rem; }
+  .ml-vocab audio { height:32px; width:210px; max-width:100%; }
+  .grp { font-size:12px; letter-spacing:.4px; color:#1B6A94; margin:16px 0 6px; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 13</div>
+    <div style="font-size:12px; color:#666;">La comida &mdash; food &amp; the table</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 13.03 &middot; Day 3 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">The food words</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Listen to each word, try the flip cards, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 13.03 &middot; NEW WORDS, KNOWN VERBS</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">The words that fill your plate</div>
+    <div style="font-size:16px; color:#666;">Meals, fruits, vegetables, and the restaurant &mdash; the whole table in one page.</div>
+  </div>
+
+  <!-- FRAME -->
+  <div class="card">
+    <div class="kicker">&#128075; HOW TO WORK THIS PAGE</div>
+    <p>These are the food words for the week. Each noun is a <strong>naming word</strong>, so it carries <strong>grammatical gender</strong> &mdash; watch the color: <span style="color:var(--masc); font-weight:700;">blue = masculine (el)</span>, <span style="color:var(--fem); font-weight:700;">red = feminine (la)</span>. Learning the color with the word saves you from guessing later.</p>
+    <p style="margin-bottom:0;">Press play on each word to hear a native voice, say it aloud, then use the flip cards to test yourself. The verbs to <em>use</em> these words are the ones from yesterday &mdash; nothing new there.</p>
+  </div>
+
+  <!-- VOCAB w/ audio -->
+  <div class="card ml-audio">
+    <div class="kicker">&#128266; LISTEN &amp; REPEAT &middot; LA COMIDA</div>
+
+    <div class="grp">LOS TRES TIEMPOS DE COMIDA &middot; the three meals</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--masc);">el desayuno</span><span class="gloss">breakfast (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/desayuno.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el almuerzo</span><span class="gloss">lunch (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/almuerzo.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--fem);">la cena</span><span class="gloss">dinner / supper (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/cena.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="grp">LAS FRUTAS &middot; fruits</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--fem);">la manzana</span><span class="gloss">apple (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/manzana.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--fem);">la naranja</span><span class="gloss">orange (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/naranja.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el pl&aacute;tano</span><span class="gloss">banana (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/platano.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="grp">LAS VERDURAS &middot; vegetables</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--fem);">la zanahoria</span><span class="gloss">carrot (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/zanahoria.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el tomate</span><span class="gloss">tomato (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/tomate.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="grp">EN EL RESTAURANTE &middot; at the restaurant</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--masc);">el men&uacute;</span><span class="gloss">menu (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/menu.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--fem);">la cuenta</span><span class="gloss">the bill / check (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/cuenta.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word"><span style="color:var(--masc);">el camarero</span> / <span style="color:var(--fem);">la camarera</span></span><span class="gloss">waiter (m.) / waitress (f.)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/camarero.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">pedir</span><span class="gloss">to order / to ask for (verb &mdash; no gender)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/pedir.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+  </div>
+
+  <!-- GENDER NOTE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; A GENDER TIP</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Most words ending in <strong>-a</strong> are feminine (<span class="es" style="color:var(--fem);">la manzana, la cena, la cuenta</span>) and most ending in <strong>-o</strong> are masculine (<span class="es" style="color:var(--masc);">el desayuno, el almuerzo</span>). But watch the sneaky ones: <span class="es" style="color:var(--masc);">el pl&aacute;tano</span>, <span class="es" style="color:var(--masc);">el tomate</span>, and <span class="es" style="color:var(--masc);">el men&uacute;</span> are all masculine. Learn the color with the word.</p>
+  </div>
+
+  <!-- FLIP CARDS w/ icons -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; PICTURE + WORD &harr; MEANING</div>
+    <div class="widget-question">Say the English meaning out loud, then tap to check. The Spanish word's color tells you its gender.</div>
+    <div class="flipgrid">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F373.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el desayuno</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">breakfast</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F96A.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el almuerzo</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">lunch</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F37D.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la cena</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">dinner / supper</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F34E.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la manzana</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">apple</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F34A.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la naranja</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">orange</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F34C.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el pl&aacute;tano</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">banana</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F955.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la zanahoria</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">carrot</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F345.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el tomate</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">tomato</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F4DC.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el men&uacute;</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">the menu</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F9FE.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la cuenta</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">the bill / check</div>
+      </div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- MICRO-APPLICATION -->
+  <div class="card">
+    <div class="kicker">&#128221; PUT THE WORDS TO WORK</div>
+    <p>Because the verbs are already yours, you can build real sentences right now:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><span class="es">Yo <b>quiero</b> una <span style="color:var(--fem);">manzana</span> para el <span style="color:var(--masc);">desayuno</span>.</span> &mdash; I want an apple for breakfast.</li>
+      <li><span class="es">Nosotros <b>pedimos</b> la <span style="color:var(--fem);">cena</span> y miramos el <span style="color:var(--masc);">men&uacute;</span>.</span> &mdash; We order dinner and look at the menu.</li>
+      <li><span class="es">&iquest;<b>Prefieres</b> el <span style="color:var(--masc);">tomate</span> o la <span style="color:var(--fem);">zanahoria</span>?</span> &mdash; Do you prefer tomato or carrot?</li>
+    </ul>
+    <p style="margin-bottom:0;">New words, familiar verbs &mdash; exactly the way this week is built.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 13.04 &mdash; In the Restaurant + Spanish in Your World</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Read a short scene at a table, then discover the everyday English food words that came from Spanish &mdash; and, before that, from Nahuatl.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 13.03 &middot; La comida</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

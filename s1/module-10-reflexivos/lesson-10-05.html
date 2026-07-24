@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 10.05</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .pro { color:#c7922c; font-weight:700; }
+  .selfcheck { border:1px solid #D0D9E8; border-radius:8px; margin-bottom:10px; overflow:hidden; }
+  .selfcheck summary { cursor:pointer; padding:12px 16px; font-size:16px; color:#0e1c42; background:#F4F6FA; list-style:none; }
+  .selfcheck summary::-webkit-details-marker { display:none; }
+  .selfcheck summary::before { content:"\25B6"; color:#55C8E8; margin-right:10px; font-size:12px; }
+  .selfcheck[open] summary::before { content:"\25BC"; }
+  .selfcheck .ans { padding:12px 16px; font-size:16px; color:#1a2340; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 10</div>
+    <div style="font-size:12px; color:#666;">Verbos reflexivos &mdash; the daily routine</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 10.05 &middot; Day 5 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Review &amp; self-check</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Work through the review, check yourself, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 10.05 &middot; PULL IT TOGETHER</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">You can narrate a whole day now</div>
+    <div style="font-size:16px; color:#666;">A quick review, an honest self-check, and then two things to finish the module.</div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="card">
+    <div class="kicker">&#128218; THE WEEK IN THREE MOVES</div>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><strong>The pronoun rule.</strong> A reflexive verb takes a pronoun <span class="es">me / te / se / nos / se</span>, placed <strong>right before the conjugated verb</strong>: <span class="es">Yo <b>me</b> levanto.</span></li>
+      <li><strong>Eight routine verbs.</strong> <span class="es">despertarse, levantarse, ducharse, lavarse, cepillarse, peinarse, vestirse, acostarse</span> &mdash; three are also &quot;boot&quot; verbs (<span class="es">me despierto, me visto, me acuesto</span>).</li>
+      <li><strong>Sequence words.</strong> <span class="es">primero / luego / despu&eacute;s</span> string single actions into a <em>series</em> &mdash; a real routine.</li>
+    </ul>
+  </div>
+
+  <!-- PARADIGM RECAP -->
+  <div class="card">
+    <div class="kicker">&#129513; ONE VERB, ALL FIVE FORMS &middot; levantarse</div>
+    <table class="conj">
+      <tr><th style="width:44%">Subject</th><th style="width:26%">Pronoun + verb</th><th style="width:30%">Meaning</th></tr>
+      <tr><td class="subj">yo</td><td><span class="pro">me</span> <span class="form">levanto</span></td><td>I get up</td></tr>
+      <tr><td class="subj">t&uacute;</td><td><span class="pro">te</span> <span class="form">levantas</span></td><td>you get up</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td><span class="pro">se</span> <span class="form">levanta</span></td><td>you / he / she gets up</td></tr>
+      <tr><td class="subj">nosotros / nosotras</td><td><span class="pro">nos</span> <span class="form">levantamos</span></td><td>we get up</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td><span class="pro">se</span> <span class="form">levantan</span></td><td>you all / they get up</td></tr>
+    </table>
+    <p style="margin-bottom:0;"><strong>Boot reminder:</strong> stem-changers change in every form <em>except</em> nosotros. So it's <span class="es">me acuesto</span> but <span class="es">nos acostamos</span>; <span class="es">me despierto</span> but <span class="es">nos despertamos</span>.</p>
+  </div>
+
+  <!-- SELF-CHECK ACCORDIONS -->
+  <div class="card">
+    <div class="kicker">&#10067; QUICK SELF-CHECK &middot; ANSWER, THEN OPEN</div>
+    <details class="selfcheck">
+      <summary>Where does the reflexive pronoun go?</summary>
+      <div class="ans"><strong>Right before the conjugated verb:</strong> <span class="es">Yo me ducho.</span> Never after it. (With <span class="es">ir a + infinitive</span> it may also attach to the end of the infinitive: <span class="es">Voy a ducharme.</span>)</div>
+    </details>
+    <details class="selfcheck">
+      <summary>What is the &quot;yo&quot; form of despertarse (e&rarr;ie)?</summary>
+      <div class="ans"><span class="es"><b>me despierto</b></span> &mdash; pronoun <span class="es">me</span> in front, and the boot change e&rarr;ie in the stem.</div>
+    </details>
+    <details class="selfcheck">
+      <summary>What is the &quot;nosotros&quot; form of acostarse (o&rarr;ue)?</summary>
+      <div class="ans"><span class="es"><b>nos acostamos</b></span> &mdash; pronoun <span class="es">nos</span>, and <strong>no</strong> stem change (boot verbs never change in the nosotros form).</div>
+    </details>
+  </div>
+
+  <!-- EVALUATIVE : mixed review (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; MIXED REVIEW &middot; PICK THE RIGHT FORM</div>
+    <div class="widget-question">Four sentences, all subjects, some boot verbs. Choose the form that matches &mdash; instant feedback on each.</div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; yo + despertarse (e&rarr;ie): me despierto." data-hint="Subject is yo. Pronoun me, and this boot verb changes e&rarr;ie in the yo form.">
+      <div class="widget-row-prompt">1. Yo ____ a las seis y media. (despertarse &mdash; I wake up at six thirty.)</div>
+      <div class="widget-options">
+        <button data-choice="0">me despierto</button>
+        <button data-choice="1">te despiertas</button>
+        <button data-choice="2">se despierta</button>
+        <button data-choice="3">nos despertamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; nosotros + acostarse: nos acostamos. The nosotros form keeps the stem (no o&rarr;ue here)." data-hint="Subject is nosotros. Pronoun nos &mdash; and boot verbs do NOT change the stem in nosotros.">
+      <div class="widget-row-prompt">2. Nosotros ____ tarde los viernes. (acostarse &mdash; We go to bed late on Fridays.)</div>
+      <div class="widget-options">
+        <button data-choice="0">se acuestan</button>
+        <button data-choice="1">nos acostamos</button>
+        <button data-choice="2">me acuesto</button>
+        <button data-choice="3">se acuesta</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Correct &mdash; ella + vestirse (e&rarr;i): se viste." data-hint="Mar&iacute;a = ella. Pronoun se, and this boot verb changes e&rarr;i: viste.">
+      <div class="widget-row-prompt">3. Mar&iacute;a ____ r&aacute;pido. (vestirse &mdash; Mar&iacute;a gets dressed quickly.)</div>
+      <div class="widget-options">
+        <button data-choice="0">me visto</button>
+        <button data-choice="1">te vistes</button>
+        <button data-choice="2">se viste</button>
+        <button data-choice="3">se visten</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Yes &mdash; t&uacute; + peinarse: te peinas." data-hint="Subject is t&uacute;. Pronoun te, ending -as: te peinas.">
+      <div class="widget-row-prompt">4. &iquest;T&uacute; ____ antes de la escuela? (peinarse &mdash; Do you comb your hair before school?)</div>
+      <div class="widget-options">
+        <button data-choice="0">se peina</button>
+        <button data-choice="1">me peino</button>
+        <button data-choice="2">se peinan</button>
+        <button data-choice="3">te peinas</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CONFIDENCE CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">How ready do you feel to describe your own routine out loud?</div>
+    <div class="widget-options">
+      <button data-response="Great &mdash; the &lsquo;Mi rutina diaria&rsquo; recording is your chance to show it. Jot 5&ndash;6 sentences with primero / luego / despu&eacute;s and you're set.">&#128170; Ready to record</button>
+      <button data-response="Totally fine &mdash; run the flip cards in 10.03 and read Ana's routine in 10.04 out loud once more. Reading and hearing together makes it stick.">&#129300; Close &mdash; need one more pass</button>
+      <button data-response="No rush. The Module 10 check has unlimited attempts, and you can plan your recording from notes. Re-read 10.02 for the pronoun rule and try the drill again.">&#128564; Still shaky on the forms</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CTA : QUICK CHECK -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#9989; NOW &middot; TAKE THE MODULE 10 CHECK</div>
+    <p style="margin-top:0;">When the review feels solid, open the <strong>Module 10 Check</strong> in Canvas. It's about ten quick questions on the reflexive pronouns, your routine verbs, and the sequence words.</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8; margin-bottom:0;">
+      <li><strong>Unlimited attempts</strong> &mdash; take it as many times as you need.</li>
+      <li><strong>70% to pass</strong> the gate and move on to Module 11.</li>
+      <li>You'll see the correct answer and a short explanation after each try.</li>
+    </ul>
+  </div>
+
+  <!-- CTA : PRODUCTION -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#127908; THE MODULE 10 MAJOR &middot; &ldquo;MI RUTINA DIARIA&rdquo;</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">This week's project is a short recording: describe <strong>your own daily routine</strong> as a series of sentences (about 45&ndash;75 seconds), using reflexive verbs and <span class="es">primero / luego / despu&eacute;s</span>. You may write notes first and read from them. See the assignment in Canvas for the prompt and the 4-point rubric &mdash; and use Ana's routine in Lesson 10.04 as your model.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT'S NEXT &middot; MODULE 11</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">11</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Module 11 &mdash; Los pronombres de objeto directo</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">You just learned a pronoun that goes before the verb. Next module adds another kind &mdash; direct-object pronouns (<span class="es">lo, la, los, las</span>) &mdash; so you can say &quot;I see <em>it</em>&quot; instead of repeating the whole thing. Same idea, one step further.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 10.05 &middot; Verbos reflexivos</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 3.04</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .glosstable { width:100%; border-collapse:collapse; margin:10px 0; font-size:16px; }
+  .glosstable td { border:1px solid #D0D9E8; padding:8px 12px; }
+  .glosstable tr:nth-child(even) td { background:#F4F6FA; }
+  .glosstable .sp { font-style:italic; color:#0e1c42; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 3</div>
+    <div style="font-size:12px; color:#666;">Verbos -ER / -IR &mdash; the other two families</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 3.04 &middot; Day 4 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">-ER / -IR verbs in use + cognates</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read the paragraph, try the check, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 3.04 &middot; SEE THE PATTERN AT WORK</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">A real day, in -ER and -IR verbs</div>
+    <div style="font-size:16px; color:#666;">Read a short paragraph you can actually understand, then meet the Spanish verbs hiding inside English.</div>
+  </div>
+
+  <!-- READING -->
+  <div class="card">
+    <div class="kicker">&#128214; READ &middot; EL D&Iacute;A DE MARCOS</div>
+    <p style="margin-bottom:12px;">Every verb below is a regular <strong>-ER</strong> or <strong>-IR</strong> verb in the present tense. Read it once for the gist, then again slowly. <strong>Press &#9654;</strong> to hear each sentence and read along.</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Marcos <b>vive</b> en Texas con su familia.</span> &mdash; Marcos lives in Texas with his family.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Por la ma&ntilde;ana, &eacute;l <b>come</b> el desayuno y <b>bebe</b> leche.</span> &mdash; In the morning, he eats breakfast and drinks milk.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">En la escuela, Marcos y sus amigos <b>leen</b> y <b>aprenden</b> mucho.</span> &mdash; At school, Marcos and his friends read and learn a lot.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Marcos <b>comprende</b> bien la lecci&oacute;n y <b>escribe</b> en su cuaderno.</span> &mdash; Marcos understands the lesson well and writes in his notebook.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Por la tarde, &eacute;l <b>recibe</b> un mensaje y <b>decide</b> practicar el piano.</span> &mdash; In the afternoon, he receives a message and decides to practice the piano.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-04-6.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">En casa, Marcos <b>abre</b> su libro y estudia espa&ntilde;ol.</span> &mdash; At home, Marcos opens his book and studies Spanish.</span>
+    </div>
+    <div style="margin-top:14px;">
+      <div style="font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:8px;">WORD HELP</div>
+      <table class="glosstable">
+        <tr><td class="sp">el desayuno</td><td>breakfast</td><td class="sp">la leche</td><td>milk</td></tr>
+        <tr><td class="sp">el cuaderno</td><td>notebook</td><td class="sp">un mensaje</td><td>a message</td></tr>
+      </table>
+    </div>
+    <p style="margin:12px 0 0 0; font-size:15px; color:#6b7a99;">Notice how <span class="es">vive</span>, <span class="es">come</span>, <span class="es">bebe</span>, <span class="es">comprende</span>, <span class="es">escribe</span>, <span class="es">recibe</span>, and <span class="es">abre</span> all use the <span class="es">-e</span> ending (he = one person), while <span class="es">leen</span> and <span class="es">aprenden</span> use <span class="es">-en</span> (Marcos <em>and</em> his friends = they). The endings do the work of showing <em>who</em>.</p>
+  </div>
+
+  <!-- CULTURE LINK -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#127760; SPANISH IN YOUR WORLD &middot; COGNATE VERBS</div>
+    <p>Here's a gift English and Spanish share: <strong>cognate verbs</strong> &mdash; verbs that look alike and mean the same thing in both languages, because both inherited them from Latin. Several of this week's <span class="es">-ER</span>/<span class="es">-IR</span> verbs hide inside English words you already use:</p>
+    <table class="glosstable">
+      <tr><td class="sp">comprender</td><td>&rarr; <b>comprehend</b> (to understand)</td></tr>
+      <tr><td class="sp">decidir</td><td>&rarr; <b>decide</b></td></tr>
+      <tr><td class="sp">recibir</td><td>&rarr; <b>receive</b> (think of a <em>recipe</em> or a <em>receipt</em>)</td></tr>
+      <tr><td class="sp">describir</td><td>&rarr; <b>describe</b> (a cousin of <span class="es">escribir</span>, "to write")</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Once you see the pattern, dozens of Spanish verbs stop looking foreign. When you meet an <span class="es">-ER</span> or <span class="es">-IR</span> verb that echoes an English word &mdash; and it usually does &mdash; guess boldly. The check below mixes a couple of reading questions with these cognate links.</p>
+  </div>
+
+  <!-- EVALUATIVE : comprehension + culture (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; READING + COGNATE CHECK</div>
+    <div class="widget-question">A few questions about Marcos's day and the cognate verbs. Pick one per row for instant feedback &mdash; read the options carefully, the order changes.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; the reading says 'Marcos vive en Texas.' vivir = to live." data-hint="Look at the first sentence: Marcos vive en ____.">
+      <div class="widget-row-prompt">1. Where does Marcos live?</div>
+      <div class="widget-options">
+        <button data-choice="0">Florida</button>
+        <button data-choice="1">Texas</button>
+        <button data-choice="2">California</button>
+        <button data-choice="3">Arizona</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; 'bebe leche' means he drinks milk. beber = to drink, la leche = milk." data-hint="Sentence 2: &eacute;l come el desayuno y bebe ____.">
+      <div class="widget-row-prompt">2. What does Marcos drink in the morning?</div>
+      <div class="widget-options">
+        <button data-choice="0">coffee</button>
+        <button data-choice="1">water</button>
+        <button data-choice="2">milk</button>
+        <button data-choice="3">juice</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; comprender is the cognate of 'comprehend,' and both mean 'to understand.'" data-hint="Say comprender slowly &mdash; which English word does it echo?">
+      <div class="widget-row-prompt">3. The verb <span class="es">comprender</span> is a cognate of which English word?</div>
+      <div class="widget-options">
+        <button data-choice="0">compare</button>
+        <button data-choice="1">complete</button>
+        <button data-choice="2">compress</button>
+        <button data-choice="3">comprehend</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; recibir means 'to receive.' Think of a receipt you receive at a store." data-hint="recibir hides in an English word about getting something &mdash; a re____.">
+      <div class="widget-row-prompt">4. What does <span class="es">recibir</span> mean?</div>
+      <div class="widget-options">
+        <button data-choice="0">to receive</button>
+        <button data-choice="1">to recycle</button>
+        <button data-choice="2">to remember</button>
+        <button data-choice="3">to return</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; decidir is the cognate of 'decide.' In the reading, Marcos decide practicar el piano." data-hint="decidir looks almost exactly like its English twin.">
+      <div class="widget-row-prompt">5. In the afternoon, Marcos <span class="es">decide</span> to&hellip; <span style="color:#6b7a99;">(decidir = ?)</span></div>
+      <div class="widget-options">
+        <button data-choice="0">describe the piano</button>
+        <button data-choice="1">receive a piano</button>
+        <button data-choice="2">decide to practice the piano</button>
+        <button data-choice="3">read about the piano</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; THE STRATEGY</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">You just read a whole paragraph of Spanish and understood it &mdash; because you know the <span class="es">-ER</span>/<span class="es">-IR</span> endings <em>and</em> because cognates handed you half the vocabulary for free. Reading and hearing a sentence together (that's what the &#9654; buttons are for) is one of the fastest ways to make new verbs stick.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 3.05 &mdash; Review &amp; Self-Check</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Pull the whole week together &mdash; both patterns, the verbs, the cognates &mdash; then take the short Module 3 check.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 3.04 &middot; Verbos -ER / -IR</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 3.03</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .flipgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .cardicon { font-size:34px; line-height:1; margin-bottom:6px; }
+  .cog-tag { display:inline-block; background:#e9f5ec; border:1px solid #bfe0c7; color:#1A6B3D; border-radius:4px; padding:1px 7px; font-size:11px; font-style:normal; margin-left:6px; vertical-align:middle; }
+  .fam-tag { display:inline-block; border-radius:4px; padding:1px 7px; font-size:11px; font-style:normal; margin-left:6px; vertical-align:middle; }
+  .fam-er { background:#eef4f8; border:1px solid #bcd7e6; color:#1B6A94; }
+  .fam-ir { background:#f3eef8; border:1px solid #d3c2e6; color:#6a3aa0; }
+  /* Native-audio vocab pattern */
+  .ml-audio { --ml-ink:#0E1C42; --ml-soft:#F3EDE3; --ml-muted:#6B7280; }
+  .ml-vocab { list-style:none; margin:0; padding:0; }
+  .ml-vocab li { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem .9rem; padding:.55rem .7rem; border-radius:6px; margin-bottom:.35rem; background:var(--ml-soft); }
+  .ml-vocab .word { font-weight:700; color:var(--ml-ink); min-width:9rem; }
+  .ml-vocab .gloss { color:var(--ml-muted); font-size:.9rem; flex:1 1 8rem; }
+  .ml-vocab audio { height:32px; width:210px; max-width:100%; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 3</div>
+    <div style="font-size:12px; color:#666;">Verbos -ER / -IR &mdash; the other two families</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 3.03 &middot; Day 3 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Ten everyday -ER and -IR verbs</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Listen to each word, try the flip cards, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 3.03 &middot; NEW WORDS, KNOWN PATTERN</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Ten -ER / -IR verbs to make your own</div>
+    <div style="font-size:16px; color:#666;">You already own the endings from yesterday &mdash; today we just load in the words that ride on them.</div>
+  </div>
+
+  <!-- FRAME -->
+  <div class="card">
+    <div class="kicker">&#128075; WHY THIS IS THE EASY DAY</div>
+    <p>Yesterday you learned the <strong>-ER</strong> and <strong>-IR</strong> engines. Today is pure vocabulary &mdash; ten common verbs that all follow those engines. Once you know a verb ends in <span class="es">-er</span> or <span class="es">-ir</span>, you already know how to say <em>I</em> ___, <em>you</em> ___, <em>we</em> ___. Each word is tagged with its family so you know which "we" ending to use: <span class="fam-tag fam-er">-ER</span> takes <span class="es">-emos</span>, <span class="fam-tag fam-ir">-IR</span> takes <span class="es">-imos</span>.</p>
+    <p style="margin-bottom:0;">A few are <strong>near-cognates</strong> &mdash; they look like their English meanings. Those are marked <span class="cog-tag">cognate</span> so you can lean on words you half-know already.</p>
+  </div>
+
+  <!-- VOCAB w/ audio : -ER -->
+  <div class="card ml-audio">
+    <div class="kicker">&#128266; LISTEN &amp; REPEAT &middot; FIVE -ER VERBS</div>
+    <p style="font-size:14px; color:#6B7280;">These are <strong>infinitives</strong> (the "to ___" form). Verbs don't carry gender, so there's no color-coding here &mdash; press play and say each one aloud. All five take the <span class="es">-emos</span> "we" ending.</p>
+    <ul class="ml-vocab">
+      <li><span class="word">comer <span class="fam-tag fam-er">-ER</span></span><span class="gloss">to eat</span>
+        <audio controls preload="none"><source src="../../audio/vocab/comer.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">beber <span class="fam-tag fam-er">-ER</span></span><span class="gloss">to drink</span>
+        <audio controls preload="none"><source src="../../audio/vocab/beber.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">leer <span class="fam-tag fam-er">-ER</span></span><span class="gloss">to read</span>
+        <audio controls preload="none"><source src="../../audio/vocab/leer.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">aprender <span class="fam-tag fam-er">-ER</span></span><span class="gloss">to learn</span>
+        <audio controls preload="none"><source src="../../audio/vocab/aprender.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">comprender <span class="fam-tag fam-er">-ER</span> <span class="cog-tag">cognate &middot; comprehend</span></span><span class="gloss">to understand</span>
+        <audio controls preload="none"><source src="../../audio/vocab/comprender.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+  </div>
+
+  <!-- VOCAB w/ audio : -IR -->
+  <div class="card ml-audio">
+    <div class="kicker">&#128266; LISTEN &amp; REPEAT &middot; FIVE -IR VERBS</div>
+    <p style="font-size:14px; color:#6B7280;">Same idea, different family &mdash; these five take the <span class="es">-imos</span> "we" ending. Everything else matches the <span class="es">-ER</span> set.</p>
+    <ul class="ml-vocab">
+      <li><span class="word">vivir <span class="fam-tag fam-ir">-IR</span></span><span class="gloss">to live</span>
+        <audio controls preload="none"><source src="../../audio/vocab/vivir.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">escribir <span class="fam-tag fam-ir">-IR</span></span><span class="gloss">to write</span>
+        <audio controls preload="none"><source src="../../audio/vocab/escribir.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">recibir <span class="fam-tag fam-ir">-IR</span> <span class="cog-tag">cognate &middot; receive</span></span><span class="gloss">to receive</span>
+        <audio controls preload="none"><source src="../../audio/vocab/recibir.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">abrir <span class="fam-tag fam-ir">-IR</span></span><span class="gloss">to open</span>
+        <audio controls preload="none"><source src="../../audio/vocab/abrir.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">decidir <span class="fam-tag fam-ir">-IR</span> <span class="cog-tag">cognate &middot; decide</span></span><span class="gloss">to decide</span>
+        <audio controls preload="none"><source src="../../audio/vocab/decidir.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+  </div>
+
+  <!-- COGNATE NOTE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; SPOT THE COGNATES</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;"><span class="es">comprender</span> &rarr; <strong>comprehend</strong>, <span class="es">decidir</span> &rarr; <strong>decide</strong>, <span class="es">recibir</span> &rarr; <strong>receive</strong>. When you hear a Spanish verb that sounds like an English one and means the same thing, that's a <em>cognate</em> &mdash; free vocabulary. Tomorrow's reading is full of them.</p>
+  </div>
+
+  <!-- FLIP CARDS -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; INFINITIVE &harr; MEANING</div>
+    <div class="widget-question">Say the meaning out loud, then tap to check. Work through all ten.</div>
+    <div class="flipgrid">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F37D.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">comer</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to eat</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F964.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">beber</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to drink</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F4D6.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">leer</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to read</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/270D.svg" alt="" style="width:40px;height:40px;" /></div><span class="es" style="font-size:19px; color:#0E1C42;">escribir</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to write</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;"><span class="es">aprender</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to learn</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;">to understand</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="es">comprender</span></div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;"><span class="es">vivir</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to live</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;">to receive</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="es">recibir</span></div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;"><span class="es">abrir</span></div>
+        <div class="ow-flip-back" style="font-size:17px;">to open</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front" style="font-size:19px; color:#0E1C42;">to decide</div>
+        <div class="ow-flip-back" style="font-size:17px;"><span class="es">decidir</span></div>
+      </div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- MICRO-APPLICATION -->
+  <div class="card">
+    <div class="kicker">&#128221; PUT ONE TO WORK</div>
+    <p>Because these ride on yesterday's pattern, you can already build sentences with them:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><span class="es">Yo <b>bebo</b> agua.</span> &mdash; I drink water. <span style="color:#6b7a99;">(-ER: beb- + o)</span></li>
+      <li><span class="es">T&uacute; <b>escribes</b> un mensaje.</span> &mdash; You write a message. <span style="color:#6b7a99;">(-IR: escrib- + es)</span></li>
+      <li><span class="es">Nosotros <b>aprendemos</b> espa&ntilde;ol.</span> &mdash; We learn Spanish. <span style="color:#6b7a99;">(-ER: -emos)</span></li>
+      <li><span class="es">Nosotros <b>vivimos</b> en la ciudad.</span> &mdash; We live in the city. <span style="color:#6b7a99;">(-IR: -imos)</span></li>
+    </ul>
+    <p style="margin-bottom:0;">Same three steps as always: drop the ending, add the ending for the subject &mdash; and remember the <span class="es">-emos</span> / <span class="es">-imos</span> fork at "we".</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 3.04 &mdash; -ER / -IR Verbs in Action</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Read a short paragraph about a real day, then discover the Spanish verbs hiding inside English words you already use.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 3.03 &middot; Verbos -ER / -IR</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

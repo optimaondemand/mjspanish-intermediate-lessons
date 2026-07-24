@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 10.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .pro { color:#c7922c; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 10</div>
+    <div style="font-size:12px; color:#666;">Verbos reflexivos &mdash; the daily routine</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 10.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Reflexive pronouns &amp; where they go</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 10.02 &middot; THE PATTERN</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">One little word, right before the verb</div>
+    <div style="font-size:16px; color:#666;">You already conjugate verbs. A reflexive verb adds just one extra word &mdash; and it always sits in the same place.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">A reflexive verb is a normal verb plus a <em>reflexive pronoun</em> that means &quot;to/for myself.&quot; The pronoun goes right <em>before</em> the conjugated verb.</div>
+    <p>An infinitive like <span class="es">levantar<b>se</b></span> carries a little <span class="es">-se</span> on the end &mdash; that tag tells you the action loops back on the person doing it (to get <em>oneself</em> up). To use it, you do two things you already know how to do, plus one new one: pick the matching <strong>reflexive pronoun</strong>, put it <strong>before</strong> the verb, then conjugate the verb the normal way.</p>
+  </div>
+
+  <!-- THE PRONOUNS -->
+  <div class="card">
+    <div class="kicker">&#128221; THE FIVE REFLEXIVE PRONOUNS</div>
+    <table class="conj">
+      <tr><th style="width:44%">Subject (who)</th><th style="width:26%">Pronoun</th><th style="width:30%">Means</th></tr>
+      <tr><td class="subj">yo (I)</td><td class="pro">me</td><td>myself</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td class="pro">te</td><td>yourself</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td class="pro">se</td><td>yourself / himself / herself</td></tr>
+      <tr><td class="subj">nosotros / nosotras (we)</td><td class="pro">nos</td><td>ourselves</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td class="pro">se</td><td>yourselves / themselves</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Five pronouns: <span class="es"><b>me / te / se / nos / se</b></span>. Notice the &quot;you all / they&quot; row uses <strong>se</strong> and <strong>nos</strong> for &quot;we&quot; &mdash; the Latin-American set we use all year. (There is no separate <em>-&aacute;is</em>-style form in this course.)</p>
+  </div>
+
+  <!-- THE PARADIGM -->
+  <div class="card">
+    <div class="kicker">&#129513; PUT IT TOGETHER &middot; levantarse (to get up)</div>
+    <p>Conjugate <span class="es">levantar</span> exactly like any regular <span class="es">-AR</span> verb, then set the matching pronoun <strong>in front</strong>:</p>
+    <table class="conj">
+      <tr><th style="width:44%">Subject</th><th style="width:26%">Pronoun + verb</th><th style="width:30%">Meaning</th></tr>
+      <tr><td class="subj">yo</td><td><span class="pro">me</span> <span class="form">levanto</span></td><td>I get (myself) up</td></tr>
+      <tr><td class="subj">t&uacute;</td><td><span class="pro">te</span> <span class="form">levantas</span></td><td>you get up</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td><span class="pro">se</span> <span class="form">levanta</span></td><td>you / he / she gets up</td></tr>
+      <tr><td class="subj">nosotros / nosotras</td><td><span class="pro">nos</span> <span class="form">levantamos</span></td><td>we get up</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td><span class="pro">se</span> <span class="form">levantan</span></td><td>you all / they get up</td></tr>
+    </table>
+    <p style="margin-bottom:0;">The verb endings are the same <span class="es">-o / -as / -a / -amos / -an</span> you already know. The <em>only</em> new move is the pronoun in front &mdash; and it must match the subject.</p>
+  </div>
+
+  <!-- PLACEMENT RULE -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128205; THE PLACEMENT RULE</div>
+    <div class="stemline">
+      <span class="stemchip"><b>me</b> (pronoun)</span>
+      <span class="stemarrow">+</span>
+      <span class="stemchip"><b>levanto</b> (verb)</span>
+      <span class="stemarrow">=</span>
+      <span class="stemchip">Yo <b>me levanto</b></span>
+    </div>
+    <p style="margin-bottom:0;">The reflexive pronoun goes <strong>right before the conjugated verb</strong>: <span class="es">Yo <b>me</b> levanto.</span> Not <span style="color:#8A1F16;">&ldquo;Yo levanto me.&rdquo;</span> Say the pronoun first, then the verb &mdash; every time.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Same routine verbs, every subject. <strong>Press &#9654; to hear each sentence</strong> and say it back &mdash; listen for the little pronoun in front:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>me levanto</b> a las siete.</span> &mdash; I get up at seven.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">T&uacute; <b>te lavas</b> las manos.</span> &mdash; You wash your hands.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ella <b>se ducha</b> por la ma&ntilde;ana.</span> &mdash; She showers in the morning.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>nos cepillamos</b> los dientes.</span> &mdash; We brush our teeth.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s10-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ellos <b>se peinan</b>.</span> &mdash; They comb their hair.</span>
+    </div>
+    <p style="margin-bottom:0;">Small thing worth noticing: with body parts, Spanish says <span class="es">las manos</span> / <span class="es">los dientes</span> (&quot;the hands / the teeth&quot;), not &quot;my.&quot; The reflexive pronoun already tells you whose they are.</p>
+  </div>
+
+  <!-- EVALUATIVE : conjugation drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; CONJUGATION DRILL</div>
+    <div class="widget-question">Pick the form that matches the subject &mdash; the right pronoun <em>and</em> the right ending. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; yo takes me + levanto: Yo me levanto." data-hint="The subject is yo (I). Which pronoun means &lsquo;myself&rsquo;? And the yo ending is -o.">
+      <div class="widget-row-prompt">1. Yo ____ a las seis. (levantarse &mdash; I get up at six.)</div>
+      <div class="widget-options">
+        <button data-choice="0">me levanto</button>
+        <button data-choice="1">te levantas</button>
+        <button data-choice="2">se levanta</button>
+        <button data-choice="3">nos levantamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; ella takes se + lava: Mar&iacute;a se lava la cara." data-hint="Mar&iacute;a = ella. The &eacute;l/ella/usted pronoun is se, and the ending is -a.">
+      <div class="widget-row-prompt">2. Mar&iacute;a ____ la cara. (lavarse &mdash; Mar&iacute;a washes her face.)</div>
+      <div class="widget-options">
+        <button data-choice="0">me lavo</button>
+        <button data-choice="1">te lavas</button>
+        <button data-choice="2">se lava</button>
+        <button data-choice="3">se lavan</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; nosotros takes nos + levantamos: Nosotros nos levantamos temprano." data-hint="The subject is nosotros (we). The &lsquo;we&rsquo; pronoun is nos and the ending is -amos.">
+      <div class="widget-row-prompt">3. Nosotros ____ temprano. (levantarse &mdash; We get up early.)</div>
+      <div class="widget-options">
+        <button data-choice="0">se levanta</button>
+        <button data-choice="1">me levanto</button>
+        <button data-choice="2">te levantas</button>
+        <button data-choice="3">nos levantamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; t&uacute; takes te + duchas: &iquest;T&uacute; te duchas por la ma&ntilde;ana?" data-hint="The subject is t&uacute; (you, friendly). The t&uacute; pronoun is te and the ending is -as.">
+      <div class="widget-row-prompt">4. &iquest;T&uacute; ____ por la ma&ntilde;ana? (ducharse &mdash; Do you shower in the morning?)</div>
+      <div class="widget-options">
+        <button data-choice="0">me ducho</button>
+        <button data-choice="1">te duchas</button>
+        <button data-choice="2">se ducha</button>
+        <button data-choice="3">se duchan</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; ellos (a group) takes se + cepillan: Los ni&ntilde;os se cepillan los dientes." data-hint="Los ni&ntilde;os = ellos. A group that isn't &lsquo;we&rsquo; uses se, and the ending is -an.">
+      <div class="widget-row-prompt">5. Los ni&ntilde;os ____ los dientes. (cepillarse &mdash; The children brush their teeth.)</div>
+      <div class="widget-options">
+        <button data-choice="0">se cepillan</button>
+        <button data-choice="1">nos cepillamos</button>
+        <button data-choice="2">te cepillas</button>
+        <button data-choice="3">se cepilla</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- FLIP : infinitive -> yo form -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; INFINITIVE &rarr; &quot;YO&quot; FORM</div>
+    <div class="widget-question">Predict the &quot;yo&quot; (I) form, then tap the card to check.</div>
+    <div class="ow-flip" tabindex="0">
+      <div class="ow-flip-front" style="font-size:20px; color:#0E1C42;"><span class="es">lavarse</span> &mdash; to wash oneself &nbsp;&middot;&nbsp; What is the <em>yo</em> form?</div>
+      <div class="ow-flip-back" style="font-size:18px; line-height:1.6;"><span class="es"><b>me lavo</b></span> &mdash; I wash myself. &nbsp;Pronoun <span class="es"><b>me</b></span> in front &rarr; verb <span class="es">lavo</span>.</div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- LOOK AHEAD NOTE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; ONE HEADS-UP FOR TOMORROW</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">A few routine verbs are also &quot;boot&quot; stem-changers you already know &mdash; <span class="es">despertarse</span> (e&rarr;ie: <span class="es">me despierto</span>), <span class="es">acostarse</span> (o&rarr;ue: <span class="es">me acuesto</span>), <span class="es">vestirse</span> (e&rarr;i: <span class="es">me visto</span>). The pronoun rule doesn't change one bit &mdash; you just add the stem change you already do. We'll meet them all in Lesson 10.03.</p>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">A reflexive verb = <strong>reflexive pronoun</strong> (<span class="es">me / te / se / nos / se</span>) <strong>+ the verb conjugated as usual</strong>, with the pronoun <strong>right before the verb</strong>. Match the pronoun to the subject and you're done: <span class="es">Yo me levanto, t&uacute; te levantas, ella se levanta.</span></p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 10.03 &mdash; Your Routine Verbs</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Eight everyday routine verbs with native audio and flip cards &mdash; including the three that are also &quot;boot&quot; verbs.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 10.02 &middot; Verbos reflexivos</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

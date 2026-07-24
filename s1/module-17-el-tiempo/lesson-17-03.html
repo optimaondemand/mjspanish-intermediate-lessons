@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 17.03</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .flipgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .cardicon { font-size:34px; line-height:1; margin-bottom:6px; }
+  /* Native-audio vocab pattern */
+  .ml-audio { --ml-ink:#0E1C42; --ml-soft:#F3EDE3; --ml-muted:#6B7280; }
+  .ml-vocab { list-style:none; margin:0; padding:0; }
+  .ml-vocab li { display:flex; align-items:center; flex-wrap:wrap; gap:.5rem .9rem; padding:.55rem .7rem; border-radius:6px; margin-bottom:.35rem; background:var(--ml-soft); }
+  .ml-vocab .word { font-weight:700; color:var(--ml-ink); min-width:9rem; }
+  .ml-vocab .gloss { color:var(--ml-muted); font-size:.9rem; flex:1 1 8rem; }
+  .ml-vocab audio { height:32px; width:210px; max-width:100%; }
+  .grp { font-size:12px; letter-spacing:.4px; color:#1B6A94; margin:16px 0 6px; font-weight:700; }
+  .monthgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.35rem .9rem; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 17</div>
+    <div style="font-size:12px; color:#666;">El tiempo &mdash; weather &amp; seasons</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 17.03 &middot; Day 3 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Weather, seasons &amp; months</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Listen to each word, try the flip cards, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 17.03 &middot; NEW WORDS, KNOWN PATTERNS</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">The words for the sky, the seasons &amp; the calendar</div>
+    <div style="font-size:16px; color:#666;">Yesterday you learned the three tools. Today we load in the words that ride on them.</div>
+  </div>
+
+  <!-- FRAME -->
+  <div class="card">
+    <div class="kicker">&#128075; HOW TO WORK THIS PAGE</div>
+    <p>These are the weather words, the four seasons, and the twelve months. The weather nouns and season names are <strong>naming words</strong>, so they carry <strong>grammatical gender</strong> &mdash; watch the color: <span style="color:var(--masc); font-weight:700;">blue = masculine (el)</span>, <span style="color:var(--fem); font-weight:700;">red = feminine (la)</span>.</p>
+    <p style="margin-bottom:0;">Press play on each word to hear a native voice, say it aloud, then use the flip cards to test yourself. The patterns to <em>use</em> these words are the three tools from yesterday &mdash; nothing new there.</p>
+  </div>
+
+  <!-- VOCAB w/ audio -->
+  <div class="card ml-audio">
+    <div class="kicker">&#128266; LISTEN &amp; REPEAT &middot; EL TIEMPO, LAS ESTACIONES &amp; LOS MESES</div>
+
+    <div class="grp">EL TIEMPO &middot; the weather words</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--masc);">el sol</span><span class="gloss">sun (masculine) &middot; hace sol</span>
+        <audio controls preload="none"><source src="../../audio/vocab/sol.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el calor</span><span class="gloss">heat (masculine) &middot; hace calor = it's hot</span>
+        <audio controls preload="none"><source src="../../audio/vocab/calor.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el fr&iacute;o</span><span class="gloss">cold (masculine) &middot; hace fr&iacute;o = it's cold</span>
+        <audio controls preload="none"><source src="../../audio/vocab/frio.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el viento</span><span class="gloss">wind (masculine) &middot; hace viento = it's windy</span>
+        <audio controls preload="none"><source src="../../audio/vocab/viento.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">fresco</span><span class="gloss">cool &middot; hace fresco = it's cool</span>
+        <audio controls preload="none"><source src="../../audio/vocab/fresco.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">nublado</span><span class="gloss">cloudy &middot; est&aacute; nublado</span>
+        <audio controls preload="none"><source src="../../audio/vocab/nublado.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">despejado</span><span class="gloss">clear &middot; est&aacute; despejado</span>
+        <audio controls preload="none"><source src="../../audio/vocab/despejado.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">llueve</span><span class="gloss">it rains / it's raining (from llover)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/llueve.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">nieva</span><span class="gloss">it snows / it's snowing (from nevar)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/nieva.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="grp">LAS ESTACIONES &middot; the seasons</div>
+    <ul class="ml-vocab">
+      <li><span class="word" style="color:var(--fem);">la primavera</span><span class="gloss">spring (feminine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/primavera.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el verano</span><span class="gloss">summer (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/verano.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el oto&ntilde;o</span><span class="gloss">fall / autumn (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/otono.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word" style="color:var(--masc);">el invierno</span><span class="gloss">winter (masculine)</span>
+        <audio controls preload="none"><source src="../../audio/vocab/invierno.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+
+    <div class="grp">LOS MESES &middot; the months (always lowercase in Spanish)</div>
+    <ul class="ml-vocab">
+      <li><span class="word">enero</span><span class="gloss">January</span>
+        <audio controls preload="none"><source src="../../audio/vocab/enero.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">febrero</span><span class="gloss">February</span>
+        <audio controls preload="none"><source src="../../audio/vocab/febrero.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">marzo</span><span class="gloss">March</span>
+        <audio controls preload="none"><source src="../../audio/vocab/marzo.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">abril</span><span class="gloss">April</span>
+        <audio controls preload="none"><source src="../../audio/vocab/abril.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">mayo</span><span class="gloss">May</span>
+        <audio controls preload="none"><source src="../../audio/vocab/mayo.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">junio</span><span class="gloss">June</span>
+        <audio controls preload="none"><source src="../../audio/vocab/junio.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">julio</span><span class="gloss">July</span>
+        <audio controls preload="none"><source src="../../audio/vocab/julio.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">agosto</span><span class="gloss">August</span>
+        <audio controls preload="none"><source src="../../audio/vocab/agosto.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">septiembre</span><span class="gloss">September</span>
+        <audio controls preload="none"><source src="../../audio/vocab/septiembre.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">octubre</span><span class="gloss">October</span>
+        <audio controls preload="none"><source src="../../audio/vocab/octubre.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">noviembre</span><span class="gloss">November</span>
+        <audio controls preload="none"><source src="../../audio/vocab/noviembre.mp3" type="audio/mpeg"></audio></li>
+      <li><span class="word">diciembre</span><span class="gloss">December</span>
+        <audio controls preload="none"><source src="../../audio/vocab/diciembre.mp3" type="audio/mpeg"></audio></li>
+    </ul>
+  </div>
+
+  <!-- LOWERCASE NOTE -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; A SPELLING RULE WORTH KNOWING</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">In English we capitalize months (January, July). In Spanish, <strong>months are always lowercase</strong> &mdash; <span class="es">enero, julio, diciembre</span> &mdash; unless they start a sentence. The same goes for days of the week. Write <span class="es">Mi cumplea&ntilde;os es en agosto</span>, not <span style="color:var(--fem);">Agosto</span>. (Months are grammatically masculine: <span class="es">en enero</span> &mdash; in January.)</p>
+  </div>
+
+  <!-- FLIP CARDS w/ icons (weather + seasons only; months are text, handled above) -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; PICTURE + WORD &harr; MEANING</div>
+    <div class="widget-question">Say the English meaning out loud, then tap to check. The Spanish word's color tells you its gender.</div>
+    <div class="flipgrid">
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/2600.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el sol</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">sun &middot; hace sol = it's sunny</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F975.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el calor</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">heat &middot; hace calor = it's hot</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F976.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el fr&iacute;o</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">cold &middot; hace fr&iacute;o = it's cold</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F4A8.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el viento</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">wind &middot; hace viento = it's windy</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/2601.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:#0E1C42;" class="es">nublado</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">cloudy &middot; est&aacute; nublado</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F324.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:#0E1C42;" class="es">despejado</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">clear &middot; est&aacute; despejado</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F327.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:#0E1C42;" class="es">llueve</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">it rains / it's raining</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/2744.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:#0E1C42;" class="es">nieva</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">it snows / it's snowing</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F338.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--fem);" class="es">la primavera</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">spring</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F3D6.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el verano</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">summer</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/1F342.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el oto&ntilde;o</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">fall / autumn</div>
+      </div>
+      <div class="ow-flip" tabindex="0">
+        <div class="ow-flip-front"><div class="cardicon"><img src="../../widgets/openmoji/26C4.svg" alt="" style="width:40px;height:40px;" /></div><div style="font-size:19px; color:var(--masc);" class="es">el invierno</div></div>
+        <div class="ow-flip-back" style="font-size:17px;">winter</div>
+      </div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- MICRO-APPLICATION -->
+  <div class="card">
+    <div class="kicker">&#128221; PUT THE WORDS TO WORK</div>
+    <p>Because the three tools are already yours, you can build real sentences right now &mdash; and tie the weather to a season or month:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><span class="es">En <span style="color:var(--masc);">el verano</span> hace calor.</span> &mdash; In the summer it's hot.</li>
+      <li><span class="es">En <span style="color:var(--masc);">el invierno</span> hace fr&iacute;o y a veces nieva.</span> &mdash; In the winter it's cold and sometimes it snows.</li>
+      <li><span class="es">En abril llueve mucho; en <span style="color:var(--fem);">la primavera</span> hace fresco.</span> &mdash; In April it rains a lot; in the spring it's cool.</li>
+    </ul>
+    <p style="margin-bottom:0;">New words, familiar patterns &mdash; exactly the way this week is built.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 17.04 &mdash; Weather &amp; Your Plans + Spanish in Your World</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Read a short piece that links the weather to what people are going to do, then meet the flipped seasons of the Southern Hemisphere and the Spanish behind <span class="es">tornado</span> and <em>hurricane</em>.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 17.03 &middot; El tiempo</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 13.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .stem { color:#c7922c; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 13</div>
+    <div style="font-size:12px; color:#666;">La comida &mdash; food &amp; the table</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 13.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Ordering with verbs you know</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 13.02 &middot; NO NEW GRAMMAR TODAY</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Three verbs you already conjugate &mdash; now at the table</div>
+    <div style="font-size:16px; color:#666;">Everything here is review. We're just aiming familiar verbs at food.</div>
+  </div>
+
+  <!-- FRAME : recycled grammar -->
+  <div class="card">
+    <div class="kicker">&#128075; A QUICK, HONEST HEADS-UP</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">The grammar today is <em>recycled</em>. Your new work this week is vocabulary &mdash; not verb rules.</div>
+    <p>To talk about food, you'll lean on four things you already own: <span class="es">querer</span> (to want), <span class="es">preferir</span> (to prefer), <span class="es">pedir</span> (to order / ask for), and <span class="es">me gusta(n)</span> (I like). Three of them are <strong>&ldquo;boot&rdquo; (stem-changing) verbs</strong> you met earlier this year, and <span class="es">gustar</span> is from last year. Today is a refresher so the forms are fresh in your ear &mdash; then the rest of the week is all about the words that go with them.</p>
+  </div>
+
+  <!-- REFRESHER : the two boot patterns -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; REMEMBER THE &ldquo;BOOT&rdquo;</div>
+    <p style="margin-top:0;">In a boot verb, the <strong>stem vowel changes</strong> in every form <em>except</em> <span class="es">nosotros</span> &mdash; the one form that sits outside the boot. Two patterns cover all three verbs:</p>
+    <div class="stemline">
+      <span class="stemchip"><b>e &rarr; ie</b>: querer, preferir</span>
+      <span class="stemarrow">&middot;</span>
+      <span class="stemchip"><b>e &rarr; i</b>: pedir</span>
+    </div>
+    <p style="margin-bottom:0;">So <span class="es">querer</span> &rarr; <span class="es">qu<b>ie</b>ro</span>, <span class="es">preferir</span> &rarr; <span class="es">pref<b>ie</b>ro</span>, and <span class="es">pedir</span> &rarr; <span class="es">p<b>i</b>do</span>. Same boots you already wore in Modules 5 and 7.</p>
+  </div>
+
+  <!-- PARADIGM TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE THREE VERBS, SIDE BY SIDE (present tense)</div>
+    <table class="conj">
+      <tr><th style="width:34%">Subject (who)</th><th style="width:22%">querer <span style="font-weight:400;">(want)</span></th><th style="width:22%">preferir <span style="font-weight:400;">(prefer)</span></th><th style="width:22%">pedir <span style="font-weight:400;">(order)</span></th></tr>
+      <tr><td class="subj">yo (I)</td><td class="form">qu<span class="stem">ie</span>ro</td><td class="form">pref<span class="stem">ie</span>ro</td><td class="form">p<span class="stem">i</span>do</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td class="form">qu<span class="stem">ie</span>res</td><td class="form">pref<span class="stem">ie</span>res</td><td class="form">p<span class="stem">i</span>des</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td class="form">qu<span class="stem">ie</span>re</td><td class="form">pref<span class="stem">ie</span>re</td><td class="form">p<span class="stem">i</span>de</td></tr>
+      <tr><td class="subj">nosotros / nosotras (we)</td><td class="form">queremos</td><td class="form">preferimos</td><td class="form">pedimos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td class="form">qu<span class="stem">ie</span>ren</td><td class="form">pref<span class="stem">ie</span>ren</td><td class="form">p<span class="stem">i</span>den</td></tr>
+    </table>
+    <p style="margin-bottom:0;">Notice the <span class="es">nosotros</span> row keeps the plain vowel every time &mdash; <span class="es">queremos, preferimos, pedimos</span> &mdash; because it sits <em>outside the boot</em>. And remember: for a group we use <strong>ustedes</strong> (the standard form across Latin America), never a <span class="es">-&aacute;is</span> form.</p>
+  </div>
+
+  <!-- gustar refresher -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128161; DON'T FORGET GUSTAR</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;"><span class="es">Gustar</span> matches the <em>thing liked</em>: one thing &rarr; <span class="es"><b>me gusta</b></span> (<span class="es">Me gusta la manzana</span> &mdash; I like the apple); more than one &rarr; <span class="es"><b>me gustan</b></span> (<span class="es">Me gustan las naranjas</span> &mdash; I like oranges). Nothing new &mdash; just watch singular vs. plural.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Same verbs you already know, now carrying food words. <strong>Press &#9654; to hear each sentence</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s13-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>quiero</b> una manzana, por favor.</span> &mdash; I want an apple, please. <span style="color:#6b7a99;">(querer &rarr; qu-ie-ro)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s13-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">&iquest;<b>Prefieres</b> frutas o verduras?</span> &mdash; Do you prefer fruits or vegetables? <span style="color:#6b7a99;">(preferir &rarr; pref-ie-res)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s13-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>pedimos</b> la cena en el restaurante.</span> &mdash; We order dinner at the restaurant. <span style="color:#6b7a99;">(pedir &rarr; nosotros = pedimos)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s13-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">A m&iacute; me <b>gustan</b> las naranjas.</span> &mdash; I like oranges. <span style="color:#6b7a99;">(plural thing &rarr; gustan)</span></span>
+    </div>
+    <p style="margin-bottom:0;">Every verb here is one you've conjugated before. The only thing that's new is the food.</p>
+  </div>
+
+  <!-- EVALUATIVE : ow-select drill -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; PICK THE RIGHT FORM</div>
+    <div class="widget-question">The subject is given &mdash; choose the present-tense form that matches. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; yo takes the e&rarr;ie boot form: qu-ie-ro. Yo quiero una manzana." data-hint="Subject is yo. querer is an e&rarr;ie boot verb, and the yo ending is -o.">
+      <div class="widget-row-prompt">1. Yo ____ una manzana. (querer &mdash; I want an apple.)</div>
+      <div class="widget-options">
+        <button data-choice="0">quieres</button>
+        <button data-choice="1">quiere</button>
+        <button data-choice="2">quiero</button>
+        <button data-choice="3">queremos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; nosotros sits OUTSIDE the boot, so no vowel change: pedimos." data-hint="Subject is nosotros. The 'we' form of a boot verb keeps the plain vowel: ped-i-mos.">
+      <div class="widget-row-prompt">2. Nosotros ____ la cena a las ocho. (pedir &mdash; We order dinner at eight.)</div>
+      <div class="widget-options">
+        <button data-choice="0">pedimos</button>
+        <button data-choice="1">piden</button>
+        <button data-choice="2">pido</button>
+        <button data-choice="3">pides</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; ella takes the e&rarr;ie boot form with the -e ending: prefiere." data-hint="Subject is ella. preferir is e&rarr;ie, and ella shares the -e ending with usted/&eacute;l.">
+      <div class="widget-row-prompt">3. Ella ____ las verduras. (preferir &mdash; She prefers vegetables.)</div>
+      <div class="widget-options">
+        <button data-choice="0">prefiero</button>
+        <button data-choice="1">prefieres</button>
+        <button data-choice="2">preferimos</button>
+        <button data-choice="3">prefiere</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; t&uacute; takes the e&rarr;ie boot form with -es: quieres." data-hint="Subject is t&uacute;. querer is e&rarr;ie, and the t&uacute; ending is -es.">
+      <div class="widget-row-prompt">4. &iquest;Qu&eacute; ____ de desayuno? (querer, t&uacute; &mdash; What do you want for breakfast?)</div>
+      <div class="widget-options">
+        <button data-choice="0">quiero</button>
+        <button data-choice="1">quieres</button>
+        <button data-choice="2">quiere</button>
+        <button data-choice="3">quieren</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Right &mdash; 'las naranjas' is plural, so gustar becomes gustan: Me gustan las naranjas." data-hint="What is liked? 'las naranjas' is more than one &mdash; use the plural form of gustar.">
+      <div class="widget-row-prompt">5. A m&iacute; me ____ las naranjas. (gustar &mdash; I like oranges.)</div>
+      <div class="widget-options">
+        <button data-choice="0">gusta</button>
+        <button data-choice="1">gustamos</button>
+        <button data-choice="2">gustan</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">You didn't learn a new rule today &mdash; you re-used three boot verbs (<span class="es">querer, preferir, pedir</span>) and <span class="es">gustar</span>. Keep them warm: the <span class="es">nosotros</span> form never changes its vowel, and <span class="es">gustar</span> follows the <em>thing liked</em>. Tomorrow we load in the food words that fill these sentences.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 13.03 &mdash; The Food Words</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Meals, fruits, vegetables, and the restaurant &mdash; with native audio and flip cards. Now that the verbs are warm, we hang the vocabulary on them.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 13.02 &middot; La comida</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

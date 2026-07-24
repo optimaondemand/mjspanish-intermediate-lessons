@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 8.01</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .chunkchips { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .chunkchips span { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:20px; padding:6px 14px; font-size:16px; }
+  .chunkchips b { color:#c7922c; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 8</div>
+    <div style="font-size:12px; color:#666;">Presente progresivo &mdash; right now</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 8.01 &middot; Day 1 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Saying what is happening right now</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, try the quick check-in, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 8.01 &middot; WHAT'S HAPPENING RIGHT NOW</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">There's a special way to say &ldquo;-ing&rdquo;</div>
+    <div style="font-size:16px; color:#666;">Nothing to memorize today &mdash; just meet the idea, dust off two things you already own, and see the week ahead.</div>
+  </div>
+
+  <!-- FOCUS -->
+  <div class="card">
+    <div class="kicker">&#128075; TODAY'S BIG IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">You already say what you <em>do</em>. This week you learn to say what you are <em>doing</em> &mdash; right this second.</div>
+    <p>In English there is a difference between &ldquo;I study Spanish&rdquo; (in general, every day) and &ldquo;I <strong>am studying</strong> Spanish&rdquo; (right now, at this very moment). Spanish has that same difference &mdash; and this week you build the second one: the <strong>present progressive</strong>. It answers one question: <span class="es">&iquest;Qu&eacute; est&aacute;s haciendo?</span> &mdash; <strong>What are you doing right now?</strong></p>
+    <p style="margin-bottom:0;">Here's the good news: it's built from two pieces you <em>already have</em>. Let's pull them back up.</p>
+  </div>
+
+  <!-- RETRIEVE PRIOR -->
+  <div class="card">
+    <div class="kicker">&#128260; FIRST &middot; WHAT YOU ALREADY OWN</div>
+    <p>Piece one: the verb <strong>ESTAR</strong> (to be &mdash; for feelings and location). You've used it since last year. Read the five forms out loud:</p>
+    <div class="chunkchips">
+      <span><b>yo estoy</b> &mdash; I am</span>
+      <span><b>t&uacute; est&aacute;s</b> &mdash; you are</span>
+      <span><b>usted/&eacute;l/ella est&aacute;</b> &mdash; you/he/she is</span>
+      <span><b>nosotros estamos</b> &mdash; we are</span>
+      <span><b>ustedes/ellos/ellas est&aacute;n</b> &mdash; you all/they are</span>
+    </div>
+    <p>Piece two: the <strong>action verbs</strong> you've been conjugating for weeks &mdash; <span class="es">hablar, comer, estudiar, escribir, leer, correr, cocinar, jugar.</span> You already know what they mean.</p>
+    <p style="margin-bottom:0;">Snap those two pieces together and you can say what someone is doing <em>at this moment</em>. That's the whole week &mdash; and it's less new than it looks.</p>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div style="background:#fff; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#c7922c; margin-bottom:14px;">&#127919; BY THE END OF THIS PAGE YOU WILL BE ABLE TO&hellip;</div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>explain</strong> the difference between &ldquo;I study&rdquo; (habit) and &ldquo;I am studying&rdquo; (right now).</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>recall</strong> the five forms of <span class="es">estar</span> &mdash; the engine behind this whole idea.</div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:12px;">
+      <div style="min-width:26px; height:26px; border-radius:50%; background:#C7922C; color:#fff; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div style="font-size:18px; color:#1a2340; line-height:1.65;"><strong>preview</strong> the plan for the week and where the progressive shows up in real life.</div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">If someone texted you <span class="es">&iquest;Qu&eacute; est&aacute;s haciendo?</span> right now, what would the honest answer be?</div>
+    <div class="widget-options">
+      <button data-response="Nice &mdash; and by Friday you'll be able to say exactly that in Spanish: Estoy estudiando espa&ntilde;ol. Same two pieces, snapped together.">&#128218; I'm studying (obviously!)</button>
+      <button data-response="Great &mdash; Estoy escuchando m&uacute;sica. The verb escuchar you already know; this week you just learn how to make it mean 'right now.'">&#127925; Listening to music</button>
+      <button data-response="Perfect real-life example &mdash; Estoy comiendo. Eating, watching, running: every one of those becomes an -ing phrase this week.">&#127869;&#65039; Eating something</button>
+      <button data-response="Totally fair &mdash; and that's actually the perfect mindset. This week is short daily steps; by the end 'right now' phrases will feel natural.">&#128564; Honestly? Not much</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- HABIT vs RIGHT NOW -->
+  <div class="card">
+    <div class="kicker">&#128161; TWO KINDS OF &ldquo;PRESENT&rdquo;</div>
+    <p>You already own the first kind. This week you add the second:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li><strong>Simple present</strong> &rarr; a habit or a general fact: <span class="es">Yo <b>estudio</b> espa&ntilde;ol.</span> &mdash; I study Spanish <em>(in general, every day)</em>.</li>
+      <li><strong>Present progressive</strong> &rarr; what's happening <em>at this moment</em>: <span class="es">Yo <b>estoy estudiando</b> espa&ntilde;ol.</span> &mdash; I am studying Spanish <em>(right now)</em>.</li>
+    </ul>
+    <p style="margin-bottom:0;">Both are <strong>present tense</strong> &mdash; both are about <em>today</em>, not yesterday. The progressive just zooms in on this exact second. Two little words &mdash; <span class="es">ahora</span> (now) and <span class="es">en este momento</span> (at this moment) &mdash; are its best friends.</p>
+  </div>
+
+  <!-- PREVIEW THE WEEK -->
+  <div class="card">
+    <div class="kicker">&#128197; THIS WEEK &middot; MODULE 8</div>
+    <div class="weekrow now">
+      <div class="n">1</div>
+      <div class="d"><strong>Today &mdash; What's happening right now.</strong> Meet the idea; retrieve <span class="es">estar</span> and your action verbs.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">2</div>
+      <div class="d"><strong>The formula.</strong> <span class="es">estar</span> + the <span class="es">-ando / -iendo</span> form &mdash; how to build the progressive, step by step.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">3</div>
+      <div class="d"><strong>Your action words.</strong> Ten everyday <span class="es">-ando/-iendo</span> forms with native audio and flip cards.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">4</div>
+      <div class="d"><strong>See it in use.</strong> A short reading of what people are doing right now &mdash; plus Spanish-language TV in the US.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">5</div>
+      <div class="d"><strong>Review &amp; self-check.</strong> Pull it together, then take the short Module 8 check.</div>
+    </div>
+  </div>
+
+  <!-- VIRTUE / MISSION LIGHT -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#9733; A WORD ON ATTENTION</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">The present progressive is the tense of <em>paying attention to the here and now</em>. Naming what you are actually doing &mdash; not what you meant to do, not what's next &mdash; is a small act of focus. Do these twenty minutes with full attention, and you'll get more from them than an hour of half-there scrolling.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 8.02 &mdash; The Formula: <span class="es">estar</span> + <span class="es">-ando/-iendo</span></strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Two known pieces, one simple rule for the ending. Next lesson you build your first &ldquo;right now&rdquo; sentence from scratch.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 8.01 &middot; Presente progresivo</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

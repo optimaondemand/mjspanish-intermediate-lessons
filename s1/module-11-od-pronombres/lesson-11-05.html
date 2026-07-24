@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 11.05</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .prokey { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .prokey span { border-radius:20px; padding:6px 14px; font-size:16px; border:1px solid #E7D3A6; background:#FDF6E6; color:#6b4f1d; }
+  .prokey b { font-style:italic; }
+  .selfcheck-list { list-style:none; margin:0; padding:0; }
+  .selfcheck-list li { display:flex; align-items:flex-start; gap:12px; padding:9px 0; border-bottom:1px dashed #D0D9E8; font-size:16px; color:#1a2340; line-height:1.55; }
+  .selfcheck-list li:last-child { border-bottom:none; }
+  .selfcheck-list .tick { min-width:24px; height:24px; border-radius:50%; background:#2A9D5C; color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 11</div>
+    <div style="font-size:12px; color:#666;">Pronombres OD &mdash; one little word</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 11.05 &middot; Day 5 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Review &amp; self-check</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Review the week, run the self-check, then take the Module 11 quick-check &mdash; and click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 11.05 &middot; BRING IT TOGETHER</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">You can replace a noun with one small word</div>
+    <div style="font-size:16px; color:#666;">A quick recap, an honest self-check, and then the short quiz that unlocks Module 12.</div>
+  </div>
+
+  <!-- RECAP -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; THE WEEK IN ONE SCREEN</div>
+    <p style="margin-top:0;"><strong>Two rules run everything:</strong></p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.7;">
+      <li><strong>Match</strong> &mdash; the pronoun copies the noun's gender and number.</li>
+      <li><strong>Place</strong> &mdash; put it before the conjugated verb (<span class="es">Lo leo</span>), or attach it to an infinitive (<span class="es">Voy a leerlo</span>). Never loose in the middle.</li>
+    </ul>
+    <p style="margin-bottom:6px;">The seven pronouns &mdash; <span class="es" style="color:var(--masc)">blue</span> for things that are masculine, <span class="es" style="color:var(--fem)">red</span> for feminine, gold for people:</p>
+    <div class="prokey">
+      <span style="border-color:#b9c2e8; background:#eef1fb;"><b style="color:var(--masc)">lo</b> &mdash; it (masc.) / him</span>
+      <span style="border-color:#b9c2e8; background:#eef1fb;"><b style="color:var(--masc)">los</b> &mdash; them (masc.)</span>
+      <span style="border-color:#e8b9c0; background:#fbeef1;"><b style="color:var(--fem)">la</b> &mdash; it (fem.) / her</span>
+      <span style="border-color:#e8b9c0; background:#fbeef1;"><b style="color:var(--fem)">las</b> &mdash; them (fem.)</span>
+      <span><b>me</b> &mdash; me</span>
+      <span><b>te</b> &mdash; you</span>
+      <span><b>nos</b> &mdash; us</span>
+    </div>
+    <p style="margin-bottom:0;">And remember the register you use all year: for a group it's always <strong>ustedes / ellos / ellas</strong> &mdash; there is no <em>vosotros</em> form here.</p>
+  </div>
+
+  <!-- SELF-CHECK : ow-select -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; SELF-CHECK &middot; CAN YOU PICK THE RIGHT LITTLE WORD?</div>
+    <div class="widget-question">Five mixed questions from the whole week. Pick one for each &mdash; you'll get instant feedback. This is practice; the graded version is the quick-check below.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; el diccionario is masculine singular &rarr; lo: S&iacute;, lo tengo." data-hint="El diccionario is masculine and singular. Masculine singular &rarr; lo.">
+      <div class="widget-row-prompt">1. &iquest;Tienes <u>el diccionario</u>? &mdash; S&iacute;, ____ tengo.</div>
+      <div class="widget-options">
+        <button data-choice="0">la</button>
+        <button data-choice="1">lo</button>
+        <button data-choice="2">los</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; la m&uacute;sica is feminine singular &rarr; la: La escucho." data-hint="La m&uacute;sica is feminine and singular. Feminine singular &rarr; la.">
+      <div class="widget-row-prompt">2. Yo escucho <u>la m&uacute;sica</u>. &rarr; ____ escucho.</div>
+      <div class="widget-options">
+        <button data-choice="0">la</button>
+        <button data-choice="1">lo</button>
+        <button data-choice="2">las</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Correct &mdash; los libros is masculine plural &rarr; los: S&iacute;, los leo." data-hint="Los libros is masculine and plural. Masculine plural &rarr; los.">
+      <div class="widget-row-prompt">3. &iquest;Lees <u>los libros</u>? &mdash; S&iacute;, ____ leo.</div>
+      <div class="widget-options">
+        <button data-choice="0">la</button>
+        <button data-choice="1">las</button>
+        <button data-choice="2">los</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; &lsquo;you&rsquo; (a person) is te: Yo te comprendo." data-hint="The object here is a person &mdash; you. People take me / te / nos.">
+      <div class="widget-row-prompt">4. How do you say &ldquo;I understand you&rdquo;? &mdash; Yo ____ comprendo.</div>
+      <div class="widget-options">
+        <button data-choice="0">lo</button>
+        <button data-choice="1">te</button>
+        <button data-choice="2">la</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; attach it to the infinitive: Voy a usarla. (La voy a usar is also correct; a la usar is not.)" data-hint="With ir a + infinitive, hook the pronoun onto the end of the infinitive &mdash; or place it before voy.">
+      <div class="widget-row-prompt">5. How do you say &ldquo;I'm going to use it&rdquo; (<u>la computadora</u>)?</div>
+      <div class="widget-options">
+        <button data-choice="0">Voy a usarla.</button>
+        <button data-choice="1">Voy a la usar.</button>
+        <button data-choice="2">Usar la voy.</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- READY CHECK -->
+  <div class="card">
+    <div class="kicker">&#9989; BEFORE THE QUIZ &middot; YOU CAN NOW&hellip;</div>
+    <ul class="selfcheck-list">
+      <li><span class="tick">&#10003;</span><div>find the <strong>direct object</strong> in a sentence &mdash; the noun that receives the action.</div></li>
+      <li><span class="tick">&#10003;</span><div>choose <span class="es" style="color:var(--masc)">lo / los</span> for masculine and <span class="es" style="color:var(--fem)">la / las</span> for feminine, matching gender <em>and</em> number.</div></li>
+      <li><span class="tick">&#10003;</span><div>use <span class="es">me / te / nos</span> when the object is a person.</div></li>
+      <li><span class="tick">&#10003;</span><div>place the pronoun <strong>before the verb</strong> or <strong>attached to an infinitive</strong>.</div></li>
+    </ul>
+    <p style="margin-bottom:0; margin-top:12px;">If any of those feels shaky, replay lesson 11.02's drill or 11.04's reading before you start &mdash; the quick-check gives you unlimited attempts, so it's there to help you learn, not to trip you.</p>
+  </div>
+
+  <!-- CTA to quick-check -->
+  <div style="background:#0E1C42; border-radius:10px; padding:24px 28px; margin-bottom:20px; text-align:center;">
+    <div style="font-size:11px; color:#55c8e8; letter-spacing:.5px; margin-bottom:8px;">&#127919; MODULE 11 QUICK-CHECK</div>
+    <div style="font-size:22px; color:#ffffff; margin-bottom:8px;">Ready? Take the Module 11 check.</div>
+    <div style="font-size:16px; color:rgba(255,255,255,0.85); line-height:1.6; max-width:640px; margin:0 auto 4px;">About ten quick auto-graded questions on direct-object pronouns. <strong style="color:#fff;">Unlimited attempts</strong>, and you need <strong style="color:#fff;">70%</strong> to unlock Module 12. Immediate feedback on every answer &mdash; retake it until it clicks.</div>
+    <div style="font-size:14px; color:rgba(255,255,255,0.6); margin-top:10px;">Find it in Canvas as <em>&ldquo;Module 11 &middot; Quick-Check: Pronombres OD.&rdquo;</em></div>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT'S NEXT &middot; MODULE 12</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">12</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Module 12 &mdash; Saber vs. Conocer</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Spanish has <em>two</em> verbs for &ldquo;to know&rdquo; &mdash; one for facts and skills, one for people and places &mdash; plus the little &ldquo;personal <span class="es">a</span>&rdquo; you use before a person. You'll build on exactly the pronoun-and-people idea you just learned.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIRTUE / MISSION LIGHT -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:6px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#9733; A WORD ON PERSEVERANCE</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Small words are easy to skim past and surprisingly worth mastering. Getting <span class="es">lo</span> vs. <span class="es">la</span> right, every time, is the kind of quiet precision that separates &ldquo;I studied Spanish&rdquo; from &ldquo;I can actually speak it.&rdquo; Keep showing up for the small things &mdash; that's <strong>perseverance</strong>, and it's how fluency is really built.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 11.05 &middot; Pronombres OD</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 3.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .end { color:#c7922c; font-weight:700; }
+  .conj .diff { background:#FDF6E6 !important; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 3</div>
+    <div style="font-size:12px; color:#666;">Verbos -ER / -IR &mdash; the other two families</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 3.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Conjugating regular -ER and -IR verbs</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 3.02 &middot; THE OTHER TWO PATTERNS</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Same three steps &mdash; a fresh set of endings</div>
+    <div style="font-size:16px; color:#666;">Learn <span class="es">-ER</span> and <span class="es">-IR</span> together. They share almost everything, and differ in just one spot.</div>
+  </div>
+
+  <!-- BIG IDEA -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">An <span class="es">-ER</span> or <span class="es">-IR</span> verb works exactly like an <span class="es">-AR</span> verb: chop the ending off the infinitive, then add the ending that matches the subject.</div>
+    <p>You already know the routine from Module 2. A regular <strong>-ER</strong> verb like <span class="es">comer</span> (to eat) or a regular <strong>-IR</strong> verb like <span class="es">vivir</span> (to live) starts as an infinitive. To use it, you <strong>drop the last two letters</strong> to get the stem, then <strong>add the ending</strong> for the subject. The only thing that changes from <span class="es">-AR</span> is <em>which</em> endings you add.</p>
+  </div>
+
+  <!-- THE THREE STEPS -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; THE THREE STEPS (SAME AS ALWAYS)</div>
+    <div class="stemline">
+      <span class="stemchip">1. Infinitive: <b>comer</b></span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip">2. Drop <b>-er</b>: stem = <b>com-</b></span>
+      <span class="stemarrow">&rarr;</span>
+      <span class="stemchip">3. Add the ending: <b>com</b>+<b>o</b> = como</span>
+    </div>
+    <p style="margin-bottom:0;">So <span class="es">como</span> means <strong>"I eat."</strong> Same idea for <span class="es">-IR</span>: <span class="es">vivir</span> &rarr; drop <span class="es">-ir</span> &rarr; stem <span class="es">viv-</span> &rarr; <span class="es">viv</span>+<span class="es">o</span> = <span class="es">vivo</span> ("I live"). Now here are the full sets.</p>
+  </div>
+
+  <!-- -ER TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE -ER ENDINGS &middot; comer (to eat)</div>
+    <table class="conj">
+      <tr><th style="width:38%">Subject (who)</th><th style="width:32%">Ending</th><th style="width:30%">Full form</th></tr>
+      <tr><td class="subj">yo (I)</td><td>com&middot;<span class="end">o</span></td><td class="form">como</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td>com&middot;<span class="end">es</span></td><td class="form">comes</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella (you-formal / he / she)</td><td>com&middot;<span class="end">e</span></td><td class="form">come</td></tr>
+      <tr><td class="subj">nosotros / nosotras (we)</td><td>com&middot;<span class="end">emos</span></td><td class="form">comemos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas (you-all / they)</td><td>com&middot;<span class="end">en</span></td><td class="form">comen</td></tr>
+    </table>
+    <p style="margin-bottom:0;">The <strong>-ER</strong> chant: <span class="es"><b>-o / -es / -e / -emos / -en</b></span>. We use <strong>ustedes</strong> for a group &mdash; the standard form across Latin America, all year long.</p>
+  </div>
+
+  <!-- -IR TABLE -->
+  <div class="card">
+    <div class="kicker">&#128221; THE -IR ENDINGS &middot; vivir (to live)</div>
+    <table class="conj">
+      <tr><th style="width:38%">Subject (who)</th><th style="width:32%">Ending</th><th style="width:30%">Full form</th></tr>
+      <tr><td class="subj">yo (I)</td><td>viv&middot;<span class="end">o</span></td><td class="form">vivo</td></tr>
+      <tr><td class="subj">t&uacute; (you, friendly)</td><td>viv&middot;<span class="end">es</span></td><td class="form">vives</td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella (you-formal / he / she)</td><td>viv&middot;<span class="end">e</span></td><td class="form">vive</td></tr>
+      <tr class="diff"><td class="subj">nosotros / nosotras (we)</td><td>viv&middot;<span class="end">imos</span></td><td class="form">vivimos</td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas (you-all / they)</td><td>viv&middot;<span class="end">en</span></td><td class="form">viven</td></tr>
+    </table>
+    <p style="margin-bottom:0;">The <strong>-IR</strong> chant: <span class="es"><b>-o / -es / -e / -imos / -en</b></span>. Look closely &mdash; it is <em>identical</em> to <span class="es">-ER</span> except for the highlighted <strong>nosotros</strong> row.</p>
+  </div>
+
+  <!-- THE KEY DIFFERENCE -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; THE ONLY DIFFERENCE TO MEMORIZE</div>
+    <p style="margin-top:0;">Both families share four of their five endings. The single spot where <strong>-ER</strong> and <strong>-IR</strong> part ways is the <strong>nosotros</strong> ("we") form:</p>
+    <div class="stemline">
+      <span class="stemchip"><b>-ER</b> &rarr; nosotros com<b>emos</b></span>
+      <span class="stemarrow">vs</span>
+      <span class="stemchip"><b>-IR</b> &rarr; nosotros viv<b>imos</b></span>
+    </div>
+    <p style="margin-bottom:0;">Everything else &mdash; <span class="es">-o / -es / -e / &hellip; / -en</span> &mdash; is the same. Learn the two families as one chant with a single fork at "we": <strong>-emos</strong> for <span class="es">-ER</span>, <strong>-imos</strong> for <span class="es">-IR</span>.</p>
+  </div>
+
+  <!-- CONTRAST WITH -AR -->
+  <div class="card">
+    <div class="kicker">&#128200; SIDE BY SIDE WITH -AR (THE ONE YOU OWN)</div>
+    <p>Here's all three families at once, so you can see the family resemblance:</p>
+    <table class="conj">
+      <tr><th style="width:34%">Subject</th><th style="width:22%">-AR (hablar)</th><th style="width:22%">-ER (comer)</th><th style="width:22%">-IR (vivir)</th></tr>
+      <tr><td class="subj">yo</td><td class="form">habl<span class="end">o</span></td><td class="form">com<span class="end">o</span></td><td class="form">viv<span class="end">o</span></td></tr>
+      <tr><td class="subj">t&uacute;</td><td class="form">habl<span class="end">as</span></td><td class="form">com<span class="end">es</span></td><td class="form">viv<span class="end">es</span></td></tr>
+      <tr><td class="subj">usted / &eacute;l / ella</td><td class="form">habl<span class="end">a</span></td><td class="form">com<span class="end">e</span></td><td class="form">viv<span class="end">e</span></td></tr>
+      <tr class="diff"><td class="subj">nosotros / nosotras</td><td class="form">habl<span class="end">amos</span></td><td class="form">com<span class="end">emos</span></td><td class="form">viv<span class="end">imos</span></td></tr>
+      <tr><td class="subj">ustedes / ellos / ellas</td><td class="form">habl<span class="end">an</span></td><td class="form">com<span class="end">en</span></td><td class="form">viv<span class="end">en</span></td></tr>
+    </table>
+    <p style="margin-bottom:0;">Notice the <span class="es">yo</span> form is <span class="es"><b>-o</b></span> in all three. And in the highlighted "we" row you can see every family's signature vowel: <strong>a</strong> (habl<b>amos</b>), <strong>e</strong> (com<b>emos</b>), <strong>i</strong> (viv<b>imos</b>). That single vowel is what tells the families apart.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="card">
+    <div class="kicker">&#128161; SEE IT IN REAL SENTENCES</div>
+    <p>Watch the pattern work with verbs you can already recognize (most are near-cognates &mdash; you can read them). <strong>Press &#9654; to hear each sentence</strong> and say it back:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>como</b> a las siete.</span> &mdash; I eat at seven. <span style="color:#6b7a99;">(comer &rarr; com- + o)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">T&uacute; <b>comprendes</b> la lecci&oacute;n.</span> &mdash; You understand the lesson. <span style="color:#6b7a99;">(comprender &rarr; comprend- + es)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ella <b>decide</b> r&aacute;pido.</span> &mdash; She decides quickly. <span style="color:#6b7a99;">(decidir, -IR &rarr; decid- + e)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>comemos</b> juntos.</span> &mdash; We eat together. <span style="color:#6b7a99;">(comer, -ER &rarr; -emos)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s03-02-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>vivimos</b> en Texas.</span> &mdash; We live in Texas. <span style="color:#6b7a99;">(vivir, -IR &rarr; -imos)</span></span>
+    </div>
+    <p style="margin-bottom:0;">Same three steps every time: infinitive &rarr; drop the ending &rarr; add the ending for the subject. Watch the last two &mdash; that's the <span class="es">-emos</span> / <span class="es">-imos</span> fork in the wild.</p>
+  </div>
+
+  <!-- EVALUATIVE : conjugation drill (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; CONJUGATION DRILL</div>
+    <div class="widget-question">Pick the correct form. The subject is given, so choose the ending that matches. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; yo takes -o: com- + o = como." data-hint="The subject is yo (I). The 'I' ending is the short one: -o.">
+      <div class="widget-row-prompt">1. Yo ____ pizza los viernes. (comer &mdash; I eat pizza on Fridays.)</div>
+      <div class="widget-options">
+        <button data-choice="0">comes</button>
+        <button data-choice="1">come</button>
+        <button data-choice="2">como</button>
+        <button data-choice="3">comemos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; this is -IR, so nosotros takes -imos: viv- + imos = vivimos." data-hint="vivir is an -IR verb. The -IR 'we' ending is -imos (not -emos).">
+      <div class="widget-row-prompt">2. Nosotros ____ en una casa grande. (vivir &mdash; We live in a big house.)</div>
+      <div class="widget-options">
+        <button data-choice="0">vivimos</button>
+        <button data-choice="1">vives</button>
+        <button data-choice="2">vive</button>
+        <button data-choice="3">viven</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Correct &mdash; ella takes -e: le- + e = lee." data-hint="The subject is ella (she). She shares the -e ending with usted and &eacute;l.">
+      <div class="widget-row-prompt">3. Ella ____ muchos libros. (leer &mdash; She reads many books.)</div>
+      <div class="widget-options">
+        <button data-choice="0">leo</button>
+        <button data-choice="1">lees</button>
+        <button data-choice="2">leemos</button>
+        <button data-choice="3">lee</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; ellos (a group) takes -en: aprend- + en = aprenden." data-hint="The subject is ellos (they). A group that isn't 'we' takes -en.">
+      <div class="widget-row-prompt">4. Ellos ____ espa&ntilde;ol r&aacute;pido. (aprender &mdash; They learn Spanish fast.)</div>
+      <div class="widget-options">
+        <button data-choice="0">aprendo</button>
+        <button data-choice="1">aprenden</button>
+        <button data-choice="2">aprendes</button>
+        <button data-choice="3">aprendemos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Right &mdash; this is -ER, so nosotros takes -emos: com- + emos = comemos." data-hint="comer is an -ER verb. The -ER 'we' ending is -emos (not -imos).">
+      <div class="widget-row-prompt">5. Nosotros ____ tacos en la fiesta. (comer &mdash; We eat tacos at the party.)</div>
+      <div class="widget-options">
+        <button data-choice="0">come</button>
+        <button data-choice="1">comen</button>
+        <button data-choice="2">como</button>
+        <button data-choice="3">comemos</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- FLIP : infinitive -> yo form -->
+  <div class="optima-widget">
+    <div class="widget-kicker">&#9889; TAP TO REVEAL &middot; INFINITIVE &rarr; "NOSOTROS" FORM</div>
+    <div class="widget-question">Predict the "nosotros" (we) form &mdash; the one place -ER and -IR differ &mdash; then tap the card to check.</div>
+    <div class="ow-flip" tabindex="0">
+      <div class="ow-flip-front" style="font-size:20px; color:#0E1C42;"><span class="es">comer</span> (-ER) &mdash; to eat &nbsp;&middot;&nbsp; What is the <em>nosotros</em> form?</div>
+      <div class="ow-flip-back" style="font-size:18px; line-height:1.6;"><span class="es"><b>comemos</b></span> &mdash; we eat. &nbsp;-ER takes <span class="es"><b>-emos</b></span>: com- + emos.</div>
+    </div>
+    <div class="ow-flip" tabindex="0" style="margin-top:10px;">
+      <div class="ow-flip-front" style="font-size:20px; color:#0E1C42;"><span class="es">vivir</span> (-IR) &mdash; to live &nbsp;&middot;&nbsp; What is the <em>nosotros</em> form?</div>
+      <div class="ow-flip-back" style="font-size:18px; line-height:1.6;"><span class="es"><b>vivimos</b></span> &mdash; we live. &nbsp;-IR takes <span class="es"><b>-imos</b></span>: viv- + imos.</div>
+    </div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">Regular <strong>-ER</strong>: <span class="es"><b>-o / -es / -e / -emos / -en</b></span>. Regular <strong>-IR</strong>: <span class="es"><b>-o / -es / -e / -imos / -en</b></span>. They're the same everywhere except <strong>nosotros</strong> (<span class="es">-emos</span> vs <span class="es">-imos</span>). Learn that little fork and you can conjugate any regular <span class="es">-ER</span> or <span class="es">-IR</span> verb you meet.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 3.03 &mdash; Your -ER / -IR Verb Set</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Ten everyday <span class="es">-ER</span> and <span class="es">-IR</span> verbs with native audio and flip cards. Now that you own the pattern, we hang new vocabulary on it.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 3.02 &middot; Verbos -ER / -IR</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

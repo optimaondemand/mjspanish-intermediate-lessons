@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 12.02</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  /* Conjugation paradigm table */
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .yo { color:#c7922c; font-weight:700; }
+  .twocol { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 12</div>
+    <div style="font-size:12px; color:#666;">Saber / Conocer &mdash; two ways to know</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 12.02 &middot; Day 2 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Saber vs. conocer &mdash; the two paradigms</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 12.02 &middot; THE CORE</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Facts &amp; know-how vs. people &amp; places</div>
+    <div style="font-size:16px; color:#666;">Two verbs, two full paradigms, and one simple question that tells you which to use.</div>
+  </div>
+
+  <!-- THE SPLIT -->
+  <div class="card">
+    <div class="kicker">&#128075; THE ONE QUESTION TO ASK</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Am I talking about a <em>fact / a skill</em>, or about <em>being familiar with a person, place, or thing?</em></div>
+    <p><strong>saber</strong> is for <strong>facts, information, and knowing how to do something.</strong> If you can picture the information written down &mdash; a phone number, an answer, a date &mdash; or you can add &ldquo;how to&rdquo; (know <em>how to</em> swim), it's <span class="es">saber</span>.</p>
+    <p style="margin-bottom:0;"><strong>conocer</strong> is for <strong>being familiar or acquainted with</strong> a person, a place, or a thing. If you would say in English &ldquo;I'm familiar with it&rdquo; or &ldquo;I've met them&rdquo; or &ldquo;I've been there,&rdquo; it's <span class="es">conocer</span>.</p>
+  </div>
+
+  <!-- TWO PARADIGMS -->
+  <div class="card">
+    <div class="kicker">&#128221; THE TWO PARADIGMS &middot; PRESENT TENSE</div>
+    <p>Both verbs are <strong>regular except for the <em>yo</em> (I) form</strong> &mdash; and that one form is the whole trick. The <em>yo</em> forms are highlighted in <span style="color:#c7922c; font-weight:700;">gold</span>: <span class="es">s&eacute;</span> and <span class="es">conozco</span>. Everything else follows the normal endings you already know.</p>
+    <div class="twocol">
+      <div>
+        <table class="conj">
+          <tr><th colspan="2">saber &mdash; to know (facts / how-to)</th></tr>
+          <tr><td class="subj">yo (I)</td><td class="form"><span class="yo">s&eacute;</span></td></tr>
+          <tr><td class="subj">t&uacute; (you, friendly)</td><td class="form">sabes</td></tr>
+          <tr><td class="subj">usted / &eacute;l / ella</td><td class="form">sabe</td></tr>
+          <tr><td class="subj">nosotros / nosotras (we)</td><td class="form">sabemos</td></tr>
+          <tr><td class="subj">ustedes / ellos / ellas</td><td class="form">saben</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="conj">
+          <tr><th colspan="2">conocer &mdash; to know (be familiar with)</th></tr>
+          <tr><td class="subj">yo (I)</td><td class="form"><span class="yo">conozco</span></td></tr>
+          <tr><td class="subj">t&uacute; (you, friendly)</td><td class="form">conoces</td></tr>
+          <tr><td class="subj">usted / &eacute;l / ella</td><td class="form">conoce</td></tr>
+          <tr><td class="subj">nosotros / nosotras (we)</td><td class="form">conocemos</td></tr>
+          <tr><td class="subj">ustedes / ellos / ellas</td><td class="form">conocen</td></tr>
+        </table>
+      </div>
+    </div>
+    <p style="margin-bottom:0;">Notice the group form is <strong>ustedes</strong> (&ldquo;you all&rdquo;) &mdash; the standard across Latin America, and the form we use all year. Only <span class="es">s&eacute;</span> and <span class="es">conozco</span> are surprises; the other four forms of each verb are exactly what you'd expect.</p>
+  </div>
+
+  <!-- SABER + INFINITIVE -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129513; A SPECIAL POWER &middot; SABER + INFINITIVE</div>
+    <p style="margin-top:0;">Put <span class="es">saber</span> right in front of another verb's <strong>infinitive</strong> (the &ldquo;to ___&rdquo; form) and it means <strong>&ldquo;to know how to&rdquo;</strong> do that thing:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><span class="es"><b>S&eacute;</b> nadar.</span> &mdash; I know how to swim.</li>
+      <li><span class="es">Ella <b>sabe</b> cocinar.</span> &mdash; She knows how to cook.</li>
+      <li><span class="es">Nosotros <b>sabemos</b> hablar espa&ntilde;ol.</span> &mdash; We know how to speak Spanish.</li>
+    </ul>
+    <p style="margin-bottom:0;">You don't add any word for &ldquo;how&rdquo; &mdash; <span class="es">saber</span> + the plain infinitive already carries it.</p>
+  </div>
+
+  <!-- HEAR IT -->
+  <div class="card">
+    <div class="kicker">&#128161; HEAR THE SPLIT</div>
+    <p>Press &#9654; and say each one back &mdash; two for <span class="es">saber</span>, two for <span class="es">conocer</span>:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-02-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>s&eacute;</b> tu n&uacute;mero de tel&eacute;fono.</span> &mdash; I know your phone number. <span style="color:#6b7a99;">(a fact)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-02-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>s&eacute;</b> tocar la guitarra.</span> &mdash; I know how to play the guitar. <span style="color:#6b7a99;">(a skill)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-02-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>conozco</b> a tu hermana.</span> &mdash; I know your sister. <span style="color:#6b7a99;">(a person)</span></span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-02-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>conozco</b> la ciudad de Miami.</span> &mdash; I know the city of Miami. <span style="color:#6b7a99;">(a place)</span></span>
+    </div>
+  </div>
+
+  <!-- PERSONAL A (intro) -->
+  <div style="background:#EEF4F8; border-left:5px solid #55C8E8; border-radius:7px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#1B6A94; letter-spacing:.4px; margin-bottom:6px;">&#128073; ONE SMALL EXTRA &middot; THE PERSONAL <span class="es">A</span></div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0 0 8px 0;">Did you spot the little <span class="es"><b>a</b></span> in <span class="es">Conozco <b>a</b> tu hermana</span>? Whenever the thing you &ldquo;know&rdquo; is a <strong>specific person</strong>, Spanish puts an <span class="es">a</span> right before them. It has no English translation &mdash; it's just a signpost that says &ldquo;a real person is coming.&rdquo; A place gets no <span class="es">a</span>: <span class="es">Conozco Miami</span>. You'll practice this fully on Day 4 &mdash; for now, just notice it.</p>
+  </div>
+
+  <!-- EVALUATIVE : which verb? ow-select -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; WHICH VERB &mdash; SABER OR CONOCER?</div>
+    <div class="widget-question">Ask yourself: fact/skill, or familiar-with a person/place? Pick the verb that fits. You'll get instant feedback on each one.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; a phone number is information you can write down, so it's saber: Yo s&eacute; la respuesta." data-hint="Can you picture it written down (a fact)? That points to saber.">
+      <div class="widget-row-prompt">1. Yo ____ la respuesta correcta. (I know the correct answer.)</div>
+      <div class="widget-options">
+        <button data-choice="0">conozco</button>
+        <button data-choice="1">s&eacute;</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; a city is a place you're familiar with, so conocer: Nosotros conocemos Madrid." data-hint="Being familiar with a PLACE points to conocer.">
+      <div class="widget-row-prompt">2. Nosotros ____ la ciudad de Madrid. (We know the city of Madrid.)</div>
+      <div class="widget-options">
+        <button data-choice="0">sabemos</button>
+        <button data-choice="1">conocemos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Correct &mdash; 'know how to swim' is a skill, so saber + infinitive: &iquest;Sabes nadar?" data-hint="&lsquo;Know HOW TO&rsquo; do something is always saber.">
+      <div class="widget-row-prompt">3. &iquest;____ (t&uacute;) nadar? (Do you know how to swim?)</div>
+      <div class="widget-options">
+        <button data-choice="0">Sabes</button>
+        <button data-choice="1">Conoces</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; a person you're acquainted with takes conocer: Ustedes conocen a la directora." data-hint="Being acquainted with a PERSON points to conocer.">
+      <div class="widget-row-prompt">4. Ustedes ____ a la directora. (You all know the principal.)</div>
+      <div class="widget-options">
+        <button data-choice="0">conocen</button>
+        <button data-choice="1">saben</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; the yo form of saber is s&eacute;: No s&eacute; su direcci&oacute;n. (Notice the accent on s&eacute;.)" data-hint="This is a fact (an address). The tricky yo form of saber is s&eacute;.">
+      <div class="widget-row-prompt">5. Yo no ____ su direcci&oacute;n. (I don't know his address.)</div>
+      <div class="widget-options">
+        <button data-choice="0">conozco</button>
+        <button data-choice="1">s&eacute;</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;"><span class="es"><b>saber</b></span> = facts, information, know-how (yo &rarr; <span class="es">s&eacute;</span>). <span class="es"><b>conocer</b></span> = familiar with a person, place, or thing (yo &rarr; <span class="es">conozco</span>). Only the <em>yo</em> forms are irregular. And a specific person gets a personal <span class="es">a</span> in front.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 12.03 &mdash; People, Places &amp; Skills</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">The words you'll &ldquo;know&rdquo; this week &mdash; people, places, and skills &mdash; with native audio and flip cards. Known grammar, new vocabulary.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 12.02 &middot; Saber / Conocer</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

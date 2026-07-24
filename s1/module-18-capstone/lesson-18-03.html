@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 18.03</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .end { color:#c7922c; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+  .recap { width:100%; border-collapse:collapse; margin:12px 0; font-size:16px; }
+  .recap th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; }
+  .recap td { border:1px solid #D0D9E8; padding:9px 12px; }
+  .recap tr:nth-child(even) td { background:#F4F6FA; }
+  .recap .end { color:#c7922c; font-weight:700; }
+  .recap .form { font-style:italic; color:#0e1c42; }
+  .quizcta { background:#FDF6E6; border:1px solid #E7D3A6; border-left:5px solid #C7922C; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .chunkchips { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .chunkchips span { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:20px; padding:6px 14px; font-size:16px; }
+  .chunkchips b { color:#c7922c; }
+  .checklist { list-style:none; margin:10px 0 0 0; padding:0; }
+  .checklist li { font-size:16px; color:#1a2340; line-height:1.6; padding:8px 0 8px 30px; text-indent:-30px; border-bottom:1px dashed #D0D9E8; }
+  .checklist li:last-child { border-bottom:none; }
+  .checklist li .bx { color:#2A9D5C; font-weight:700; margin-right:8px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 18</div>
+    <div style="font-size:12px; color:#666;">Capstone &mdash; Un d&iacute;a en mi vida</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 18.03 &middot; Day 3 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">The tools for talking about life</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Review the five tools, run the mixed drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 18.03 &middot; FROM VERBS TO A REAL DAY</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Five tools for talking about your life</div>
+    <div style="font-size:16px; color:#666;">Verbs are the engine; these five tools are how you steer them into a whole day.</div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="card">
+    <div class="kicker">&#128075; WHAT THIS PAGE PULLS TOGETHER</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Now that verbs are sorted, here are the five tools that turn them into a real day &mdash; the exact toolkit for your capstone.</div>
+    <p style="margin-bottom:0;">Each tool below got its own module this semester. Read the quick recap, then take the mixed self-check. This is the language you'll reach for on Friday when you narrate <span class="es">Un d&iacute;a en mi vida</span>.</p>
+  </div>
+
+  <!-- TOOL 1: progresivo -->
+  <div class="card">
+    <div class="kicker">&#128336; TOOL 1 &middot; RIGHT NOW &mdash; present progressive</div>
+    <p><strong><span class="es">estar</span> + <span class="es">-ando / -iendo</span></strong> says what's happening <em>at this moment</em>: <span class="es">Yo <b>estoy estudiando</b> ahora.</span> (I'm studying right now.) Take the stem and add <span class="es">-ando</span> for -AR verbs, <span class="es">-iendo</span> for -ER/-IR verbs.</p>
+    <p style="margin-bottom:0;"><span class="es">hablar &rarr; hablando</span> &nbsp;&middot;&nbsp; <span class="es">comer &rarr; comiendo</span> &nbsp;&middot;&nbsp; <span class="es">escribir &rarr; escribiendo</span>.</p>
+  </div>
+
+  <!-- TOOL 2: ir a -->
+  <div class="card">
+    <div class="kicker">&#10145;&#65039; TOOL 2 &middot; PLANS &mdash; near future</div>
+    <p><strong><span class="es">ir</span> + <span class="es">a</span> + infinitive</strong> says what you're <em>going to do</em>: <span class="es">Esta noche <b>voy a leer</b> un libro.</span> (Tonight I'm going to read a book.) Conjugate only <span class="es">ir</span> (<span class="es">voy, vas, va, vamos, van</span>); the second verb stays in the infinitive.</p>
+    <p style="margin-bottom:0;">This is your closer on the capstone &mdash; one sentence about what you're going to do next.</p>
+  </div>
+
+  <!-- TOOL 3: reflexivos -->
+  <div class="card">
+    <div class="kicker">&#128704; TOOL 3 &middot; YOUR ROUTINE &mdash; reflexive verbs</div>
+    <p>Reflexive verbs describe things you do <em>to yourself</em> &mdash; your daily routine. The pronoun goes <strong>before the verb</strong>: <span class="es">Yo <b>me</b> levanto, <b>me</b> ducho, <b>me</b> visto.</span> Pair them with sequence words: <span class="es"><b>primero</b></span> (first), <span class="es"><b>luego</b></span> (then), <span class="es"><b>despu&eacute;s</b></span> (after).</p>
+    <p style="margin-bottom:0;">These will be the backbone of your morning and evening sentences.</p>
+  </div>
+
+  <!-- TOOL 4: OD pronombres -->
+  <div class="card">
+    <div class="kicker">&#128273; TOOL 4 &middot; DON'T REPEAT YOURSELF &mdash; object pronouns</div>
+    <p>Direct-object pronouns (<span class="es">lo, la, los, las, me, te, nos</span>) replace a noun you already said, so you don't repeat it. They match in gender/number and sit <strong>before the verb</strong>: <span class="es">&iquest;El libro? &mdash; Lo leo.</span> (The book? &mdash; I read it.) <span class="es">&iquest;La tarea? &mdash; La hago.</span> (The homework? &mdash; I do it.)</p>
+    <p style="margin-bottom:0;">A small touch that makes your day sound smooth instead of choppy.</p>
+  </div>
+
+  <!-- TOOL 5: saber/conocer -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#129504; TOOL 5 &middot; TWO WAYS TO "KNOW" &mdash; saber vs conocer</div>
+    <p style="margin-top:0;"><strong><span class="es">saber</span></strong> = to know a <em>fact</em> or <em>how to do</em> something: <span class="es">Yo <b>s&eacute;</b> hablar espa&ntilde;ol.</span> (I know how to speak Spanish.) <strong><span class="es">conocer</span></strong> = to be familiar with a <em>person</em> or <em>place</em>: <span class="es">Yo <b>conozco</b> a Mar&iacute;a.</span> (I know Mar&iacute;a.)</p>
+    <p style="margin-bottom:0;">When the thing you "know" is a person, add the <strong>personal <span class="es">a</span></strong>: <span class="es">conozco <b>a</b> Mar&iacute;a</span>. Both are yo-go in the <span class="es">yo</span> form: <span class="es">s&eacute;</span> (irregular) and <span class="es">conozco</span>.</p>
+  </div>
+
+  <!-- EVALUATIVE : mixed self-check (ow-select) -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; MIXED SELF-CHECK &middot; THE FIVE TOOLS</div>
+    <div class="widget-question">One row per tool, shuffled. Pick the choice that fits, and read the feedback on each. Present tense throughout.</div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; 'right now' uses estar + -ando/-iendo: Estoy haciendo la tarea." data-hint="For an action happening at this moment, use estar + the -ando/-iendo form.">
+      <div class="widget-row-prompt">1. &iquest;Qu&eacute; haces ahora mismo? &mdash; ____ la tarea. ("I'm doing the homework right now.")</div>
+      <div class="widget-options">
+        <button data-choice="0">Estoy haciendo</button>
+        <button data-choice="1">Voy a hacer</button>
+        <button data-choice="2">Hago</button>
+        <button data-choice="3">Estoy hago</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="3" data-fb="Right &mdash; near future = ir a + infinitive; yo takes voy: voy a estudiar." data-hint="'Going to' = ir a + infinitive. Conjugate only ir, and the subject is yo.">
+      <div class="widget-row-prompt">2. Ma&ntilde;ana yo ____ para el examen. ("Tomorrow I'm going to study.")</div>
+      <div class="widget-options">
+        <button data-choice="0">van a estudiar</button>
+        <button data-choice="1">vas a estudiar</button>
+        <button data-choice="2">vamos a estudiar</button>
+        <button data-choice="3">voy a estudiar</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Correct &mdash; nosotros takes the pronoun nos + the ending -amos: nos cepillamos." data-hint="Reflexive: the subject is nosotros. Use the pronoun nos with the -amos ending.">
+      <div class="widget-row-prompt">3. Nosotros ____ los dientes despu&eacute;s del desayuno. (cepillarse)</div>
+      <div class="widget-options">
+        <button data-choice="0">me cepillo</button>
+        <button data-choice="1">nos cepillamos</button>
+        <button data-choice="2">se cepillan</button>
+        <button data-choice="3">te cepillas</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; 'el libro' is masculine singular, so the pronoun is lo: Lo leo." data-hint="The object is el libro (masculine, singular). Pick the pronoun that matches and goes before the verb.">
+      <div class="widget-row-prompt">4. &iquest;El libro? Yo ____ leo cada noche. ("I read it every night.")</div>
+      <div class="widget-options">
+        <button data-choice="0">la</button>
+        <button data-choice="1">las</button>
+        <button data-choice="2">lo</button>
+        <button data-choice="3">los</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; a skill uses saber; the yo form is s&eacute;: S&eacute; hablar espa&ntilde;ol." data-hint="Knowing HOW to do something is saber. The yo form is the short, irregular s&eacute;.">
+      <div class="widget-row-prompt">5. Yo ____ hablar espa&ntilde;ol. ("I know how to speak Spanish.")</div>
+      <div class="widget-options">
+        <button data-choice="0">s&eacute;</button>
+        <button data-choice="1">conozco</button>
+        <button data-choice="2">sabes</button>
+        <button data-choice="3">conoce</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; knowing a PERSON uses conocer (+ personal a): Conozco a Mar&iacute;a." data-hint="Being familiar with a person is conocer, and the yo form is conozco. Note the personal a before the person.">
+      <div class="widget-row-prompt">6. Yo ____ a Mar&iacute;a; es mi amiga. ("I know Mar&iacute;a.")</div>
+      <div class="widget-options">
+        <button data-choice="0">s&eacute;</button>
+        <button data-choice="1">sabes</button>
+        <button data-choice="2">conozco</button>
+        <button data-choice="3">conoces</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">Verbs + these five tools = a whole day you can narrate: what you're doing <strong>right now</strong>, what you're <strong>going to do</strong>, your <strong>routine</strong>, smoother sentences with <strong>object pronouns</strong>, and the people and skills you <strong>know</strong>. That's your capstone toolkit &mdash; and you own every piece.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 18.04 &mdash; Spanish in Your World</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Cognates as your bridge into Spanish, a short reading you can hear, and a model of the capstone paragraph you'll build.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 18.03 &middot; Capstone &mdash; Un d&iacute;a en mi vida</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

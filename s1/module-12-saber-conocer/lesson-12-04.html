@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 12.04</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .figure { display:flex; gap:12px; align-items:flex-start; padding:8px 0; border-bottom:1px dashed #D0D9E8; }
+  .figure:last-child { border-bottom:none; }
+  .figure .who { font-weight:700; color:#0e1c42; min-width:12rem; }
+  .figure .what { color:#1a2340; font-size:15px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 12</div>
+    <div style="font-size:12px; color:#666;">Saber / Conocer &mdash; two ways to know</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 12.04 &middot; Day 4 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Reading, famous figures &amp; the personal <span class="es">a</span></div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read (and hear) the passage, work through the drill, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 12.04 &middot; IN THE REAL WORLD</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Who &amp; what you know &mdash; and that little <span class="es">a</span></div>
+    <div style="font-size:16px; color:#666;">See both verbs working in a real paragraph, meet some famous names, and lock in the personal <span class="es">a</span>.</div>
+  </div>
+
+  <!-- READING -->
+  <div class="card">
+    <div class="kicker">&#128214; READ &amp; LISTEN &middot; &ldquo;LO QUE S&Eacute; Y A QUI&Eacute;N CONOZCO&rdquo;</div>
+    <p>Here is Daniela talking about what she knows and who she knows. <strong>Press &#9654;</strong> to hear each Spanish sentence, then read the English underneath:</p>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-1.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Yo <b>s&eacute;</b> muchas cosas sobre el f&uacute;tbol.</span> &mdash; I know many things about soccer.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-2.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Tambi&eacute;n <b>s&eacute;</b> jugar al f&uacute;tbol.</span> &mdash; I also know how to play soccer.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-3.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es"><b>Conozco</b> <b>a</b> muchos futbolistas famosos.</span> &mdash; I know (of) many famous soccer players.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-4.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Mi hermana <b>conoce</b> la ciudad de Barcelona.</span> &mdash; My sister knows the city of Barcelona.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-5.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Ella <b>sabe</b> hablar espa&ntilde;ol y tambi&eacute;n <b>sabe</b> cantar.</span> &mdash; She knows how to speak Spanish and also knows how to sing.</span>
+    </div>
+    <div class="ml-say">
+      <button class="ml-say-btn" aria-label="Escuchar la frase">&#9654;</button>
+      <audio preload="none"><source src="../../audio/sentences/s12-04-6.mp3" type="audio/mpeg"></audio>
+      <span class="ml-say-text"><span class="es">Nosotros <b>conocemos</b> <b>a</b> Shakira, la cantante de Colombia.</span> &mdash; We know (of) Shakira, the singer from Colombia.</span>
+    </div>
+    <p style="margin-bottom:0;">Look at the pattern: <span class="es">s&eacute;</span> and <span class="es">sabe</span> carry <em>facts and skills</em>; <span class="es">conozco</span>, <span class="es">conoce</span>, and <span class="es">conocemos</span> carry <em>people and places</em>. And every time a <strong>person</strong> follows, there's that little <span class="es"><b>a</b></span> &mdash; but never before a place (<span class="es">la ciudad de Barcelona</span>, no <span class="es">a</span>).</p>
+  </div>
+
+  <!-- PERSONAL A FULL -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128073; THE RULE &middot; THE PERSONAL <span class="es">A</span></div>
+    <p style="margin-top:0;">Here is the whole rule in one line:</p>
+    <div style="background:#FDF6E6; border:1px solid #E7D3A6; border-radius:8px; padding:14px 18px; font-size:18px; color:#0e1c42; margin:6px 0 12px;">When the thing receiving the action is a <strong>specific person</strong>, put <span class="es"><b>a</b></span> right before them.</div>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><span class="es">Conozco <b>a</b> Mar&iacute;a.</span> &mdash; I know Mar&iacute;a. <span style="color:#6b7a99;">(person &rarr; <b>a</b>)</span></li>
+      <li><span class="es">Veo <b>a</b> mi amigo.</span> &mdash; I see my friend. <span style="color:#6b7a99;">(person &rarr; <b>a</b>, even with other verbs)</span></li>
+      <li><span class="es">Conozco Madrid.</span> &mdash; I know Madrid. <span style="color:#6b7a99;">(place &rarr; <b>no</b> a)</span></li>
+      <li><span class="es">S&eacute; la respuesta.</span> &mdash; I know the answer. <span style="color:#6b7a99;">(thing/fact &rarr; <b>no</b> a)</span></li>
+    </ul>
+    <p style="margin-bottom:0;">The personal <span class="es">a</span> has <strong>no English translation</strong> &mdash; you just don't say it in English. It's a little Spanish signpost meaning &ldquo;a real person is the object here.&rdquo;</p>
+  </div>
+
+  <!-- CULTURE LINK -->
+  <div style="background:#FDF6E6; border:1px solid #E7D3A6; border-left:5px solid #C7922C; border-radius:8px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#8a6a1d; letter-spacing:.4px; margin-bottom:8px;">&#127760; SPANISH IN YOUR WORLD &middot; FAMOUS FIGURES YOU ALREADY &ldquo;KNOW&rdquo;</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0 0 10px 0;">You can use <span class="es">conocer</span> for famous people the way English says &ldquo;I know <em>of</em> them&rdquo; &mdash; you're familiar with who they are. Chances are you already &ldquo;know&rdquo; several figures from the Spanish-speaking world:</p>
+    <div class="figure"><div class="who">Lionel Messi</div><div class="what">Argentine <span class="es">futbolista</span> (soccer player), one of the most famous athletes alive.</div></div>
+    <div class="figure"><div class="who">Shakira</div><div class="what">Colombian <span class="es">cantante</span> (singer) known around the world.</div></div>
+    <div class="figure"><div class="who">Frida Kahlo</div><div class="what">Mexican <span class="es">artista</span> (painter), famous for her self-portraits.</div></div>
+    <div class="figure"><div class="who">Miguel de Cervantes</div><div class="what">Spanish <span class="es">escritor</span> (writer) who wrote <span class="es">Don Quijote</span>, one of the most famous novels ever written.</div></div>
+    <div class="figure"><div class="who">Rafael Nadal</div><div class="what">Spanish tennis champion &mdash; a name you can &ldquo;know&rdquo; even if you've never met him.</div></div>
+    <p style="font-size:15px; color:#6b4f1d; line-height:1.6; margin:12px 0 0 0;"><strong>Try it in your head:</strong> <span class="es">&iquest;Conoces <b>a</b> Shakira?</span> &mdash; Do you know (of) Shakira? Notice the personal <span class="es">a</span>, because Shakira is a person.</p>
+  </div>
+
+  <!-- EVALUATIVE : a or not / verb ow-select -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; VERB CHOICE &amp; THE PERSONAL <span class="es">A</span></div>
+    <div class="widget-question">Pick the word that completes each sentence. Watch for people (they take <span class="es">a</span>) vs. places and facts (they don't). Instant feedback on each.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; Frida Kahlo is a person, so the personal a is needed: Conozco a Frida Kahlo." data-hint="Frida Kahlo is a specific person &mdash; a person takes the personal a.">
+      <div class="widget-row-prompt">1. Conozco ____ Frida Kahlo. (I know [of] Frida Kahlo.)</div>
+      <div class="widget-options">
+        <button data-choice="0">(no word needed)</button>
+        <button data-choice="1">a</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; a museum is a place, not a person, so no personal a: Conozco el museo." data-hint="A museum is a PLACE. The personal a is only for people.">
+      <div class="widget-row-prompt">2. Conozco ____ el museo de la ciudad. (I know the city's museum.)</div>
+      <div class="widget-options">
+        <button data-choice="0">(no word needed)</button>
+        <button data-choice="1">a</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Correct &mdash; being acquainted with a person is conocer: Yo conozco a la profesora." data-hint="Being acquainted with a PERSON points to conocer (yo &rarr; conozco).">
+      <div class="widget-row-prompt">3. Yo ____ a la profesora Mart&iacute;nez. (I know Ms. Mart&iacute;nez.)</div>
+      <div class="widget-options">
+        <button data-choice="0">conozco</button>
+        <button data-choice="1">s&eacute;</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; the time is a fact/information, so saber: &iquest;Sabes qu&eacute; hora es?" data-hint="A piece of information (what time it is) points to saber.">
+      <div class="widget-row-prompt">4. &iquest;____ (t&uacute;) qu&eacute; hora es? (Do you know what time it is?)</div>
+      <div class="widget-options">
+        <button data-choice="0">Conoces</button>
+        <button data-choice="1">Sabes</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128273; TODAY'S TAKEAWAY</div>
+    <p style="margin-bottom:0;">In real Spanish, <span class="es">saber</span> and <span class="es">conocer</span> mix freely in the same paragraph &mdash; you just keep asking &ldquo;fact/skill or familiar-with?&rdquo; And whenever a specific <strong>person</strong> is the object, drop in the personal <span class="es">a</span>.</p>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 12.05 &mdash; Review &amp; Self-Check</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Pull the whole week together, run a self-check, and get ready for the short Module 12 quiz.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 12.04 &middot; Saber / Conocer</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

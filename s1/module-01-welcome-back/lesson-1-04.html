@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 1.04</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .placegrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin:12px 0; }
+  .placecard { background:#FDF6E6; border:1px solid #E7D3A6; border-radius:8px; padding:14px 16px; }
+  .placecard .pn { font-size:18px; color:#0e1c42; font-weight:700; margin-bottom:3px; }
+  .placecard .pw { font-style:italic; color:#6b4f1d; font-size:15px; }
+  .placecard .pm { color:#1a2340; font-size:15px; margin-top:4px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 1</div>
+    <div style="font-size:12px; color:#666;">De vuelta &mdash; Welcome back</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 1.04 &middot; Day 4 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Spanish in your world</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Read this page and try the place-name activity, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas so it counts toward your progress.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 1.04 &middot; SPANISH HIDING IN ENGLISH</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">You already say Spanish every day</div>
+    <div style="font-size:16px; color:#666;">The US map is full of Spanish words. Once you know what they mean, you can never un-see it.</div>
+  </div>
+
+  <!-- FOCUS -->
+  <div class="card">
+    <div class="kicker">&#127758; TODAY'S BIG IDEA</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Spanish isn't a &ldquo;foreign&rdquo; language in the United States &mdash; it is stitched into the map, the menu, and the way we talk.</div>
+    <p>Spanish is spoken by roughly <strong>500 million people</strong> worldwide, and the United States is one of the largest Spanish-speaking countries on Earth. That long history left fingerprints everywhere &mdash; starting with the names of the states and cities you already say out loud. Today is a look, not a test: the graded culture checkpoint comes later in <strong>Module 5</strong>.</p>
+  </div>
+
+  <!-- CHECK-IN : ow-reflect -->
+  <div class="optima-widget ow-reflect">
+    <div class="widget-kicker">&#128173; QUICK CHECK-IN &middot; NO WRONG ANSWER</div>
+    <div class="widget-question">Before today &mdash; did you ever think of US place-names as actual Spanish <em>words</em> with meanings?</div>
+    <div class="widget-options">
+      <button data-response="Then you are ahead of the game. See how many of today's meanings you can predict before you tap &mdash; your instinct is probably good.">&#128077; Yes, I've noticed some</button>
+      <button data-response="Then today is going to be fun. Once you see a couple of these, you will start spotting Spanish on road signs everywhere you go.">&#129300; Never really thought about it</button>
+      <button data-response="That is exactly the surprise most people have. These aren't random names &mdash; they are ordinary Spanish words describing what the place looked like.">&#128558; Wait, they mean things?</button>
+      <button data-response="Great &mdash; curiosity is the whole point of this lesson. Read each meaning slowly and let it reframe a map you thought you already knew.">&#128064; Show me</button>
+    </div>
+    <div class="widget-feedback"></div>
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- THE PLACE NAMES -->
+  <div class="card">
+    <div class="kicker">&#128506;&#65039; SEE IT &middot; SEVEN NAMES YOU ALREADY SAY</div>
+    <p>Each of these US place-names is an everyday Spanish word. Read the Spanish, then the meaning &mdash; and picture the land the name was describing:</p>
+    <div class="placegrid">
+      <div class="placecard">
+        <div class="pn">Colorado</div>
+        <div class="pw">colorado</div>
+        <div class="pm">&ldquo;red / colored&rdquo; &mdash; for the red-rock rivers and canyons.</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">Nevada</div>
+        <div class="pw">nevada</div>
+        <div class="pm">&ldquo;snow-covered&rdquo; &mdash; named for its snowy mountains.</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">Florida</div>
+        <div class="pw">florida</div>
+        <div class="pm">&ldquo;flowery&rdquo; &mdash; for its flowers and lush green.</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">Montana</div>
+        <div class="pw">monta&ntilde;a</div>
+        <div class="pm">from <span class="es">monta&ntilde;a</span>, &ldquo;mountain.&rdquo;</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">Amarillo</div>
+        <div class="pw">amarillo</div>
+        <div class="pm">&ldquo;yellow&rdquo; &mdash; a city in Texas.</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">Las Vegas</div>
+        <div class="pw">las vegas</div>
+        <div class="pm">&ldquo;the meadows&rdquo; &mdash; for the grassy springs early travelers found.</div>
+      </div>
+      <div class="placecard">
+        <div class="pn">El Paso</div>
+        <div class="pw">el paso</div>
+        <div class="pm">&ldquo;the pass&rdquo; &mdash; a gap through the mountains.</div>
+      </div>
+    </div>
+    <p style="margin-bottom:0; font-size:15px; color:#666;">Every one of these is a plain descriptive word. The people who named these places were simply describing what they saw &mdash; in Spanish.</p>
+  </div>
+
+  <!-- EVALUATIVE : ow-select place-name meanings -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; TRY IT &middot; WHAT DOES THIS PLACE-NAME MEAN?</div>
+    <div class="widget-question">Match each place to what its Spanish word actually means. Pick one per row &mdash; instant feedback either way.</div>
+
+    <div class="widget-row" data-correct="1" data-fb="&iexcl;S&iacute;! Nevada means 'snow-covered' &mdash; think of the snowy Sierra Nevada mountains." data-hint="Picture tall mountains with snow on top &mdash; that image is right in the name.">
+      <div class="widget-row-prompt">1. Nevada means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">flowery</button>
+        <button data-choice="1">snow-covered</button>
+        <button data-choice="2">yellow</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Correct &mdash; Florida means 'flowery,' for all its flowers and green." data-hint="Think of the greenery and blossoms the name was celebrating.">
+      <div class="widget-row-prompt">2. Florida means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">the pass</button>
+        <button data-choice="1">red / colored</button>
+        <button data-choice="2">flowery</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; Colorado means 'red / colored,' after its red-rock rivers." data-hint="Think of the reddish canyons and rock the rivers cut through.">
+      <div class="widget-row-prompt">3. Colorado means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">red / colored</button>
+        <button data-choice="1">the meadows</button>
+        <button data-choice="2">mountain</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="&iexcl;Exacto! Amarillo is simply the Spanish word for 'yellow.'" data-hint="It is a basic color word &mdash; one you already know from describing objects.">
+      <div class="widget-row-prompt">4. Amarillo means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">the pass</button>
+        <button data-choice="1">snow-covered</button>
+        <button data-choice="2">yellow</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Yes &mdash; Las Vegas means 'the meadows,' named for its grassy desert springs." data-hint="Before the casinos, travelers found green, grassy ground here.">
+      <div class="widget-row-prompt">5. Las Vegas means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">the mountains</button>
+        <button data-choice="1">the meadows</button>
+        <button data-choice="2">the flowers</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="0" data-fb="Right &mdash; El Paso means 'the pass,' a gap through the mountains." data-hint="It marks a route through the mountains &mdash; a way across.">
+      <div class="widget-row-prompt">6. El Paso means&hellip;</div>
+      <div class="widget-options">
+        <button data-choice="0">the pass</button>
+        <button data-choice="1">the meadow</button>
+        <button data-choice="2">the mountain</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- CONNECT -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#128172; WHY THIS MATTERS</div>
+    <p style="margin-top:0;">Here is the point of noticing this: Spanish is not something happening &ldquo;somewhere else.&rdquo; It is the language of the place you live, woven into names you have said your whole life. Learning it isn't picking up a distant, foreign tongue &mdash; it is reading the world around you more completely.</p>
+    <p style="margin-bottom:0;">All year, each module will highlight one piece of <strong>&ldquo;Spanish in Your World.&rdquo;</strong> Keep a running list of the Spanish you spot in the wild &mdash; on maps, menus, and street signs. You will be amazed how long it gets.</p>
+  </div>
+
+  <!-- PREVIEW THE WEEK -->
+  <div class="card">
+    <div class="kicker">&#128197; THIS WEEK &middot; MODULE 1</div>
+    <div class="weekrow">
+      <div class="n">1</div>
+      <div class="d"><strong>Where you are.</strong> What you already own, and the map for the year.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">2</div>
+      <div class="d"><strong>What &ldquo;conjugation&rdquo; really means.</strong> The one idea behind every verb this year.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">3</div>
+      <div class="d"><strong>Warming up your words.</strong> Greetings, family, and describing words &mdash; with sound.</div>
+    </div>
+    <div class="weekrow now">
+      <div class="n">4</div>
+      <div class="d"><strong>Today &mdash; Spanish in your world.</strong> The Spanish hiding in the US places you already say.</div>
+    </div>
+    <div class="weekrow">
+      <div class="n">5</div>
+      <div class="d"><strong>Review &amp; self-check.</strong> Pull it together, then take the short Module 1 check.</div>
+    </div>
+  </div>
+
+  <!-- WHAT'S NEXT -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT YOU'LL DO NEXT</div>
+    <div style="display:flex; align-items:flex-start; gap:14px;">
+      <div style="min-width:34px; height:34px; border-radius:50%; background:#0E1C42; color:#fff; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</div>
+      <div>
+        <div style="font-size:18px; color:#0e1c42; margin-bottom:4px;"><strong>Lesson 1.05 &mdash; Review &amp; Self-Check</strong></div>
+        <div style="font-size:16px; color:#1a2340; line-height:1.55;">Pull the whole week together &mdash; ser/estar, gender, gustar, subjects &mdash; then head into the short Module 1 check.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 1.04 &middot; De vuelta</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>M/J Spanish, Intermediate &mdash; Lesson 18.05</title>
+
+<!-- Shared WL widget kit (GitHub Pages). At deploy, repoint to the intermediate repo:
+     https://optimaondemand.github.io/mjspanish-intermediate-lessons/widgets/ -->
+<link rel="stylesheet" href="../../widgets/elatin-widgets.css">
+<script src="../../widgets/elatin-widgets.js" defer></script>
+
+<style>
+  :root{ --navy:#0E1C42; --cyan:#55C8E8; --gold:#C7922C; --masc:#1d4ed8; --fem:#c0392b; }
+  *{ box-sizing:border-box; }
+  body { margin:0; padding:0; font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:#f4f6fa; color:#1a2340; }
+  .preview-banner { background:#fff3cd; border-bottom:2px solid #c7922c; padding:10px 24px; font-size:13px; color:#6b4f1d; }
+  .preview-banner strong { color:#0e1c42; }
+  .canvas-frame { max-width:1100px; margin:0 auto; background:#ffffff; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .markdone { display:flex; align-items:center; gap:14px; background:#E8F6FB; border:1px solid #C5DCE5; border-left:5px solid #55C8E8; border-radius:8px; padding:14px 20px; margin:0 0 20px 0; }
+  .markdone .box { width:26px; height:26px; border:2px solid #2196D0; border-radius:6px; flex-shrink:0; background:#fff; }
+  .markdone .txt { font-size:15px; color:#1a2340; line-height:1.5; }
+  .markdone .txt strong { color:#0e1c42; }
+  .card { background:#FFFFFF; border-top:3px solid #C7922C; border:1px solid #D0D9E8; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .card.navy { border-top-color:#0E1C42; }
+  .kicker { font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:12px; }
+  .card h3 { font-size:20px; color:#0e1c42; margin:4px 0 8px 0; }
+  .card p { font-size:17px; color:#1a2340; line-height:1.65; margin:0 0 10px 0; }
+  .es { font-style:italic; color:#0e1c42; }
+  .optima-widget { background:linear-gradient(135deg,#E8F6FB 0%,#F4F9FC 100%); border:1px solid #C5DCE5; border-left:5px solid #2196D0; border-radius:8px; padding:18px 22px; margin:18px 0; }
+  .widget-kicker { font-size:11px; color:#1B6A94; margin-bottom:10px; letter-spacing:.4px; }
+  .widget-question { font-size:17px; color:#0E1C42; margin-bottom:14px; line-height:1.55; }
+  .widget-row { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+  .widget-row-prompt { font-size:15px; color:#0E1C42; margin-bottom:8px; line-height:1.5; font-style:italic; }
+  .widget-options { display:flex; flex-wrap:wrap; gap:8px; }
+  .widget-options button { background:#FFFFFF; border:1.5px solid #D0D9E8; border-radius:8px; padding:8px 14px; font-size:14px; color:#0E1C42; cursor:pointer; transition:all .15s; font-family:inherit; }
+  .widget-options button:hover { background:#F4F6FA; border-color:#55C8E8; }
+  .widget-options button.selected { background:#0E1C42; color:#FFFFFF; border-color:#0E1C42; }
+  .widget-options button.correct { background:#D8F0DD; border-color:#2A9D5C; color:#1A6B3D; }
+  .widget-options button.incorrect { background:#FDECEC; border-color:#C0392B; color:#8A1F16; }
+  .widget-feedback { background:#FFFFFF; border-left:3px solid #C7922C; padding:10px 14px; font-size:15px; color:#1a2340; line-height:1.55; margin:10px 0; display:none; border-radius:4px; }
+  .widget-feedback.show { display:block; }
+  .row-feedback { padding:8px 12px; margin-top:8px; font-size:14px; border-radius:4px; line-height:1.5; }
+  .row-feedback.correct { background:#D8F0DD; border-left:3px solid #2A9D5C; color:#1A6B3D; }
+  .row-feedback.incorrect { background:#FDECEC; border-left:3px solid #C0392B; color:#8A1F16; }
+  .widget-reset { background:transparent; border:1px solid #C7922C; color:#C7922C; border-radius:6px; padding:6px 12px; font-size:12px; cursor:pointer; font-family:inherit; margin-top:6px; }
+  .widget-reset:hover { background:#FDF3E3; }
+  .ml-say { display:flex; align-items:center; gap:10px; background:#F3EDE3; border:1px solid #E7D3A6; border-radius:8px; padding:8px 12px; margin:8px 0; }
+  .ml-say-btn { border:none; background:#0E1C42; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:12px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; font-family:inherit; }
+  .ml-say-btn:hover { background:#1B3A6B; }
+  .ml-say-btn.playing { background:#C7922C; }
+  .ml-say-text { font-size:16px; color:#1a2340; line-height:1.5; }
+  .ow-flip { background:#FFFFFF; border:1px solid #D0D9E8; border-radius:8px; padding:18px 20px; cursor:pointer; text-align:center; }
+  .ow-flip .ow-flip-back { display:none; color:#1a2340; }
+  .ow-flip.flipped .ow-flip-front { display:none; }
+  .ow-flip.flipped .ow-flip-back { display:block; }
+  .conj { width:100%; border-collapse:collapse; margin:14px 0; font-size:16px; }
+  .conj th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; letter-spacing:.3px; }
+  .conj td { border:1px solid #D0D9E8; padding:10px 12px; color:#1a2340; }
+  .conj tr:nth-child(even) td { background:#F4F6FA; }
+  .conj .subj { color:#0e1c42; font-weight:600; }
+  .conj .form { font-style:italic; color:#0e1c42; font-size:18px; }
+  .conj .end { color:#c7922c; font-weight:700; }
+  .stemline { display:flex; flex-wrap:wrap; align-items:center; gap:10px; justify-content:center; font-size:22px; margin:16px 0; }
+  .stemchip { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:8px; padding:8px 16px; }
+  .stemchip b { color:#c7922c; }
+  .stemarrow { color:#55C8E8; font-weight:700; font-size:24px; }
+  .recap { width:100%; border-collapse:collapse; margin:12px 0; font-size:16px; }
+  .recap th { background:#0E1C42; color:#fff; text-align:left; padding:10px 12px; font-size:13px; }
+  .recap td { border:1px solid #D0D9E8; padding:9px 12px; }
+  .recap tr:nth-child(even) td { background:#F4F6FA; }
+  .recap .end { color:#c7922c; font-weight:700; }
+  .recap .form { font-style:italic; color:#0e1c42; }
+  .quizcta { background:#FDF6E6; border:1px solid #E7D3A6; border-left:5px solid #C7922C; border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+  .weekrow { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px dashed #D0D9E8; }
+  .weekrow:last-child { border-bottom:none; }
+  .weekrow .n { min-width:30px; height:30px; border-radius:50%; background:#55C8E8; color:#0E1C42; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .weekrow.now .n { background:#0E1C42; color:#fff; }
+  .weekrow .d { font-size:16px; color:#1a2340; line-height:1.5; }
+  .weekrow .d strong { color:#0e1c42; }
+  .chunkchips { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+  .chunkchips span { background:#FDF6E6; border:1px solid #E7D3A6; color:#6b4f1d; border-radius:20px; padding:6px 14px; font-size:16px; }
+  .chunkchips b { color:#c7922c; }
+  .checklist { list-style:none; margin:10px 0 0 0; padding:0; }
+  .checklist li { font-size:16px; color:#1a2340; line-height:1.6; padding:8px 0 8px 30px; text-indent:-30px; border-bottom:1px dashed #D0D9E8; }
+  .checklist li:last-child { border-bottom:none; }
+  .checklist li .bx { color:#2A9D5C; font-weight:700; margin-right:8px; }
+</style>
+</head>
+<body>
+<div class="canvas-frame">
+
+<!-- HEADER -->
+<div style="background:#0E1C42; border-bottom:5px solid #55C8E8; padding:22px 34px;">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:10px;">
+    <div style="width:52px; height:52px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><img src="https://raw.githubusercontent.com/optimaondemand/optima-assets/eeb0b335630058906d52f478028361d352253a93/images/Optima%20Final%20Circle%20-%20Owl%20Only.png" alt="Optima Academy" style="width:50px; height:40px; object-fit:contain;" /></div>
+    <div>
+      <div style="font-size:28px; color:#ffffff; line-height:1.2;">Optima Academy Online</div>
+      <div style="font-size:12px; color:#55c8e8;">An Education Experience Company</div>
+    </div>
+  </div>
+  <div style="font-size:36px; color:#ffffff; margin-bottom:6px;">M/J SPANISH, INTERMEDIATE</div>
+</div>
+
+<!-- METADATA STRIP -->
+<div style="background:#FFFFFF; border-bottom:2px solid #D0D9E8; display:flex; flex-wrap:wrap;">
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Semester / Module</div>
+    <div style="font-size:17px; color:#0e1c42;">Semester 1 &middot; Module 18</div>
+    <div style="font-size:12px; color:#666;">Capstone &mdash; Un d&iacute;a en mi vida</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Lesson</div>
+    <div style="font-size:17px; color:#0e1c42;">Lesson 18.05 &middot; Day 5 of 5</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px; border-right:1px solid #D0D9E8;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Topic</div>
+    <div style="font-size:17px; color:#0e1c42; font-style:italic;">Capstone workshop &amp; final check</div>
+  </div>
+  <div style="flex:1; min-width:140px; padding:12px 16px;">
+    <div style="font-size:11px; color:#6b7a99; margin-bottom:4px;">Time</div>
+    <div style="font-size:16px; color:#0e1c42;">about 20 minutes</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div style="padding:24px 34px;">
+
+  <div class="markdone">
+    <div class="box"></div>
+    <div class="txt"><strong>Mark as Done.</strong> Build your capstone with the steps below, run the self-check, then click <strong>&ldquo;Mark as Done&rdquo;</strong> at the top of the page in Canvas &mdash; and go record your capstone and take the Semester 1 final check.</div>
+  </div>
+
+  <div style="background:#EEF1F8; border-left:5px solid #0E1C42; border-radius:7px; padding:18px 22px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#0e1c42; margin-bottom:6px;">LESSON 18.05 &middot; PUT IT ALL TOGETHER</div>
+    <div style="font-size:22px; color:#0e1c42; margin-bottom:4px;">Build your <span class="es" style="color:#0e1c42;">Un d&iacute;a en mi vida</span></div>
+    <div style="font-size:16px; color:#666;">One page to build the recording, check yourself, and finish Semester 1 strong.</div>
+  </div>
+
+  <!-- BUILD IT AS A SERIES OF SENTENCES -->
+  <div class="card">
+    <div class="kicker">&#128736;&#65039; BUILD IT AS A SERIES OF SENTENCES</div>
+    <div style="font-size:20px; color:#0e1c42; font-style:italic; margin-bottom:10px;">Don't try to say everything at once. Build one short sentence at a time, in the order your day happens.</div>
+    <p>Aim for <strong>six to eight short sentences</strong> that add up to about <strong>60&ndash;90 seconds</strong>. Follow this shape (present tense throughout), then swap in your own details:</p>
+    <ul style="font-size:17px; color:#1a2340; line-height:1.8;">
+      <li><strong>Open:</strong> <span class="es">Me llamo ______, y esta es mi rutina.</span></li>
+      <li><strong>Morning:</strong> <span class="es">Por la ma&ntilde;ana, primero me levanto y me ducho.</span></li>
+      <li><strong>Midday:</strong> <span class="es">Luego estudio en casa y como con mi familia.</span></li>
+      <li><strong>Afternoon:</strong> <span class="es">Por la tarde, juego al f&uacute;tbol / practico el piano / hago la tarea.</span></li>
+      <li><strong>Evening:</strong> <span class="es">Por la noche, me lavo la cara y me acuesto.</span></li>
+      <li><strong>Close (near future):</strong> <span class="es">Ma&ntilde;ana voy a ______.</span></li>
+    </ul>
+    <p style="margin-bottom:0;">Use the sequence words <span class="es"><b>primero</b></span>, <span class="es"><b>luego</b></span>, <span class="es"><b>despu&eacute;s</b></span> to glue the sentences into a day &mdash; that's what turns a list into a story.</p>
+  </div>
+
+  <!-- SELF-CHECK : ow-select -->
+  <div class="optima-widget ow-select">
+    <div class="widget-kicker">&#9889; SELF-CHECK &middot; IS EACH SENTENCE READY?</div>
+    <div class="widget-question">Pick the form that makes each capstone sentence correct. Present tense (and near future) only &mdash; instant feedback on each.</div>
+
+    <div class="widget-row" data-correct="0" data-fb="Yes &mdash; reflexive yo: the pronoun me + the -o ending = me levanto." data-hint="It's your own routine (yo). The reflexive pronoun me goes before the verb.">
+      <div class="widget-row-prompt">1. Por la ma&ntilde;ana, yo ____ a las siete. (levantarse)</div>
+      <div class="widget-options">
+        <button data-choice="0">me levanto</button>
+        <button data-choice="1">te levantas</button>
+        <button data-choice="2">se levanta</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="1" data-fb="Right &mdash; jugar is a boot verb (u&rarr;ue); yo takes -o: juego." data-hint="jugar changes u&rarr;ue in the yo form. Look for 'juego'.">
+      <div class="widget-row-prompt">2. Por la tarde, yo ____ al f&uacute;tbol. (jugar)</div>
+      <div class="widget-options">
+        <button data-choice="0">juegas</button>
+        <button data-choice="1">juego</button>
+        <button data-choice="2">jugamos</button>
+      </div>
+    </div>
+
+    <div class="widget-row" data-correct="2" data-fb="Yes &mdash; near future = ir a + infinitive; yo takes voy: voy a leer." data-hint="'I'm going to read' = ir a + infinitive. The yo form of ir is voy.">
+      <div class="widget-row-prompt">3. Esta noche, yo ____ un libro. ("I'm going to read a book.")</div>
+      <div class="widget-options">
+        <button data-choice="0">vas a leer</button>
+        <button data-choice="1">leo</button>
+        <button data-choice="2">voy a leer</button>
+      </div>
+    </div>
+
+    <button class="widget-reset">Reset</button>
+  </div>
+
+  <!-- READINESS CHECKLIST -->
+  <div class="card navy">
+    <div class="kicker" style="color:#0e1c42;">&#9989; READINESS CHECKLIST &middot; BEFORE YOU SUBMIT</div>
+    <p style="margin-top:0;">Read your notes out loud once, then check each box in your head:</p>
+    <ul class="checklist">
+      <li><span class="bx">&#10003;</span> My sentences are <strong>in order</strong> (morning &rarr; midday &rarr; afternoon &rarr; evening).</li>
+      <li><span class="bx">&#10003;</span> I use <strong>at least six sentences</strong> &mdash; a series, not single words.</li>
+      <li><span class="bx">&#10003;</span> Everything is in the <strong>present tense</strong> (plus one <span class="es">voy a</span> + infinitive for the near future).</li>
+      <li><span class="bx">&#10003;</span> I include some <strong>reflexive routine verbs</strong> (<span class="es">me levanto, me ducho, me acuesto</span>&hellip;).</li>
+      <li><span class="bx">&#10003;</span> I use the <strong>sequence words</strong> <span class="es">primero / luego / despu&eacute;s</span>.</li>
+      <li><span class="bx">&#10003;</span> My clip is about <strong>60&ndash;90 seconds</strong>, and I can be <strong>heard clearly</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- CTA 1: CAPSTONE RECORDING -->
+  <div class="quizcta">
+    <div style="font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:8px;">&#127908; NOW: RECORD YOUR CAPSTONE</div>
+    <div style="font-size:20px; color:#0e1c42; margin-bottom:6px;">Record <strong><span class="es">Un d&iacute;a en mi vida</span></strong> in Canvas</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">Open the capstone assignment and use the <strong>media recorder</strong> to record your day as a series of sentences (about 60&ndash;90 seconds). You may <strong>read from your notes</strong>, and you can re-record as many times as you like before you submit. This is graded on a friendly <strong>4-point rubric</strong> &mdash; comprehensibility, accuracy, range, and delivery. Speak clearly and be proud of it.</p>
+  </div>
+
+  <!-- CTA 2: S1 FINAL CHECK -->
+  <div class="quizcta">
+    <div style="font-size:11px; color:#c7922c; letter-spacing:.4px; margin-bottom:8px;">&#128203; AND: THE SEMESTER 1 FINAL CHECK</div>
+    <div style="font-size:20px; color:#0e1c42; margin-bottom:6px;">Take the <strong>Semester 1 Final Check</strong></div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">One short cumulative check (about 20&ndash;25 questions) that samples across the <strong>whole semester</strong> &mdash; every verb type, near future, reflexives, object pronouns, <span class="es">saber</span> / <span class="es">conocer</span>, comparatives, core vocabulary, and a few culture-link items. It's worth <strong>5%</strong> of your grade and is <strong>present tense only</strong> &mdash; nothing you haven't already practiced. Review Lessons 18.02&ndash;18.03 first, then take it with confidence.</p>
+  </div>
+
+  <!-- MODULE 18 CHECK NOTE -->
+  <div class="card">
+    <div class="kicker">&#128221; ALSO THIS WEEK &middot; THE MODULE 18 CHECK</div>
+    <p style="margin-bottom:0;">There's also a short <strong>Module 18 Check</strong> (about 10 questions, <strong>unlimited attempts</strong>, 70% to complete the module) &mdash; a light review of this week's big ideas. It's separate from the Semester 1 Final Check above. Take it whenever you're ready.</p>
+  </div>
+
+  <!-- VIRTUE / MISSION LIGHT -->
+  <div style="background:#F5E7E8; border:1px solid #E0B8BD; border-left:5px solid #AA1E2D; border-radius:8px; padding:16px 20px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#AA1E2D; letter-spacing:.4px; margin-bottom:6px;">&#9733; A WORD ON SELF-GOVERNMENT</div>
+    <p style="font-size:16px; color:#1a2340; line-height:1.6; margin:0;">A whole semester of showing up &mdash; twenty minutes at a time, one small step after another &mdash; is what put a full day of Spanish in your own mouth. Recording your own voice takes a little courage, too. Do your honest best, submit your real work, and take pride in how far steady effort carried you. That's <strong>self-government</strong>: choosing the good habit even when no one's watching.</p>
+  </div>
+
+  <!-- WHAT'S NEXT : SEMESTER 2 -->
+  <div class="card navy">
+    <div class="kicker">&#10145;&#65039; WHAT'S NEXT &middot; &iexcl;NOS VEMOS EN EL SEMESTRE 2!</div>
+    <div style="font-size:20px; color:#0e1c42; margin-bottom:8px;">You can say what you <em>do</em>. Next: what you <em>did</em>.</div>
+    <p>All year you've lived in the <strong>present tense</strong> &mdash; today, right now, and the near future. In <strong>Semester 2</strong> you'll unlock the biggest new power in the language: the <strong>past tense</strong>. You'll learn to tell what <em>happened</em> &mdash; what you <em>did</em> yesterday, stories, and memories. That's how you go from describing a routine to telling a real tale.</p>
+    <p style="margin-bottom:0;">You won't need any past-tense Spanish yet &mdash; that's exactly what we build next semester, step by step, the same gentle way you built the present tense this fall. For now: finish your capstone, take the final check, and rest easy. <strong>&iexcl;Buen trabajo, y nos vemos en el Semestre 2!</strong></p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="background:#0E1C42; border-top:3px solid #55C8E8; padding:18px 34px; text-align:center;">
+  <div style="font-size:18px; color:#ffffff; margin-bottom:6px;"><span style="color:#55c8e8;">Optima Academy Online</span> &middot; M/J SPANISH, INTERMEDIATE &middot; Semester 1 &middot; Student Lesson Page</div>
+  <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Lesson 18.05 &middot; Capstone &mdash; Un d&iacute;a en mi vida</div>
+  <div style="font-size:12px; color:rgba(255,255,255,0.4);">&copy; Optima Academy Online &middot; An Education Experience Company</div>
+</div>
+
+</div>
+
+<!-- SHARED WIDGET RUNTIME (self-contained; drives ow-reflect / ow-select / ow-scale / ow-flip) -->
+<script>
+(function () {
+  document.addEventListener('click', function (e) {
+    var reset = e.target.closest('.widget-reset');
+    if (reset) {
+      var w = reset.closest('.optima-widget');
+      w.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      w.querySelectorAll('.widget-feedback').forEach(function (f) { f.classList.remove('show'); f.textContent = ''; });
+      w.querySelectorAll('.row-feedback').forEach(function (f) { f.remove(); });
+      w.querySelectorAll('.ow-flip.flipped').forEach(function (c) { c.classList.remove('flipped'); });
+      return;
+    }
+    var rBtn = e.target.closest('.ow-reflect .widget-options button');
+    if (rBtn) {
+      var rw = rBtn.closest('.optima-widget');
+      rw.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected'); });
+      rBtn.classList.add('selected');
+      var fb = rw.querySelector('.widget-feedback');
+      fb.textContent = rBtn.dataset.response || '';
+      fb.classList.add('show');
+      return;
+    }
+    var sBtn = e.target.closest('.ow-select .widget-row .widget-options button, .ow-scale .widget-row .widget-options button');
+    if (sBtn) {
+      var row = sBtn.closest('.widget-row');
+      var correct = row.dataset.correct;
+      row.querySelectorAll('.widget-options button').forEach(function (b) { b.classList.remove('selected', 'correct', 'incorrect'); });
+      var right = sBtn.dataset.choice === correct;
+      sBtn.classList.add(right ? 'correct' : 'incorrect');
+      var text = right ? (sBtn.dataset.fb || row.dataset.fb || 'Right.') : (sBtn.dataset.fb || row.dataset.hint || 'Not quite — try again.');
+      var rf = row.querySelector('.row-feedback') || row.appendChild(document.createElement('div'));
+      rf.className = 'row-feedback ' + (right ? 'correct' : 'incorrect');
+      rf.textContent = text;
+      return;
+    }
+    var say = e.target.closest('.ml-say-btn');
+    if (say) {
+      var au = say.parentElement.querySelector('audio');
+      if (au) {
+        document.querySelectorAll('audio').forEach(function (a) { if (a !== au) a.pause(); });
+        document.querySelectorAll('.ml-say-btn.playing').forEach(function (b) { if (b !== say) b.classList.remove('playing'); });
+        if (au.paused) { au.currentTime = 0; au.play(); say.classList.add('playing'); au.onended = function () { say.classList.remove('playing'); }; }
+        else { au.pause(); say.classList.remove('playing'); }
+      }
+      return;
+    }
+    var flip = e.target.closest('.ow-flip');
+    if (flip) { flip.classList.toggle('flipped'); return; }
+  });
+})();
+</script>
+
+</body>
+</html>
